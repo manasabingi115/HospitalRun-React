@@ -10,7 +10,7 @@
   border-right: 1px solid lightgray;
   cursor: pointer;
 }
-#main-div {
+.main-div {
   width: 90%;
   background: antiquewhite;
   padding-left: 50px;
