@@ -5,10 +5,14 @@ export default function Menu() {
   return (
     <div id="side-bar">
       <div>
-        <p id="dashboard-tab">Dashboard</p>
+        <Link to="/">
+          <p id="dashboard-tab">Dashboard</p>
+        </Link>
       </div>
       <div>
-        <p id="patients-tab">Patients</p>
+        <Link to="/patients">
+          <p id="patients-tab">Patients</p>
+        </Link>
         <p id="patients-tab-child">New Patient</p>
         <p id="patients-tab-child">Patients List</p>
       </div>

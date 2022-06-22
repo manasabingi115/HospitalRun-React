@@ -1,9 +1,8 @@
 import "./styles.css";
 import Header from "./header";
 import Menu from "./menu";
-import MainContent from "./mainContent";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "./dashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
 import Patients from "./patients";
 
 export default function App() {
@@ -11,17 +10,12 @@ export default function App() {
     <div className="App">
       <Header />
       <div id="container">
-        <Menu />
-        {/* <MainContent /> */}
         <BrowserRouter>
-          <div className="App">
-            {/* <Link to="/"></Link> */}
-            <br />
-            <Routes>
-              <Route exact path="/" element={<Dashboard />} />
-              <Route exact path="/patientspage" element={<Patients />} />
-            </Routes>
-          </div>
+          <Menu />
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+            <Route path="/patients" exact element={<Patients />} />
+          </Routes>
         </BrowserRouter>
       </div>
     </div>
