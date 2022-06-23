@@ -68,7 +68,7 @@ input:checked + .slider:before {
 }
 .inputs {
   flex: 1;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .date-input-child {
   display: flex;
@@ -78,6 +78,7 @@ input:checked + .slider:before {
   border: 1px solid rgb(30, 192, 151);
   border-radius: 5px;
   padding-bottom: 30px;
+  margin-bottom: 20px;
   /* padding: 10px 10px 20px 20px; */
 }
 .NPRow {

@@ -98,38 +98,48 @@ export default function NewPatient() {
         <div className="NPDiv2-boxes">
           <div className="NPDiv">
             <p className="NPDiv-p">Phone Number</p>
-            <div>
-              <p>Type</p>
-              <p>phoneNumberType()</p>
-              <input />
-            </div>
-            <div>
-              <p>Phone Number</p>
-              <input />
-            </div>
-          </div>
-          <div>
-            <p>Email</p>
-            <div>
-              <p>Type</p>
-              <p>emailType()</p>
-              <input />
-            </div>
-            <div>
-              <p>Email</p>
-              <input />
+            <div className="NPRow">
+              <div className="inputs">
+                <p>Type</p>
+                <p>phoneNumberType()</p>
+                <input className="input is-primary" type="text" />
+              </div>
+              <div className="inputs">
+                <p>Phone Number</p>
+                <input className="input is-primary" type="text" />
+              </div>
             </div>
           </div>
-          <div>
-            <p>Address</p>
-            <div>
-              <p>Type</p>
-              <p>addressType()</p>
-              <input />
+          <div className="NPDiv">
+            <p className="NPDiv-p">Email</p>
+            <div className="NPRow">
+              <div className="inputs">
+                <p>Type</p>
+                <p>emailType()</p>
+                <input className="input is-primary" type="text" />
+              </div>
+              <div>
+                <p>Email</p>
+                <input className="input is-primary" type="text" />
+              </div>
             </div>
-            <div>
-              <p>Address</p>
-              <input />
+          </div>
+          <div className="NPDiv">
+            <p className="NPDiv-p">Address</p>
+            <div className="NPRow">
+              <div className="inputs">
+                <p>Type</p>
+                <p>addressType()</p>
+                <input className="input is-primary" type="text" />
+              </div>
+              <div className="inputs">
+                <p>Address</p>
+                <textarea
+                  className="input is-primary"
+                  type="text"
+                  style={{ resize: "vertical" }}
+                />
+              </div>
             </div>
           </div>
         </div>
