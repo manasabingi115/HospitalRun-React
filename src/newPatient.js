@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NewPatient() {
   function BasicInfo() {
@@ -20,6 +21,7 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Given Name"
+              required
             />
           </div>
           <div className="NPRow3-child inputs">
@@ -118,7 +120,7 @@ export default function NewPatient() {
                 <p>emailType()</p>
                 <input className="input is-primary" type="text" />
               </div>
-              <div>
+              <div className="inputs">
                 <p>Email</p>
                 <input className="input is-primary" type="text" />
               </div>
@@ -135,6 +137,7 @@ export default function NewPatient() {
               <div className="inputs">
                 <p>Address</p>
                 <textarea
+                  rows="4"
                   className="input is-primary"
                   type="text"
                   style={{ resize: "vertical" }}
@@ -152,6 +155,9 @@ export default function NewPatient() {
       <h1>New Patient</h1>
       <BasicInfo />
       <ContactInfo />
+      <Link to="/patients">
+        <button>Cancel</button>
+      </Link>
     </div>
   );
 }

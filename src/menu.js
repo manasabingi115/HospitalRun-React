@@ -13,7 +13,9 @@ export default function Menu() {
         <Link to="/patients">
           <p id="patients-tab">Patients</p>
         </Link>
-        <p id="patients-tab-child">New Patient</p>
+        <Link to="/new-patient">
+          <p id="patients-tab-child">New Patient</p>
+        </Link>
         <p id="patients-tab-child">Patients List</p>
       </div>
       <div>

@@ -4,6 +4,7 @@ import Menu from "./menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Patients from "./patients";
+import NewPatient from "./newPatient";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
             <Route path="/patients" exact element={<Patients />} />
+            <Route path="/new-patient" exact element={<NewPatient />} />
           </Routes>
         </BrowserRouter>
       </div>
