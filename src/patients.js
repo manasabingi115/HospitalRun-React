@@ -3,7 +3,6 @@ import NewPatient from "./newPatient";
 
 export default function Patients() {
   const [newPatient, setNewPatient] = React.useState(false);
-  console.log(newPatient);
 
   return (
     <div className="main-div">

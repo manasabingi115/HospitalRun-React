@@ -3,10 +3,10 @@ import React from "react";
 export default function NewPatient() {
   function BasicInfo() {
     return (
-      <div>
-        <p>Basic Information</p>
-        <div>
-          <div>
+      <div className="NPDiv1 NPDiv">
+        <p className="NPDiv-p">Basic Information</p>
+        <div className="NPRow1 NPRow">
+          <div className="NPRow1-child inputs">
             <p>Prefix</p>
             <input
               className="input is-primary"
@@ -14,7 +14,7 @@ export default function NewPatient() {
               placeholder="Prefix"
             />
           </div>
-          <div>
+          <div className="NPRow2-child inputs">
             <p>Given Name</p>
             <input
               className="input is-primary"
@@ -22,7 +22,7 @@ export default function NewPatient() {
               placeholder="Given Name"
             />
           </div>
-          <div>
+          <div className="NPRow3-child inputs">
             <p>Family Name</p>
             <input
               className="input is-primary"
@@ -30,7 +30,7 @@ export default function NewPatient() {
               placeholder="Family Name"
             />
           </div>
-          <div>
+          <div className="NPRow1-child inputs">
             <p>Suffix</p>
             <input
               className="input is-primary"
@@ -39,35 +39,97 @@ export default function NewPatient() {
             />
           </div>
         </div>
-        <div>
-          <div>
+        <div className="NPRow">
+          <div className="inputs">
             <p>Sex</p>
-            <input placeholder="Sex"></input>
+            <input className="input is-primary" type="text" placeholder="Sex" />
           </div>
-          <div>
+          <div className="inputs">
             <p>Patient Type</p>
-            <input placeholder="Patient Type"></input>
+            <input
+              className="input is-primary"
+              type="text"
+              placeholder="Patient Type"
+            />
           </div>
-          <div>
+          <div className="inputs">
             <p>Blood Type</p>
-            <input placeholder="Blood Type"></input>
+            <input
+              className="input is-primary"
+              type="text"
+              placeholder="Blood Type"
+            />
           </div>
         </div>
-        <div>
-          <div>
+        <div className="NPRow">
+          <div className="inputs">
             <p>Date of Birth</p>
-            <input type="date"></input>
-          </div>
-          <div>
-            <p>Occupation</p>
-            <input placeholder="Occupation"></input>
-          </div>
-          <div>
-            <p>Preferred Language</p>
-            <input placeholder="Preferred Language"></input>
-            <div>
-              <input type="checkbox"></input>
+            <input className="input is-primary" type="date" />
+            <div className="date-input-child">
+              <input type="checkbox" />
               <p>Unknown</p>
+            </div>
+          </div>
+          <div className="inputs">
+            <p>Occupation</p>
+            <input
+              className="input is-primary"
+              type="text"
+              placeholder="Occupation"
+            />
+          </div>
+          <div className="inputs">
+            <p>Preferred Language</p>
+            <input
+              className="input is-primary"
+              type="text"
+              placeholder="Preferred Language"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function ContactInfo() {
+    return (
+      <div className="NPDiv2 NPDiv">
+        <p className="NPDiv-p">Contact Information</p>
+        <div className="NPDiv2-boxes">
+          <div className="NPDiv">
+            <p className="NPDiv-p">Phone Number</p>
+            <div>
+              <p>Type</p>
+              <p>phoneNumberType()</p>
+              <input />
+            </div>
+            <div>
+              <p>Phone Number</p>
+              <input />
+            </div>
+          </div>
+          <div>
+            <p>Email</p>
+            <div>
+              <p>Type</p>
+              <p>emailType()</p>
+              <input />
+            </div>
+            <div>
+              <p>Email</p>
+              <input />
+            </div>
+          </div>
+          <div>
+            <p>Address</p>
+            <div>
+              <p>Type</p>
+              <p>addressType()</p>
+              <input />
+            </div>
+            <div>
+              <p>Address</p>
+              <input />
             </div>
           </div>
         </div>
@@ -79,6 +141,7 @@ export default function NewPatient() {
     <div>
       <h1>New Patient</h1>
       <BasicInfo />
+      <ContactInfo />
     </div>
   );
 }
