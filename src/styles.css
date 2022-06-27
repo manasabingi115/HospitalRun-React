@@ -130,3 +130,7 @@ input:checked + .slider:before {
 .child-tabs {
   font-size: smaller;
 }
+.parent-tab {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}

@@ -6,7 +6,8 @@ export default function Menu() {
 
   return (
     <div id="side-bar">
-      <div>
+      <div></div>
+      <div className="parent-tab">
         <Link to="/">
           <p id="dashboard-tab" onClick={() => setActiveTab("Dashboard")}>
             Dashboard
