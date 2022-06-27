@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaStarOfLife } from "react-icons/fa";
 
 export default function NewPatient() {
   function BasicInfo() {
@@ -16,7 +17,10 @@ export default function NewPatient() {
             />
           </div>
           <div className="NPRow2-child inputs">
-            <p>Given Name</p>
+            <div className="red-star-content">
+              <p>Given Name</p>
+              <FaStarOfLife className="red-star" />
+            </div>
             <input
               className="input is-primary"
               type="text"
@@ -153,11 +157,14 @@ export default function NewPatient() {
   return (
     <div>
       <h1>New Patient</h1>
-      <BasicInfo />
-      <ContactInfo />
-      <Link to="/patients">
-        <button>Cancel</button>
-      </Link>
+      <form>
+        <BasicInfo />
+        <ContactInfo />
+        <button type="submit">Submit</button>
+        <Link to="/patients">
+          <button>Cancel</button>
+        </Link>
+      </form>
     </div>
   );
 }

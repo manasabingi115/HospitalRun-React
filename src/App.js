@@ -16,7 +16,11 @@ export default function App() {
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
             <Route path="/patients" exact element={<Patients />} />
-            <Route path="/new-patient" exact element={<NewPatient />} />
+            <Route
+              path="/patients/new-patient"
+              exact
+              element={<NewPatient />}
+            />
           </Routes>
         </BrowserRouter>
       </div>
