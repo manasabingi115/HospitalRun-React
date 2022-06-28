@@ -8,10 +8,10 @@
   display: flex;
 }
 #side-bar {
-  background: aliceblue;
   border-right: 1px solid lightgray;
   cursor: pointer;
-  min-width: 125px;
+  min-width: 150px;
+  height: 100%;
 }
 .main-div {
   width: 90%;
@@ -129,8 +129,15 @@ input:checked + .slider:before {
 }
 .child-tabs {
   font-size: smaller;
+  padding: 8px 15px;
+  background-color: rgb(247, 242, 242);
+  /* border-bottom: 1px solid lightgray; */
 }
 .parent-tab {
-  padding: 10px;
+  padding: 10px 25px;
   border-bottom: 1px solid lightgray;
+}
+.selected-button {
+  background-color: green;
+  color: white;
 }

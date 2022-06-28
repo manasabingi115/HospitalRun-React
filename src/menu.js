@@ -4,19 +4,40 @@ import { Link } from "react-router-dom";
 export default function Menu() {
   const [activeTab, setActiveTab] = React.useState("Dashboard");
 
+  // const handleClick = (e) => {
+  //   console.log("this is working fine");
+  //   e.preventDefault();
+  //   e.target.style.background = "black";
+  //   console.log(e.target);
+  // };
+
   return (
     <div id="side-bar">
-      <div></div>
-      <div className="parent-tab">
+      {/* <div className="parent-tab" onClick={(e) => handleClick(e)}>
+        Example
+      </div> */}
+      <div>
         <Link to="/">
-          <p id="dashboard-tab" onClick={() => setActiveTab("Dashboard")}>
+          <p
+            id="dashboard-tab"
+            onClick={() => setActiveTab("Dashboard")}
+            className={`parent-tab ${
+              activeTab === "Dashboard" ? "selected-button" : ""
+            }`}
+          >
             Dashboard
           </p>
         </Link>
       </div>
-      <div className="parent-tab">
+      <div>
         <Link to="/patients">
-          <p id="patients-tab" onClick={() => setActiveTab("Patients")}>
+          <p
+            id="patients-tab"
+            onClick={() => setActiveTab("Patients")}
+            className={`parent-tab ${
+              activeTab === "Patients" ? "selected-button" : ""
+            }`}
+          >
             Patients
           </p>
         </Link>
@@ -33,8 +54,14 @@ export default function Menu() {
           </div>
         ) : null}
       </div>
-      <div className="parent-tab">
-        <p id="scheduling-tab" onClick={() => setActiveTab("Scheduling")}>
+      <div>
+        <p
+          id="scheduling-tab"
+          onClick={() => setActiveTab("Scheduling")}
+          className={`parent-tab ${
+            activeTab === "Scheduling" ? "selected-button" : ""
+          }`}
+        >
           Scheduling
         </p>
         {activeTab === "Scheduling" ? (
@@ -45,7 +72,13 @@ export default function Menu() {
         ) : null}
       </div>
       <div>
-        <p id="medications-tab" onClick={() => setActiveTab("Medications")}>
+        <p
+          id="medications-tab"
+          onClick={() => setActiveTab("Medications")}
+          className={`parent-tab ${
+            activeTab === "Medications" ? "selected-button" : ""
+          }`}
+        >
           Medications
         </p>
         {activeTab === "Medications" ? (
@@ -56,7 +89,13 @@ export default function Menu() {
         ) : null}
       </div>
       <div>
-        <p id="labs-tab" onClick={() => setActiveTab("Labs")}>
+        <p
+          id="labs-tab"
+          onClick={() => setActiveTab("Labs")}
+          className={`parent-tab ${
+            activeTab === "Labs" ? "selected-button" : ""
+          }`}
+        >
           Labs
         </p>
         {activeTab === "Labs" ? (
@@ -67,7 +106,13 @@ export default function Menu() {
         ) : null}
       </div>
       <div>
-        <p id="imagings-tab" onClick={() => setActiveTab("Imagings")}>
+        <p
+          id="imagings-tab"
+          onClick={() => setActiveTab("Imagings")}
+          className={`parent-tab ${
+            activeTab === "Imagings" ? "selected-button" : ""
+          }`}
+        >
           Imagings
         </p>
         {activeTab === "Imagings" ? (
@@ -78,7 +123,13 @@ export default function Menu() {
         ) : null}
       </div>
       <div>
-        <p id="incidents-tab" onClick={() => setActiveTab("Incidents")}>
+        <p
+          id="incidents-tab"
+          onClick={() => setActiveTab("Incidents")}
+          className={`parent-tab ${
+            activeTab === "Incidents" ? "selected-button" : ""
+          }`}
+        >
           Incidents
         </p>
         {activeTab === "Incidents" ? (

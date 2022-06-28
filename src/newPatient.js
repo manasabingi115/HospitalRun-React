@@ -3,6 +3,21 @@ import { Link } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 
 export default function NewPatient() {
+  function SelectOption() {
+    return (
+      <div>
+        <select className="input is-primary">
+          <option>---Choose---</option>
+          <option>Home</option>
+          <option>Mobile</option>
+          <option>Work</option>
+          <option>Temperary</option>
+          <option>Old</option>
+        </select>
+      </div>
+    );
+  }
+
   function BasicInfo() {
     return (
       <div className="NPDiv1 NPDiv">
@@ -102,41 +117,46 @@ export default function NewPatient() {
       <div className="NPDiv2 NPDiv">
         <p className="NPDiv-p">Contact Information</p>
         <div className="NPDiv2-boxes">
-          <div className="NPDiv">
+          <form className="NPDiv">
             <p className="NPDiv-p">Phone Number</p>
             <div className="NPRow">
               <div className="inputs">
                 <p>Type</p>
                 <p>phoneNumberType()</p>
-                <input className="input is-primary" type="text" />
+                {/* <input className="input is-primary" type="text" /> */}
+                <SelectOption />
               </div>
               <div className="inputs">
                 <p>Phone Number</p>
-                <input className="input is-primary" type="text" />
+                <input className="input is-primary" type="number" required />
               </div>
             </div>
-          </div>
-          <div className="NPDiv">
+            <button className="add-button">+Add</button>
+          </form>
+          <form className="NPDiv">
             <p className="NPDiv-p">Email</p>
             <div className="NPRow">
               <div className="inputs">
                 <p>Type</p>
                 <p>emailType()</p>
-                <input className="input is-primary" type="text" />
+                {/* <input className="input is-primary" type="text" /> */}
+                <SelectOption />
               </div>
               <div className="inputs">
                 <p>Email</p>
-                <input className="input is-primary" type="text" />
+                <input className="input is-primary" type="text" required />
               </div>
             </div>
-          </div>
-          <div className="NPDiv">
+            <button className="add-button">+Add</button>
+          </form>
+          <form className="NPDiv">
             <p className="NPDiv-p">Address</p>
             <div className="NPRow">
               <div className="inputs">
                 <p>Type</p>
                 <p>addressType()</p>
-                <input className="input is-primary" type="text" />
+                {/* <input className="input is-primary" type="text" /> */}
+                <SelectOption />
               </div>
               <div className="inputs">
                 <p>Address</p>
@@ -145,10 +165,12 @@ export default function NewPatient() {
                   className="input is-primary"
                   type="text"
                   style={{ resize: "vertical" }}
+                  required
                 />
               </div>
             </div>
-          </div>
+            <button className="add-button">+Add</button>
+          </form>
         </div>
       </div>
     );
@@ -160,11 +182,14 @@ export default function NewPatient() {
       <form>
         <BasicInfo />
         <ContactInfo />
-        <button type="submit">Submit</button>
+        <button type="submit" className="button is-black">
+          Create Patient
+        </button>
         <Link to="/patients">
-          <button>Cancel</button>
+          <button className="button is-danger">Cancel</button>
         </Link>
       </form>
+      <SelectOption />
     </div>
   );
 }
