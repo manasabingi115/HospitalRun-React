@@ -3,6 +3,79 @@ import { Link } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 
 export default function NewPatient() {
+  const [phoneNumAdd, setPhoneNumAdd] = React.useState(false);
+  const [patientData, setPatientData] = React.useState({
+    patientName: "",
+    familyName: "",
+    prefix: "",
+    suffix: "",
+    sex: "",
+    patientType: "",
+    bloodType: "",
+    DOB: "",
+    ocuupation: "",
+    preferredLang: "",
+    phoneNums: [],
+    emails: [],
+    address: []
+  });
+
+  console.log(patientData);
+
+  function PhoneNumForm() {
+    return (
+      <div className="NPRow">
+        <div className="inputs">
+          <p>Type</p>
+          <p>phoneNumberType()</p>
+          <SelectOption />
+        </div>
+        <div className="inputs">
+          <p>Phone Number</p>
+          <input className="input is-primary" type="number" required />
+        </div>
+      </div>
+    );
+  }
+
+  function EmailForm() {
+    return (
+      <div className="NPRow">
+        <div className="inputs">
+          <p>Type</p>
+          <p>emailType()</p>
+          <SelectOption />
+        </div>
+        <div className="inputs">
+          <p>Email</p>
+          <input className="input is-primary" type="text" required />
+        </div>
+      </div>
+    );
+  }
+
+  function AddressForm() {
+    return (
+      <div className="NPRow">
+        <div className="inputs">
+          <p>Type</p>
+          <p>addressType()</p>
+          <SelectOption />
+        </div>
+        <div className="inputs">
+          <p>Address</p>
+          <textarea
+            rows="4"
+            className="input is-primary"
+            type="text"
+            style={{ resize: "vertical" }}
+            required
+          />
+        </div>
+      </div>
+    );
+  }
+
   function SelectOption() {
     return (
       <div>
@@ -119,57 +192,29 @@ export default function NewPatient() {
         <div className="NPDiv2-boxes">
           <form className="NPDiv">
             <p className="NPDiv-p">Phone Number</p>
-            <div className="NPRow">
-              <div className="inputs">
-                <p>Type</p>
-                <p>phoneNumberType()</p>
-                {/* <input className="input is-primary" type="text" /> */}
-                <SelectOption />
-              </div>
-              <div className="inputs">
-                <p>Phone Number</p>
-                <input className="input is-primary" type="number" required />
-              </div>
-            </div>
-            <button className="add-button">+Add</button>
+            <PhoneNumForm />
+            {phoneNumAdd ? <PhoneNumForm /> : null}
+            <button
+              className="add-button button is-primary is-inverted"
+              onClick={() => setPhoneNumAdd(true)}
+            >
+              +Add
+            </button>
           </form>
           <form className="NPDiv">
             <p className="NPDiv-p">Email</p>
-            <div className="NPRow">
-              <div className="inputs">
-                <p>Type</p>
-                <p>emailType()</p>
-                {/* <input className="input is-primary" type="text" /> */}
-                <SelectOption />
-              </div>
-              <div className="inputs">
-                <p>Email</p>
-                <input className="input is-primary" type="text" required />
-              </div>
-            </div>
-            <button className="add-button">+Add</button>
+            <EmailForm />
+
+            <button className="add-button button is-primary is-inverted">
+              +Add
+            </button>
           </form>
           <form className="NPDiv">
             <p className="NPDiv-p">Address</p>
-            <div className="NPRow">
-              <div className="inputs">
-                <p>Type</p>
-                <p>addressType()</p>
-                {/* <input className="input is-primary" type="text" /> */}
-                <SelectOption />
-              </div>
-              <div className="inputs">
-                <p>Address</p>
-                <textarea
-                  rows="4"
-                  className="input is-primary"
-                  type="text"
-                  style={{ resize: "vertical" }}
-                  required
-                />
-              </div>
-            </div>
-            <button className="add-button">+Add</button>
+            <AddressForm />
+            <button className="add-button button is-primary is-inverted">
+              +Add
+            </button>
           </form>
         </div>
       </div>
@@ -177,8 +222,8 @@ export default function NewPatient() {
   }
 
   return (
-    <div>
-      <h1>New Patient</h1>
+    <div className="main-div">
+      <h2>New Patient</h2>
       <form>
         <BasicInfo />
         <ContactInfo />
@@ -189,7 +234,6 @@ export default function NewPatient() {
           <button className="button is-danger">Cancel</button>
         </Link>
       </form>
-      <SelectOption />
     </div>
   );
 }

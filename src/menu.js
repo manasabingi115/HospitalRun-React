@@ -4,18 +4,8 @@ import { Link } from "react-router-dom";
 export default function Menu() {
   const [activeTab, setActiveTab] = React.useState("Dashboard");
 
-  // const handleClick = (e) => {
-  //   console.log("this is working fine");
-  //   e.preventDefault();
-  //   e.target.style.background = "black";
-  //   console.log(e.target);
-  // };
-
   return (
     <div id="side-bar">
-      {/* <div className="parent-tab" onClick={(e) => handleClick(e)}>
-        Example
-      </div> */}
       <div>
         <Link to="/">
           <p

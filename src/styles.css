@@ -131,7 +131,6 @@ input:checked + .slider:before {
   font-size: smaller;
   padding: 8px 15px;
   background-color: rgb(247, 242, 242);
-  /* border-bottom: 1px solid lightgray; */
 }
 .parent-tab {
   padding: 10px 25px;
@@ -140,4 +139,11 @@ input:checked + .slider:before {
 .selected-button {
   background-color: green;
   color: white;
+}
+.main-div > h2 {
+  font-size: x-large;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-family: system-ui;
 }

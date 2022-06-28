@@ -12,7 +12,7 @@ export default function Patients() {
       ></input>
       <br />
       <Link to="/patients/new-patient">
-        <button>New Patient</button>
+        <button className="button is-primary is-outlined">New Patient</button>
       </Link>
     </div>
   );
