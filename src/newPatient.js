@@ -4,23 +4,15 @@ import { FaStarOfLife } from "react-icons/fa";
 
 export default function NewPatient() {
   const [phoneNumAdd, setPhoneNumAdd] = React.useState(false);
-  const [patientData, setPatientData] = React.useState({
-    patientName: "",
-    familyName: "",
-    prefix: "",
-    suffix: "",
-    sex: "",
-    patientType: "",
-    bloodType: "",
-    DOB: "",
-    ocuupation: "",
-    preferredLang: "",
-    phoneNums: [],
-    emails: [],
-    address: []
-  });
 
-  console.log(patientData);
+  const [count, setCount] = React.useState({ count: 0, num: 1 });
+  const increment = () => {
+    setCount((previousCount) => ({
+      ...previousCount,
+      count: previousCount.count + 1
+    }));
+    console.log(count);
+  };
 
   function PhoneNumForm() {
     return (
@@ -92,6 +84,24 @@ export default function NewPatient() {
   }
 
   function BasicInfo() {
+    const [patientData, setPatientData] = React.useState({
+      patientName: "",
+      familyName: "",
+      prefix: "",
+      suffix: "",
+      sex: "",
+      patientType: "",
+      bloodType: "",
+      DOB: "",
+      ocuupation: "",
+      preferredLang: "",
+      phoneNums: [],
+      emails: [],
+      address: []
+    });
+    // const [ex, setEx] = React.useState("");
+    console.log(patientData);
+
     return (
       <div className="NPDiv1 NPDiv">
         <p className="NPDiv-p">Basic Information</p>
@@ -102,6 +112,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Prefix"
+              value={patientData.prefix}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  prefix: e.target.value
+                }));
+              }}
             />
           </div>
           <div className="NPRow2-child inputs">
@@ -113,6 +131,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Given Name"
+              value={patientData.patientName}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  patientName: e.target.value
+                }));
+              }}
               required
             />
           </div>
@@ -122,6 +148,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Family Name"
+              value={patientData.familyName}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  familyName: e.target.value
+                }));
+              }}
             />
           </div>
           <div className="NPRow1-child inputs">
@@ -130,13 +164,33 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Suffix"
+              value={patientData.suffix}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  suffix: e.target.value
+                }));
+              }}
             />
           </div>
         </div>
         <div className="NPRow">
           <div className="inputs">
             <p>Sex</p>
-            <input className="input is-primary" type="text" placeholder="Sex" />
+            <input
+              className="input is-primary"
+              type="text"
+              placeholder="Sex"
+              value={patientData.sex}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  sex: e.target.value
+                }));
+              }}
+            />
           </div>
           <div className="inputs">
             <p>Patient Type</p>
@@ -234,6 +288,7 @@ export default function NewPatient() {
           <button className="button is-danger">Cancel</button>
         </Link>
       </form>
+      <button onClick={increment}>example</button>
     </div>
   );
 }
