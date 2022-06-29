@@ -5,15 +5,6 @@ import { FaStarOfLife } from "react-icons/fa";
 export default function NewPatient() {
   const [phoneNumAdd, setPhoneNumAdd] = React.useState(false);
 
-  const [count, setCount] = React.useState({ count: 0, num: 1 });
-  const increment = () => {
-    setCount((previousCount) => ({
-      ...previousCount,
-      count: previousCount.count + 1
-    }));
-    console.log(count);
-  };
-
   function PhoneNumForm() {
     return (
       <div className="NPRow">
@@ -198,6 +189,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Patient Type"
+              value={patientData.patientType}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  patientType: e.target.value
+                }));
+              }}
             />
           </div>
           <div className="inputs">
@@ -288,7 +287,6 @@ export default function NewPatient() {
           <button className="button is-danger">Cancel</button>
         </Link>
       </form>
-      <button onClick={increment}>example</button>
     </div>
   );
 }
