@@ -74,24 +74,31 @@ export default function NewPatient() {
     );
   }
 
+  const [patientData, setPatientData] = React.useState({
+    patientName: "",
+    familyName: "",
+    prefix: "",
+    suffix: "",
+    sex: "",
+    patientType: "",
+    bloodType: "",
+    DOB: "",
+    ocuupation: "",
+    preferredLang: "",
+    phoneNums: [],
+    emails: [],
+    address: []
+  });
+
+  const [checked, setChecked] = React.useState(false);
+
   function BasicInfo() {
-    const [patientData, setPatientData] = React.useState({
-      patientName: "",
-      familyName: "",
-      prefix: "",
-      suffix: "",
-      sex: "",
-      patientType: "",
-      bloodType: "",
-      DOB: "",
-      ocuupation: "",
-      preferredLang: "",
-      phoneNums: [],
-      emails: [],
-      address: []
-    });
+    function handleChange() {
+      setChecked(!checked);
+    }
+    // console.log(checked);
+
     // const [ex, setEx] = React.useState("");
-    console.log(patientData);
 
     return (
       <div className="NPDiv1 NPDiv">
@@ -210,10 +217,24 @@ export default function NewPatient() {
         </div>
         <div className="NPRow">
           <div className="inputs">
-            <p>Date of Birth</p>
-            <input className="input is-primary" type="date" />
+            {checked ? (
+              <div>
+                <p>Approximate Age</p>
+                <input
+                  className="input is-primary"
+                  placeholder="Approximate Age"
+                  type="number"
+                />
+              </div>
+            ) : (
+              <div>
+                <p>Date of Birth</p>
+                <input className="input is-primary" type="date" />
+              </div>
+            )}
+
             <div className="date-input-child">
-              <input type="checkbox" />
+              <input type="checkbox" onClick={handleChange} checked={checked} />
               <p>Unknown</p>
             </div>
           </div>
