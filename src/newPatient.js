@@ -3,62 +3,6 @@ import { Link } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 
 export default function NewPatient() {
-  const [phoneNumAdd, setPhoneNumAdd] = React.useState(false);
-
-  function PhoneNumForm() {
-    return (
-      <div className="NPRow">
-        <div className="inputs">
-          <p>Type</p>
-          <p>phoneNumberType()</p>
-          <SelectOption />
-        </div>
-        <div className="inputs">
-          <p>Phone Number</p>
-          <input className="input is-primary" type="number" required />
-        </div>
-      </div>
-    );
-  }
-
-  function EmailForm() {
-    return (
-      <div className="NPRow">
-        <div className="inputs">
-          <p>Type</p>
-          <p>emailType()</p>
-          <SelectOption />
-        </div>
-        <div className="inputs">
-          <p>Email</p>
-          <input className="input is-primary" type="text" required />
-        </div>
-      </div>
-    );
-  }
-
-  function AddressForm() {
-    return (
-      <div className="NPRow">
-        <div className="inputs">
-          <p>Type</p>
-          <p>addressType()</p>
-          <SelectOption />
-        </div>
-        <div className="inputs">
-          <p>Address</p>
-          <textarea
-            rows="4"
-            className="input is-primary"
-            type="text"
-            style={{ resize: "vertical" }}
-            required
-          />
-        </div>
-      </div>
-    );
-  }
-
   function SelectOption() {
     return (
       <div>
@@ -74,31 +18,29 @@ export default function NewPatient() {
     );
   }
 
-  const [patientData, setPatientData] = React.useState({
-    patientName: "",
-    familyName: "",
-    prefix: "",
-    suffix: "",
-    sex: "",
-    patientType: "",
-    bloodType: "",
-    DOB: "",
-    ocuupation: "",
-    preferredLang: "",
-    phoneNums: [],
-    emails: [],
-    address: []
-  });
-
-  const [checked, setChecked] = React.useState(false);
-
   function BasicInfo() {
+    const [checked, setChecked] = React.useState(false);
+
+    const [patientData, setPatientData] = React.useState({
+      patientName: "",
+      familyName: "",
+      prefix: "",
+      suffix: "",
+      sex: "",
+      patientType: "",
+      bloodType: "",
+      DOB: "",
+      approximateAge: "",
+      occupation: "",
+      preferredLang: "",
+      phoneNums: [],
+      emails: [],
+      address: []
+    });
+
     function handleChange() {
       setChecked(!checked);
     }
-    // console.log(checked);
-
-    // const [ex, setEx] = React.useState("");
 
     return (
       <div className="NPDiv1 NPDiv">
@@ -212,6 +154,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Blood Type"
+              value={patientData.bloodType}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  bloodType: e.target.value
+                }));
+              }}
             />
           </div>
         </div>
@@ -224,17 +174,42 @@ export default function NewPatient() {
                   className="input is-primary"
                   placeholder="Approximate Age"
                   type="number"
+                  value={patientData.approximateAge}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setPatientData((prevPatientData) => ({
+                      ...prevPatientData,
+                      approximateAge: e.target.value,
+                      DOB: ""
+                    }));
+                  }}
                 />
               </div>
             ) : (
               <div>
                 <p>Date of Birth</p>
-                <input className="input is-primary" type="date" />
+                <input
+                  className="input is-primary"
+                  type="date"
+                  value={patientData.DOB}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setPatientData((prevPatientData) => ({
+                      ...prevPatientData,
+                      approximateAge: "",
+                      DOB: e.target.value
+                    }));
+                  }}
+                />
               </div>
             )}
 
             <div className="date-input-child">
-              <input type="checkbox" onClick={handleChange} checked={checked} />
+              <input
+                type="checkbox"
+                onClick={handleChange}
+                defaultChecked={checked}
+              />
               <p>Unknown</p>
             </div>
           </div>
@@ -244,6 +219,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Occupation"
+              value={patientData.occupation}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  occupation: e.target.value
+                }));
+              }}
             />
           </div>
           <div className="inputs">
@@ -252,6 +235,14 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Preferred Language"
+              value={patientData.preferredLang}
+              onChange={(e) => {
+                e.preventDefault();
+                setPatientData((prevPatientData) => ({
+                  ...prevPatientData,
+                  preferredLang: e.target.value
+                }));
+              }}
             />
           </div>
         </div>
@@ -260,36 +251,117 @@ export default function NewPatient() {
   }
 
   function ContactInfo() {
+    function PhoneNumForm() {
+      const [phnNo, setPhnNo] = React.useState("");
+
+      return (
+        <div className="NPRow">
+          <div className="inputs">
+            <p>Type</p>
+            <p>phoneNumberType()</p>
+            <SelectOption />
+          </div>
+          <div className="inputs">
+            <p>Phone Number</p>
+            <input
+              className="input is-primary"
+              type="number"
+              value={phnNo}
+              placeholder="Phone Number"
+              onChange={(e) => {
+                e.preventDefault();
+                setPhnNo(e.target.value);
+              }}
+              required
+            />
+          </div>
+        </div>
+      );
+    }
+
+    function EmailForm() {
+      const [email, setEmail] = React.useState("");
+
+      return (
+        <div className="NPRow">
+          <div className="inputs">
+            <p>Type</p>
+            <p>emailType()</p>
+            <SelectOption />
+          </div>
+          <div className="inputs">
+            <p>Email</p>
+            <input
+              className="input is-primary"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                e.preventDefault();
+                setEmail(e.target.value);
+              }}
+              required
+            />
+          </div>
+        </div>
+      );
+    }
+
+    function AddressForm() {
+      const [address, setAddress] = React.useState("");
+
+      return (
+        <div className="NPRow">
+          <div className="inputs">
+            <p>Type</p>
+            <p>addressType()</p>
+            <SelectOption />
+          </div>
+          <div className="inputs">
+            <p>Address</p>
+            <textarea
+              rows="4"
+              className="input is-primary"
+              type="text"
+              placeholder="Address..."
+              style={{ resize: "vertical" }}
+              value={address}
+              onChange={(e) => {
+                e.preventDefault();
+                setAddress(e.target.value);
+              }}
+              required
+            />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="NPDiv2 NPDiv">
         <p className="NPDiv-p">Contact Information</p>
         <div className="NPDiv2-boxes">
-          <form className="NPDiv">
+          <div className="NPDiv">
             <p className="NPDiv-p">Phone Number</p>
             <PhoneNumForm />
-            {phoneNumAdd ? <PhoneNumForm /> : null}
-            <button
-              className="add-button button is-primary is-inverted"
-              onClick={() => setPhoneNumAdd(true)}
-            >
-              +Add
-            </button>
-          </form>
-          <form className="NPDiv">
-            <p className="NPDiv-p">Email</p>
-            <EmailForm />
-
             <button className="add-button button is-primary is-inverted">
               +Add
             </button>
-          </form>
-          <form className="NPDiv">
+          </div>
+          <div className="NPDiv">
+            <p className="NPDiv-p">Email</p>
+            <EmailForm />
+            <button className="add-button button is-primary is-inverted">
+              +Add
+            </button>
+          </div>
+          <div className="NPDiv">
             <p className="NPDiv-p">Address</p>
             <AddressForm />
             <button className="add-button button is-primary is-inverted">
               +Add
             </button>
-          </form>
+          </div>
         </div>
       </div>
     );
