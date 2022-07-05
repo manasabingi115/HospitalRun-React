@@ -1,6 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setPatientName,
+  setFamilyName,
+  setPrefix,
+  setSuffix,
+  setSex,
+  setPatientType,
+  setBloodType,
+  setDOB,
+  setApproximateAge
+} from "./actions";
 
 export default function NewPatient() {
   function SelectOption() {
@@ -19,18 +31,66 @@ export default function NewPatient() {
   }
 
   function BasicInfo() {
+    const patientData1 = useSelector((state) => state.patientData);
+    const dispatch = useDispatch();
     const [checked, setChecked] = React.useState(false);
 
+    const HandlePatientName = (e) => {
+      dispatch(setPatientName(e.target.value));
+    };
+    const HandleFamilyName = (e) => {
+      dispatch(setFamilyName(e.target.value));
+    };
+    const HandlePrefix = (e) => {
+      dispatch(setPrefix(e.target.value));
+    };
+    const HandleSuffix = (e) => {
+      dispatch(setSuffix(e.target.value));
+    };
+    const HandleSex = (e) => {
+      dispatch(setSex(e.target.value));
+    };
+    const HandlePatientType = (e) => {
+      dispatch(setPatientType(e.target.value));
+    };
+    const HandleBloodType = (e) => {
+      dispatch(setBloodType(e.target.value));
+    };
+    const HandleDOB = (e) => {
+      dispatch(setDOB(e.target.value));
+    };
+    const HandleApproximateAge = (e) => {
+      dispatch(setApproximateAge(e.target.value));
+    };
+
+    const {
+      patientName,
+      familyName,
+      prefix,
+      suffix,
+      sex,
+      patientType,
+      bloodType,
+      DOB,
+      approximateAge
+      // occupation,
+      // preferredLang,
+      // phoneNums,
+      // emails,
+      // address
+    } = patientData1;
+    console.log(patientData1);
+
     const [patientData, setPatientData] = React.useState({
-      patientName: "",
-      familyName: "",
-      prefix: "",
-      suffix: "",
-      sex: "",
-      patientType: "",
-      bloodType: "",
-      DOB: "",
-      approximateAge: "",
+      // patientName: "",
+      // familyName: "",
+      // prefix: "",
+      // suffix: "",
+      // sex: "",
+      // patientType: "",
+      // bloodType: "",
+      // DOB: "",
+      // approximateAge: "",
       occupation: "",
       preferredLang: "",
       phoneNums: [],
@@ -52,14 +112,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Prefix"
-              value={patientData.prefix}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  prefix: e.target.value
-                }));
-              }}
+              value={prefix}
+              onChange={HandlePrefix}
             />
           </div>
           <div className="NPRow2-child inputs">
@@ -71,14 +125,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Given Name"
-              value={patientData.patientName}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  patientName: e.target.value
-                }));
-              }}
+              value={patientName}
+              onChange={HandlePatientName}
               required
             />
           </div>
@@ -88,14 +136,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Family Name"
-              value={patientData.familyName}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  familyName: e.target.value
-                }));
-              }}
+              value={familyName}
+              onChange={HandleFamilyName}
             />
           </div>
           <div className="NPRow1-child inputs">
@@ -104,14 +146,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Suffix"
-              value={patientData.suffix}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  suffix: e.target.value
-                }));
-              }}
+              value={suffix}
+              onChange={HandleSuffix}
             />
           </div>
         </div>
@@ -122,14 +158,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Sex"
-              value={patientData.sex}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  sex: e.target.value
-                }));
-              }}
+              value={sex}
+              onChange={HandleSex}
             />
           </div>
           <div className="inputs">
@@ -138,14 +168,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Patient Type"
-              value={patientData.patientType}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  patientType: e.target.value
-                }));
-              }}
+              value={patientType}
+              onChange={HandlePatientType}
             />
           </div>
           <div className="inputs">
@@ -154,14 +178,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Blood Type"
-              value={patientData.bloodType}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  bloodType: e.target.value
-                }));
-              }}
+              value={bloodType}
+              onChange={HandleBloodType}
             />
           </div>
         </div>
@@ -174,15 +192,8 @@ export default function NewPatient() {
                   className="input is-primary"
                   placeholder="Approximate Age"
                   type="number"
-                  value={patientData.approximateAge}
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setPatientData((prevPatientData) => ({
-                      ...prevPatientData,
-                      approximateAge: e.target.value,
-                      DOB: ""
-                    }));
-                  }}
+                  value={approximateAge}
+                  onChange={HandleApproximateAge}
                 />
               </div>
             ) : (
@@ -191,15 +202,8 @@ export default function NewPatient() {
                 <input
                   className="input is-primary"
                   type="date"
-                  value={patientData.DOB}
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setPatientData((prevPatientData) => ({
-                      ...prevPatientData,
-                      approximateAge: "",
-                      DOB: e.target.value
-                    }));
-                  }}
+                  value={DOB}
+                  onChange={HandleDOB}
                 />
               </div>
             )}

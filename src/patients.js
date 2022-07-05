@@ -1,10 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "./actions";
 
 export default function Patients() {
+  const patientData = useSelector((state) => state.patientData);
+  const dispatch = useDispatch();
+  const { data } = patientData;
+
+  const ex = (e) => {
+    dispatch(setData("hello"));
+  };
+
   return (
     <div className="main-div">
-      <h2>Patients</h2>
+      <h2 onClick={ex}>Patients</h2>
+      {data && <p>{data}</p>}
       <input
         className="input is-primary"
         type="text"
