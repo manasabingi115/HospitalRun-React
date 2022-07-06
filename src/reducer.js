@@ -66,9 +66,33 @@ const reducer = (state = initialState, action) => {
     case "SET_APPROXIMATE_AGE":
       return {
         ...state,
-        DOB: action.payload
+        approximateAge: action.payload
       };
-
+    case "SET_OCCUPATION":
+      return {
+        ...state,
+        occupation: action.payload
+      };
+    case "SET_PREFERRED_LANG":
+      return {
+        ...state,
+        preferredLang: action.payload
+      };
+    case "SET_PHONE_NUM":
+      return {
+        ...state,
+        phoneNums: action.payload
+      };
+    case "SET_EMAIL":
+      return {
+        ...state,
+        emails: action.payload
+      };
+    case "SET_ADDRESS":
+      return {
+        ...state,
+        address: action.payload
+      };
     default:
       return state;
   }

@@ -67,3 +67,33 @@ export const setApproximateAge = (approximateAge) => {
     payload: approximateAge
   };
 };
+export const setOccupation = (occupation) => {
+  return {
+    type: "SET_OCCUPATION",
+    payload: occupation
+  };
+};
+export const setPreferredLang = (prefLang) => {
+  return {
+    type: "SET_PREFERRED_LANG",
+    payload: prefLang
+  };
+};
+export const setPhoneNum = (phoneNum) => {
+  return {
+    type: "SET_PHONE_NUM",
+    payload: phoneNum
+  };
+};
+export const setEmail = (email) => {
+  return {
+    type: "SET_EMAIL",
+    payload: email
+  };
+};
+export const setAddress = (address) => {
+  return {
+    type: "SET_ADDRESS",
+    payload: address
+  };
+};

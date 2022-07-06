@@ -11,7 +11,12 @@ import {
   setPatientType,
   setBloodType,
   setDOB,
-  setApproximateAge
+  setApproximateAge,
+  setOccupation,
+  setPreferredLang,
+  setPhoneNum,
+  setEmail,
+  setAddress
 } from "./actions";
 
 export default function NewPatient() {
@@ -31,7 +36,7 @@ export default function NewPatient() {
   }
 
   function BasicInfo() {
-    const patientData1 = useSelector((state) => state.patientData);
+    const patientData = useSelector((state) => state.patientData);
     const dispatch = useDispatch();
     const [checked, setChecked] = React.useState(false);
 
@@ -57,10 +62,18 @@ export default function NewPatient() {
       dispatch(setBloodType(e.target.value));
     };
     const HandleDOB = (e) => {
+      dispatch(setApproximateAge(""));
       dispatch(setDOB(e.target.value));
     };
     const HandleApproximateAge = (e) => {
+      dispatch(setDOB(""));
       dispatch(setApproximateAge(e.target.value));
+    };
+    const HandleOccupation = (e) => {
+      dispatch(setOccupation(e.target.value));
+    };
+    const HandlePreferredLang = (e) => {
+      dispatch(setPreferredLang(e.target.value));
     };
 
     const {
@@ -72,31 +85,11 @@ export default function NewPatient() {
       patientType,
       bloodType,
       DOB,
-      approximateAge
-      // occupation,
-      // preferredLang,
-      // phoneNums,
-      // emails,
-      // address
-    } = patientData1;
-    console.log(patientData1);
-
-    const [patientData, setPatientData] = React.useState({
-      // patientName: "",
-      // familyName: "",
-      // prefix: "",
-      // suffix: "",
-      // sex: "",
-      // patientType: "",
-      // bloodType: "",
-      // DOB: "",
-      // approximateAge: "",
-      occupation: "",
-      preferredLang: "",
-      phoneNums: [],
-      emails: [],
-      address: []
-    });
+      approximateAge,
+      occupation,
+      preferredLang
+    } = patientData;
+    console.log(patientData);
 
     function handleChange() {
       setChecked(!checked);
@@ -223,14 +216,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Occupation"
-              value={patientData.occupation}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  occupation: e.target.value
-                }));
-              }}
+              value={occupation}
+              onChange={HandleOccupation}
             />
           </div>
           <div className="inputs">
@@ -239,14 +226,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="text"
               placeholder="Preferred Language"
-              value={patientData.preferredLang}
-              onChange={(e) => {
-                e.preventDefault();
-                setPatientData((prevPatientData) => ({
-                  ...prevPatientData,
-                  preferredLang: e.target.value
-                }));
-              }}
+              value={preferredLang}
+              onChange={HandlePreferredLang}
             />
           </div>
         </div>
@@ -256,7 +237,13 @@ export default function NewPatient() {
 
   function ContactInfo() {
     function PhoneNumForm() {
-      const [phnNo, setPhnNo] = React.useState("");
+      const patientData = useSelector((state) => state.patientData);
+      const dispatch = useDispatch();
+      const { phoneNums } = patientData;
+
+      const HandlePhoneNum = (e) => {
+        dispatch(setPhoneNum(e.target.value));
+      };
 
       return (
         <div className="NPRow">
@@ -270,12 +257,9 @@ export default function NewPatient() {
             <input
               className="input is-primary"
               type="number"
-              value={phnNo}
+              value={phoneNums}
               placeholder="Phone Number"
-              onChange={(e) => {
-                e.preventDefault();
-                setPhnNo(e.target.value);
-              }}
+              onChange={HandlePhoneNum}
               required
             />
           </div>
@@ -284,7 +268,13 @@ export default function NewPatient() {
     }
 
     function EmailForm() {
-      const [email, setEmail] = React.useState("");
+      const patientData = useSelector((state) => state.patientData);
+      const dispatch = useDispatch();
+      const { emails } = patientData;
+
+      const HandleEmail = (e) => {
+        dispatch(setEmail(e.target.value));
+      };
 
       return (
         <div className="NPRow">
@@ -299,11 +289,8 @@ export default function NewPatient() {
               className="input is-primary"
               type="email"
               placeholder="Email"
-              value={email}
-              onChange={(e) => {
-                e.preventDefault();
-                setEmail(e.target.value);
-              }}
+              value={emails}
+              onChange={HandleEmail}
               required
             />
           </div>
@@ -312,7 +299,13 @@ export default function NewPatient() {
     }
 
     function AddressForm() {
-      const [address, setAddress] = React.useState("");
+      const patientData = useSelector((state) => state.patientData);
+      const dispatch = useDispatch();
+      const { address } = patientData;
+
+      const HandleAddress = (e) => {
+        dispatch(setAddress(e.target.value));
+      };
 
       return (
         <div className="NPRow">
@@ -330,10 +323,7 @@ export default function NewPatient() {
               placeholder="Address..."
               style={{ resize: "vertical" }}
               value={address}
-              onChange={(e) => {
-                e.preventDefault();
-                setAddress(e.target.value);
-              }}
+              onChange={HandleAddress}
               required
             />
           </div>
@@ -371,15 +361,22 @@ export default function NewPatient() {
     );
   }
 
+  function HandleSubmit() {}
+
   return (
     <div className="main-div">
       <h2>New Patient</h2>
       <form>
         <BasicInfo />
         <ContactInfo />
+        {/* <Link to="/patients"> */}
         <button type="submit" className="button is-black">
           Create Patient
         </button>
+        {/* </Link> */}
+        {/* <button type="submit" className="button is-black">
+          Create Patient
+        </button> */}
         <Link to="/patients">
           <button className="button is-danger">Cancel</button>
         </Link>
