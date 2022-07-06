@@ -1,9 +1,9 @@
-import react from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import react from "react";
+import { useSelector } from "react-redux";
 
 export default function PatientDetails() {
   const patientData = useSelector((state) => state.patientData);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const {
     patientName,
     familyName,
@@ -22,8 +22,8 @@ export default function PatientDetails() {
   } = patientData;
 
   return (
-    <div>
-      <h2>{patientName}</h2>
+    <div className="main-div">
+      <h3>{patientName}</h3>
       <p>{sex}</p>
       {DOB && <p>{DOB}</p>}
       {approximateAge && <p>approximateAge</p>}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -361,22 +361,22 @@ export default function NewPatient() {
     );
   }
 
-  function HandleSubmit() {}
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/patients/patient-details");
+  };
 
   return (
     <div className="main-div">
       <h2>New Patient</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <BasicInfo />
         <ContactInfo />
-        {/* <Link to="/patients"> */}
         <button type="submit" className="button is-black">
           Create Patient
         </button>
-        {/* </Link> */}
-        {/* <button type="submit" className="button is-black">
-          Create Patient
-        </button> */}
         <Link to="/patients">
           <button className="button is-danger">Cancel</button>
         </Link>

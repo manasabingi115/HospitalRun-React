@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Patients from "./patients";
 import NewPatient from "./newPatient";
+import PatientDetails from "./patientDetails";
 
 export default function App() {
   return (
@@ -20,6 +21,11 @@ export default function App() {
               path="/patients/new-patient"
               exact
               element={<NewPatient />}
+            />
+            <Route
+              path="/patients/patient-details"
+              exact
+              element={<PatientDetails />}
             />
           </Routes>
         </BrowserRouter>

@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from "redux";
-import reducer from "./reducer";
+import patientReducer from "./patientReducer";
 
 const initialState = {};
 
 const store = createStore(
-  combineReducers({ patientData: reducer }),
+  combineReducers({ patientData: patientReducer }),
   initialState
 );
 window.store = store;
