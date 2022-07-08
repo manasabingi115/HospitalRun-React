@@ -6,6 +6,8 @@ import Dashboard from "./Dashboard";
 import Patients from "./patients";
 import NewPatient from "./newPatient";
 import PatientDetails from "./patientDetails";
+import Scheduling from "./scheduling";
+import Medications from "./medications";
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
               exact
               element={<PatientDetails />}
             />
+            <Route path="/scheduling" exact element={<Scheduling />} />
+            <Route path="/medications" exact element={<Medications />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -135,10 +135,11 @@ input:checked + .slider:before {
 .parent-tab {
   padding: 10px 25px;
   border-bottom: 1px solid lightgray;
+  display: block;
 }
 .selected-button {
   background-color: green;
-  color: white;
+  color: white !important;
 }
 .main-div > h2 {
   font-size: x-large;
