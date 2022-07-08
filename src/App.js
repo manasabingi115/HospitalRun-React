@@ -8,6 +8,9 @@ import NewPatient from "./newPatient";
 import PatientDetails from "./patientDetails";
 import Scheduling from "./scheduling";
 import Medications from "./medications";
+import Labs from "./labs";
+import Imagings from "./imagings";
+import Incidents from "./incidents";
 
 export default function App() {
   return (
@@ -31,6 +34,9 @@ export default function App() {
             />
             <Route path="/scheduling" exact element={<Scheduling />} />
             <Route path="/medications" exact element={<Medications />} />
+            <Route path="/labs" exact element={<Labs />} />
+            <Route path="/imagings" exact element={<Imagings />} />
+            <Route path="/incidents" exact element={<Incidents />} />
           </Routes>
         </BrowserRouter>
       </div>

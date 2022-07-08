@@ -1,9 +1,7 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Menu() {
-  const [activeTab, setActiveTab] = React.useState();
-
   return (
     <div id="side-bar">
       <div className="tab">
@@ -44,7 +42,7 @@ export default function Menu() {
           }
         </NavLink>
       </div>
-      <div>
+      <div className="tab">
         <NavLink
           to="/scheduling"
           className={({ isActive }) =>
@@ -71,101 +69,115 @@ export default function Menu() {
         </NavLink>
       </div>
 
-      {/* <div>
+      <div className="tab">
         <NavLink
-          to="/scheduling"
+          to="/medications"
           className={({ isActive }) =>
             isActive ? "selected-button parent-tab" : "parent-tab"
           }
-        >
-          Scheduling
-        </NavLink>
-        <NavLink to="/scheduling">
-          {({ isActive }) =>
-            isActive ? (
-              <div className="parent-child-tabs">
-                <NavLink to="/scheduling/new-appointment">
-                  <p id="patients-tab-child" className="child-tabs">
-                    New Appointment
-                  </p>
-                </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
-                  Appointment Schedule
-                </p>
-              </div>
-            ) : null
-          }
-        </NavLink>
-      </div> */}
-
-      <div>
-        <p
-          id="medications-tab"
-          onClick={() => setActiveTab("Medications")}
-          className={`parent-tab ${
-            activeTab === "Medications" ? "selected-button" : ""
-          }`}
         >
           Medications
-        </p>
-        {activeTab === "Medications" ? (
-          <div className="parent-child-tabs">
-            <p className="child-tabs">Request Medication</p>
-            <p className="child-tabs">Medication Requests</p>
-          </div>
-        ) : null}
+        </NavLink>
+        <NavLink to="/medications">
+          {({ isActive }) =>
+            isActive ? (
+              <div className="parent-child-tabs">
+                <NavLink to="/medications">
+                  <p id="patients-tab-child" className="child-tabs">
+                    Request Medication
+                  </p>
+                </NavLink>
+                <p id="patients-tab-child" className="child-tabs">
+                  Medication Requests
+                </p>
+              </div>
+            ) : null
+          }
+        </NavLink>
       </div>
-      <div>
-        <p
-          id="labs-tab"
-          onClick={() => setActiveTab("Labs")}
-          className={`parent-tab ${
-            activeTab === "Labs" ? "selected-button" : ""
-          }`}
+
+      <div className="tab">
+        <NavLink
+          to="/labs"
+          className={({ isActive }) =>
+            isActive ? "selected-button parent-tab" : "parent-tab"
+          }
         >
           Labs
-        </p>
-        {activeTab === "Labs" ? (
-          <div className="parent-child-tabs">
-            <p className="child-tabs">Request Lab</p>
-            <p className="child-tabs">Lab Requests</p>
-          </div>
-        ) : null}
+        </NavLink>
+        <NavLink to="/labs">
+          {({ isActive }) =>
+            isActive ? (
+              <div className="parent-child-tabs">
+                <NavLink to="/labs">
+                  <p id="patients-tab-child" className="child-tabs">
+                    Request Lab
+                  </p>
+                </NavLink>
+                <p id="patients-tab-child" className="child-tabs">
+                  Lab Requests
+                </p>
+              </div>
+            ) : null
+          }
+        </NavLink>
       </div>
-      <div>
-        <p
-          id="imagings-tab"
-          onClick={() => setActiveTab("Imagings")}
-          className={`parent-tab ${
-            activeTab === "Imagings" ? "selected-button" : ""
-          }`}
+
+      <div className="tab">
+        <NavLink
+          to="/imagings"
+          className={({ isActive }) =>
+            isActive ? "selected-button parent-tab" : "parent-tab"
+          }
         >
           Imagings
-        </p>
-        {activeTab === "Imagings" ? (
-          <div>
-            <p className="child-tabs">New Imaging Request</p>
-            <p className="child-tabs">Imaging Requests</p>
-          </div>
-        ) : null}
+        </NavLink>
+        <NavLink to="/imagings">
+          {({ isActive }) =>
+            isActive ? (
+              <div className="parent-child-tabs">
+                <NavLink to="/imagings">
+                  <p id="patients-tab-child" className="child-tabs">
+                    New Imaging Request
+                  </p>
+                </NavLink>
+                <p id="patients-tab-child" className="child-tabs">
+                  Imaging Requests
+                </p>
+              </div>
+            ) : null
+          }
+        </NavLink>
       </div>
-      <div>
-        <p
-          id="incidents-tab"
-          onClick={() => setActiveTab("Incidents")}
-          className={`parent-tab ${
-            activeTab === "Incidents" ? "selected-button" : ""
-          }`}
+
+      <div className="tab">
+        <NavLink
+          to="/incidents"
+          className={({ isActive }) =>
+            isActive ? "selected-button parent-tab" : "parent-tab"
+          }
         >
           Incidents
-        </p>
-        {activeTab === "Incidents" ? (
-          <div>
-            <p className="child-tabs">Report Incident</p>
-            <p className="child-tabs">Reported Incidents</p>
-            <p className="child-tabs">Visualize</p>
-          </div>
-        ) : null}
+        </NavLink>
+        <NavLink to="/incidents">
+          {({ isActive }) =>
+            isActive ? (
+              <div className="parent-child-tabs">
+                <NavLink to="/incidents">
+                  <p id="patients-tab-child" className="child-tabs">
+                    Report Incident
+                  </p>
+                </NavLink>
+                <p id="patients-tab-child" className="child-tabs">
+                  Reported Incidents
+                </p>
+                <p id="patients-tab-child" className="child-tabs">
+                  Visualize
+                </p>
+              </div>
+            ) : null
+          }
+        </NavLink>
       </div>
     </div>
   );
