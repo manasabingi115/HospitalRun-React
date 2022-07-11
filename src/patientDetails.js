@@ -21,13 +21,34 @@ export default function PatientDetails() {
     address
   } = patientData;
 
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  // console.log(makeid(5));
+
   return (
     <div className="main-div">
       <h2>Patient-Details</h2>
-      <div className="patient-basic-info columns">
+      <form className="patient-basic-info columns">
         <div className="column">
+          <label for="patient-code">Patient Code: </label>
+          <input
+            id="patient-code"
+            name="patient-code"
+            value={makeid(10)}
+          ></input>
           <p>
-            Registration No:<strong>{}</strong>
+            Patient Code:
+            {/* <br /> */}
+            <strong> {makeid(10)}</strong>
           </p>
           <p>
             Address:<strong>{address}</strong>
@@ -53,7 +74,7 @@ export default function PatientDetails() {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
