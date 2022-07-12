@@ -155,9 +155,8 @@ input:checked + .slider:before {
   padding: 15px;
   line-height: 40px;
 }
-/* #patient-details-mini-block {
-  text-align: left;
-  display: flex;
-  align-items: left;
-  justify-content: space-between;
-} */
+.patient-details-input {
+  border: none;
+  font-size: medium;
+  font-weight: 500;
+}

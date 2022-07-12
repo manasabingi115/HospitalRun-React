@@ -1,4 +1,3 @@
-// import react from "react";
 import { useSelector } from "react-redux";
 
 export default function PatientDetails() {
@@ -32,45 +31,88 @@ export default function PatientDetails() {
     return result;
   }
 
-  // console.log(makeid(5));
+  function RegistrationDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + "/" + dd + "/" + yyyy;
+    // console.log(today);
+    return today;
+  }
 
   return (
     <div className="main-div">
       <h2>Patient-Details</h2>
       <form className="patient-basic-info columns">
         <div className="column">
-          <label for="patient-code">Patient Code: </label>
+          <label htmlFor="patient-code">Patient Code: </label>
           <input
+            className="patient-details-input"
             id="patient-code"
             name="patient-code"
             value={makeid(10)}
+            readOnly
           ></input>
-          <p>
-            Patient Code:
-            {/* <br /> */}
-            <strong> {makeid(10)}</strong>
-          </p>
-          <p>
-            Address:<strong>{address}</strong>
-          </p>
-          <p>
-            Contact No:<strong>{phoneNums}</strong>
-          </p>
+          <br />
+          <label htmlFor="address">Address: </label>
+          <input
+            className="patient-details-input"
+            id="address"
+            name="address"
+            value={address}
+            readOnly
+          ></input>
+          <br />
+          <label htmlFor="contact-num">Contact No: </label>
+          <input
+            className="patient-details-input"
+            id="contact-num"
+            name="contact-num"
+            value={phoneNums}
+            readOnly
+          ></input>
         </div>
         <div className="column">
-          <p>
-            Patient Name:<strong>{patientName}</strong>
-          </p>
-          <p>
-            Registration Date:<strong></strong>
-          </p>
+          <label htmlFor="patient-name">Patient Name: </label>
+          <input
+            className="patient-details-input"
+            id="patient-name"
+            name="patient-name"
+            value={patientName}
+            readOnly
+          ></input>
+          <br />
+          <label htmlFor="reg-date">Registration Date: </label>
+          <input
+            className="patient-details-input"
+            id="reg-date"
+            name="reg-date"
+            value={RegistrationDate()}
+            readOnly
+          ></input>
+          <br />
           <div className="patient-details-mini-block columns">
             <div className="column">
-              Gender:<strong>{sex}</strong>
+              <label htmlFor="gender">Gender: </label>
+              <input
+                className="patient-details-input"
+                id="gender"
+                name="gender"
+                value={sex}
+                readOnly
+              ></input>
             </div>
             <div className="column">
-              DOB/Age:{DOB && <strong>{DOB}</strong>}
-              {approximateAge && <strong>approximateAge</strong>}
+              <label htmlFor="gender">DOB/Age: </label>
+              <input
+                className="patient-details-input"
+                id="gender"
+                name="gender"
+                value={DOB ? DOB : approximateAge ? approximateAge : null}
+                readOnly
+              ></input>
             </div>
           </div>
         </div>
