@@ -4,7 +4,7 @@ import Menu from "./menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Patients from "./patients";
-import NewPatient from "./newPatient";
+import NewPatient from "./new-patient/new-patient-form";
 import PatientDetails from "./patientDetails";
 import Scheduling from "./scheduling";
 import Medications from "./medications";

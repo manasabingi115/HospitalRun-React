@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import SelectOption from "./new-patient/select-option";
+
 import {
   setPatientName,
   setFamilyName,
@@ -20,21 +22,6 @@ import {
 } from "./actions";
 
 export default function NewPatient() {
-  function SelectOption() {
-    return (
-      <div>
-        <select className="input is-primary">
-          <option>---Choose---</option>
-          <option>Home</option>
-          <option>Mobile</option>
-          <option>Work</option>
-          <option>Temperary</option>
-          <option>Old</option>
-        </select>
-      </div>
-    );
-  }
-
   function BasicInfo() {
     const patientData = useSelector((state) => state.patientData);
     const dispatch = useDispatch();
