@@ -5,19 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import {setPatientName} from "./src/actions";
 
-export default function NewPatient() {
+export default function NewPatient({ setPatientData }) {
   const [initialPatientData, setInitialPatientData] = React.useState({
-    pname: "",
-    fname: "",
-    sfx: "",
-    pfx: "",
-    sx: "",
-    ptype: "",
-    btype: "",
-    dob: "",
-    appAge: "",
-    occ: "",
-    prefLang: "",
+    patientName: "",
+    familyName: "",
+    suffix: "",
+    prefix: "",
+    sex: "",
+    patientType: "",
+    bloodType: "",
+    DOB: "",
+    approximateAge: "",
+    occupation: "",
+    preferredLang: "",
     phnNumdata: {
       type: "",
       num: ""
@@ -36,11 +36,11 @@ export default function NewPatient() {
   const patientData = useSelector((state) => state.patientData);
   const dispatch = useDispatch();
 
-  console.log(initialPatientData);
+  // console.log(patientData);
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(setPatientName(e.target.value));
-    navigate("/patients/patient-details");
+    dispatch(setPatientData(initialPatientData));
+    navigate("/patients/patients-list");
   };
 
   return (

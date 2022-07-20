@@ -11,6 +11,8 @@ import Medications from "./medications";
 import Labs from "./labs";
 import Imagings from "./imagings";
 import Incidents from "./incidents";
+import { setPatientData } from "./actions";
+import PatientsList from "./patients-list";
 
 export default function App() {
   return (
@@ -25,7 +27,12 @@ export default function App() {
             <Route
               path="/patients/new-patient"
               exact
-              element={<NewPatient />}
+              element={<NewPatient setPatientData={setPatientData} />}
+            />
+            <Route
+              path="/patients/patients-list"
+              exact
+              element={<PatientsList />}
             />
             <Route
               path="/patients/patient-details"

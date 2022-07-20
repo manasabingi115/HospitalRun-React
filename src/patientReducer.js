@@ -1,19 +1,5 @@
 const initialState = {
-  data: "",
-  patientName: "",
-  familyName: "",
-  prefix: "",
-  suffix: "",
-  sex: "",
-  patientType: "",
-  bloodType: "",
-  DOB: "",
-  approximateAge: "",
-  occupation: "",
-  preferredLang: "",
-  phoneNums: "",
-  emails: "",
-  address: ""
+  data: [{ patientName: "manu" }, { patientName: "anu" }]
 };
 
 const patientReducer = (state = initialState, action) => {
@@ -96,7 +82,7 @@ const patientReducer = (state = initialState, action) => {
     case "SET_PATIENT_DATA":
       return {
         ...state,
-        data: action.payload
+        data: [action.payload, ...state.data]
       };
     default:
       return state;

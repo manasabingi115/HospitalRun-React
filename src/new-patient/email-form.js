@@ -23,7 +23,15 @@ export default function EmailForm({ setInitialPatientData }) {
           type="email"
           placeholder="Email"
           defaultValue={emails}
-          // onChange={HandleEmail}
+          onChange={(e) =>
+            setInitialPatientData((prevState) => ({
+              ...prevState,
+              emaildata: {
+                ...prevState.emaildata,
+                email: e.target.value
+              }
+            }))
+          }
           required
         />
       </div>

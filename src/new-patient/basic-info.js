@@ -38,7 +38,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                pfx: e.target.value
+                prefix: e.target.value
               }))
             }
           />
@@ -56,7 +56,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                pname: e.target.value
+                patientName: e.target.value
               }))
             }
             required
@@ -72,7 +72,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                fname: e.target.value
+                familyName: e.target.value
               }))
             }
           />
@@ -87,7 +87,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                sfx: e.target.value
+                suffix: e.target.value
               }))
             }
           />
@@ -104,7 +104,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                sx: e.target.value
+                sex: e.target.value
               }))
             }
           />
@@ -119,7 +119,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                ptype: e.target.value
+                patientType: e.target.value
               }))
             }
           />
@@ -134,7 +134,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                btype: e.target.value
+                bloodType: e.target.value
               }))
             }
           />
@@ -153,8 +153,8 @@ export default function BasicInfo({ setInitialPatientData }) {
                 onChange={(e) =>
                   setInitialPatientData((prevState) => ({
                     ...prevState,
-                    dob: "",
-                    appAge: e.target.value
+                    DOB: "",
+                    approximateAge: e.target.value
                   }))
                 }
               />
@@ -169,8 +169,8 @@ export default function BasicInfo({ setInitialPatientData }) {
                 onChange={(e) =>
                   setInitialPatientData((prevState) => ({
                     ...prevState,
-                    appAge: "",
-                    dob: e.target.value
+                    approximateAge: "",
+                    DOB: e.target.value
                   }))
                 }
               />
@@ -196,7 +196,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                occ: e.target.value
+                occupation: e.target.value
               }))
             }
           />
@@ -211,7 +211,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
                 ...prevState,
-                prefLng: e.target.value
+                preferredLang: e.target.value
               }))
             }
           />

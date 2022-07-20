@@ -4,21 +4,24 @@ export default function PatientDetails() {
   const patientData = useSelector((state) => state.patientData);
   // const dispatch = useDispatch();
   const {
-    patientName,
-    familyName,
-    prefix,
-    suffix,
-    sex,
-    patientType,
-    bloodType,
-    DOB,
-    approximateAge,
-    occupation,
-    preferredLang,
-    phoneNums,
-    emails,
-    address
+    data
+    // patientName
+    // familyName,
+    // prefix,
+    // suffix,
+    // sex,
+    // patientType,
+    // bloodType,
+    // DOB,
+    // approximateAge,
+    // occupation,
+    // preferredLang,
+    // phoneNums,
+    // emails,
+    // address
   } = patientData;
+
+  // console.log(data);
 
   function makeid(length) {
     var result = "";
@@ -34,11 +37,10 @@ export default function PatientDetails() {
   function RegistrationDate() {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
 
     today = mm + "/" + dd + "/" + yyyy;
-    // console.log(today);
     return today;
   }
 
@@ -61,7 +63,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="address"
             name="address"
-            value={address}
+            // value={address}
             readOnly
           ></input>
           <br />
@@ -70,7 +72,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="contact-num"
             name="contact-num"
-            value={phoneNums}
+            // value={phoneNums}
             readOnly
           ></input>
         </div>
@@ -80,7 +82,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            value={patientName}
+            // defaultValue={patientName}
             readOnly
           ></input>
           <br />
@@ -100,7 +102,7 @@ export default function PatientDetails() {
                 className="patient-details-input"
                 id="gender"
                 name="gender"
-                value={sex}
+                // value={sex}
                 readOnly
               ></input>
             </div>
@@ -110,7 +112,7 @@ export default function PatientDetails() {
                 className="patient-details-input"
                 id="gender"
                 name="gender"
-                value={DOB ? DOB : approximateAge ? approximateAge : null}
+                // value={DOB ? DOB : approximateAge ? approximateAge : null}
                 readOnly
               ></input>
             </div>

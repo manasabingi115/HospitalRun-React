@@ -25,7 +25,15 @@ export default function AddressForm({ setInitialPatientData }) {
           placeholder="Address..."
           style={{ resize: "vertical" }}
           defaultValue={address}
-          // onChange={HandleAddress}
+          onChange={(e) =>
+            setInitialPatientData((prevState) => ({
+              ...prevState,
+              addressdata: {
+                ...prevState.addressdata,
+                address: e.target.value
+              }
+            }))
+          }
           required
         />
       </div>

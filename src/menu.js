@@ -34,9 +34,12 @@ export default function Menu() {
                     New Patient
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
-                  Patients List
-                </p>
+
+                <NavLink to="/patients/patients-list">
+                  <p id="patients-tab-child" className="child-tabs">
+                    Patients List
+                  </p>
+                </NavLink>
               </div>
             ) : null
           }
