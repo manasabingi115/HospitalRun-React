@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import PatientCode from "./new-patient/patient-code";
 
 export default function PatientDetails() {
   const patientData = useSelector((state) => state.patientData);
@@ -23,16 +24,16 @@ export default function PatientDetails() {
 
   // console.log(data);
 
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+  // function PatientCode(length) {
+  //   var result = "";
+  //   var characters =
+  //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  //   var charactersLength = characters.length;
+  //   for (var i = 0; i < length; i++) {
+  //     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  //   }
+  //   return result;
+  // }
 
   function RegistrationDate() {
     var today = new Date();
@@ -54,7 +55,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="patient-code"
             name="patient-code"
-            value={makeid(10)}
+            value={PatientCode(10)}
             readOnly
           ></input>
           <br />

@@ -1,5 +1,5 @@
 const initialState = {
-  data: [{ patientName: "manu" }, { patientName: "anu" }]
+  data: []
 };
 
 const patientReducer = (state = initialState, action) => {

@@ -3,10 +3,11 @@ import BasicInfo from "./basic-info";
 import ContactInfo from "./contact-info";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import {setPatientName} from "./src/actions";
+import PatientCode from "./patient-code";
 
 export default function NewPatient({ setPatientData }) {
   const [initialPatientData, setInitialPatientData] = React.useState({
+    PatientCode: PatientCode(10),
     patientName: "",
     familyName: "",
     suffix: "",
@@ -31,12 +32,21 @@ export default function NewPatient({ setPatientData }) {
       address: ""
     }
   });
+  // console.log(initialPatientData.PatientCode);
 
   const navigate = useNavigate();
   const patientData = useSelector((state) => state.patientData);
   const dispatch = useDispatch();
 
   // console.log(patientData);
+
+  // const handleSubmit =  React.useEffect((event) => {
+  //     event.preventDefault();
+  //     dispatch(setPatientData(initialPatientData));
+  //     navigate("/patients/patients-list");
+  //   }, []);
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setPatientData(initialPatientData));
