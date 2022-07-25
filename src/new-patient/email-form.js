@@ -32,7 +32,7 @@ export default function EmailForm({ setInitialPatientData }) {
               }
             }))
           }
-          required
+          // required
         />
       </div>
     </div>

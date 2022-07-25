@@ -34,7 +34,7 @@ export default function AddressForm({ setInitialPatientData }) {
               }
             }))
           }
-          required
+          // required
         />
       </div>
     </div>

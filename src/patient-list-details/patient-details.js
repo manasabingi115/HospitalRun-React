@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import PatientCode from "./new-patient/patient-code";
+import PatientCode from "../new-patient/patient-code";
 
-export default function PatientDetails() {
+export default function PatientDetails({ selectedPatient }) {
   const patientData = useSelector((state) => state.patientData);
 
   function RegistrationDate() {
@@ -24,7 +24,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="patient-code"
             name="patient-code"
-            value={PatientCode(10)}
+            value={selectedPatient?.PatientCode}
             readOnly
           ></input>
           <br />
@@ -52,7 +52,7 @@ export default function PatientDetails() {
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            // defaultValue={patientName}
+            defaultValue={selectedPatient?.patientName}
             readOnly
           ></input>
           <br />

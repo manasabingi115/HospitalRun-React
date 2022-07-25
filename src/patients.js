@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { setData } from "./actions";
 
 export default function Patients() {
-  const patientData = useSelector((state) => state.patientData);
+  // const patientData = useSelector((state) => state.patientData);
   // const dispatch = useDispatch();
-  const { data } = patientData;
+  // const { data } = patientData;
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="main-div">

@@ -32,7 +32,7 @@ export default function PhoneNumForm({ setInitialPatientData }) {
               }
             }))
           }
-          required
+          // required
         />
       </div>
     </div>

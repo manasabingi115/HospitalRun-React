@@ -2,8 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 // import SelectOption from "./select-option";
 import { FaStarOfLife } from "react-icons/fa";
+// import selectedPatient from "../patient-list-details/patients-list";
 
-export default function BasicInfo({ setInitialPatientData }) {
+export default function BasicInfo({
+  setInitialPatientData,
+  selectedPatient,
+  patientDetailsPage
+}) {
   const patientData = useSelector((state) => state.patientData);
   const [checked, setChecked] = React.useState(false);
   const {
@@ -24,6 +29,8 @@ export default function BasicInfo({ setInitialPatientData }) {
     setChecked(!checked);
   }
 
+  // console.log(selectedPatient);
+
   return (
     <div className="NPDiv1 NPDiv">
       <p className="NPDiv-p">Basic Information</p>
@@ -34,6 +41,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Prefix"
+            // defaultValue={selectedPatient ? selectedPatient.prefix : prefix}
             defaultValue={prefix}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -52,6 +60,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Given Name"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.patientName : patientName
+            // }
             defaultValue={patientName}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -68,6 +79,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Family Name"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.familyName : familyName
+            // }
             defaultValue={familyName}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -83,6 +97,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Suffix"
+            // defaultValue={selectedPatient ? selectedPatient.suffix : suffix}
             defaultValue={suffix}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -100,6 +115,7 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Sex"
+            // defaultValue={selectedPatient ? selectedPatient.sex : sex}
             defaultValue={sex}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -115,6 +131,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Patient Type"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.patientType : patientType
+            // }
             defaultValue={patientType}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -130,6 +149,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Blood Type"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.bloodType : bloodType
+            // }
             defaultValue={bloodType}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -149,6 +171,11 @@ export default function BasicInfo({ setInitialPatientData }) {
                 className="input is-primary"
                 placeholder="Approximate Age"
                 type="number"
+                // defaultValue={
+                //   selectedPatient
+                //     ? selectedPatient.approximateAge
+                //     : approximateAge
+                // }
                 defaultValue={approximateAge}
                 onChange={(e) =>
                   setInitialPatientData((prevState) => ({
@@ -165,6 +192,7 @@ export default function BasicInfo({ setInitialPatientData }) {
               <input
                 className="input is-primary"
                 type="date"
+                // defaultValue={selectedPatient ? selectedPatient.DOB : DOB}
                 defaultValue={DOB}
                 onChange={(e) =>
                   setInitialPatientData((prevState) => ({
@@ -192,6 +220,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Occupation"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.occupation : occupation
+            // }
             defaultValue={occupation}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({
@@ -207,6 +238,9 @@ export default function BasicInfo({ setInitialPatientData }) {
             className="input is-primary"
             type="text"
             placeholder="Preferred Language"
+            // defaultValue={
+            //   selectedPatient ? selectedPatient.preferredLang : preferredLang
+            // }
             defaultValue={preferredLang}
             onChange={(e) =>
               setInitialPatientData((prevState) => ({

@@ -2,10 +2,15 @@ import React from "react";
 import BasicInfo from "./basic-info";
 import ContactInfo from "./contact-info";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import PatientCode from "./patient-code";
 
-export default function NewPatient({ setPatientData }) {
+export default function NewPatient({
+  setPatientData,
+  selectedPatient,
+  setPatientDetailsPage,
+  patientDetailsPage
+}) {
   const [initialPatientData, setInitialPatientData] = React.useState({
     PatientCode: PatientCode(10),
     patientName: "",
@@ -35,7 +40,7 @@ export default function NewPatient({ setPatientData }) {
   // console.log(initialPatientData.PatientCode);
 
   const navigate = useNavigate();
-  const patientData = useSelector((state) => state.patientData);
+  // const patientData = useSelector((state) => state.patientData);
   const dispatch = useDispatch();
 
   // console.log(patientData);
@@ -47,6 +52,12 @@ export default function NewPatient({ setPatientData }) {
   //   }, []);
   // };
 
+  // let index = 0;
+
+  // React.useEffect(() => {
+  //   setPatientDetailsPage(false);
+  // }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setPatientData(initialPatientData));
@@ -57,8 +68,15 @@ export default function NewPatient({ setPatientData }) {
     <div className="main-div">
       <h2>New Patient</h2>
       <form onSubmit={handleSubmit}>
-        <BasicInfo setInitialPatientData={setInitialPatientData} />
-        <ContactInfo setInitialPatientData={setInitialPatientData} />
+        <BasicInfo
+          setInitialPatientData={setInitialPatientData}
+          selectedPatient={selectedPatient}
+          patientDetailsPage={patientDetailsPage}
+        />
+        <ContactInfo
+          setInitialPatientData={setInitialPatientData}
+          selectedPatient={selectedPatient}
+        />
         <button type="submit" className="button is-black">
           Create Patient
         </button>

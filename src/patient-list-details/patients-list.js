@@ -1,16 +1,25 @@
+import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-export default function PatientsList() {
+export default function PatientsList({
+  setSelectedPatient,
+  setPatientDetailsPage
+}) {
   const patientData = useSelector((state) => state.patientData);
+  // const [selectedPatient, setSelectedPatient] = React.useState();
 
   const { data } = patientData;
-  console.log(data);
+  // console.log(data);
+
+  function FindIndex(obj, e) {
+    // console.log(data[e].PatientCode);
+    setPatientDetailsPage(true);
+    setSelectedPatient(obj);
+  }
 
   return (
     <div className="main-div">
-      {/* {data.map((obj, index) => (
-        <td key={index}>{obj?.patientName}</td>
-      ))} */}
       <table>
         <thead>
           <tr>
@@ -31,8 +40,12 @@ export default function PatientsList() {
               <td>{obj?.familyName}</td>
               <td>{obj?.sex}</td>
               <td>{obj?.DOB}</td>
+
               <td>
-                <button>View</button>
+                <Link to="/patients/patient-details">
+                  <button onClick={() => FindIndex(obj, index)}>View</button>
+                </Link>
+                {/* <button onClick={() => FindIndex(obj, index)}>View</button> */}
               </td>
             </tr>
           ))}
