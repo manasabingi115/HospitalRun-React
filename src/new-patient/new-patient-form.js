@@ -7,9 +7,9 @@ import PatientCode from "./patient-code";
 
 export default function NewPatient({
   setPatientData,
-  selectedPatient,
-  setPatientDetailsPage,
-  patientDetailsPage
+  selectedPatient
+  // setPatientDetailsPage,
+  // patientDetailsPage
 }) {
   const [initialPatientData, setInitialPatientData] = React.useState({
     PatientCode: PatientCode(10),
@@ -37,31 +37,19 @@ export default function NewPatient({
       address: ""
     }
   });
+
+  const [submitted, setSubmitted] = React.useState(false);
   // console.log(initialPatientData.PatientCode);
 
   const navigate = useNavigate();
   // const patientData = useSelector((state) => state.patientData);
   const dispatch = useDispatch();
 
-  // console.log(patientData);
-
-  // const handleSubmit =  React.useEffect((event) => {
-  //     event.preventDefault();
-  //     dispatch(setPatientData(initialPatientData));
-  //     navigate("/patients/patients-list");
-  //   }, []);
-  // };
-
-  // let index = 0;
-
-  // React.useEffect(() => {
-  //   setPatientDetailsPage(false);
-  // }, []);
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSubmitted(true);
     dispatch(setPatientData(initialPatientData));
-    navigate("/patients/patients-list");
+    submitted && navigate("/patients/patients-list");
   };
 
   return (
@@ -71,7 +59,8 @@ export default function NewPatient({
         <BasicInfo
           setInitialPatientData={setInitialPatientData}
           selectedPatient={selectedPatient}
-          patientDetailsPage={patientDetailsPage}
+          submitted={submitted}
+          // patientDetailsPage={patientDetailsPage}
         />
         <ContactInfo
           setInitialPatientData={setInitialPatientData}

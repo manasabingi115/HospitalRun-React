@@ -17,7 +17,7 @@ import PatientsList from "./patient-list-details/patients-list";
 
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
-  const [patientDetailsPage, setPatientDetailsPage] = React.useState(false);
+  // const [patientDetailsPage, setPatientDetailsPage] = React.useState(false);
   // console.log(patientDetailsPage);
 
   return (
@@ -36,8 +36,8 @@ export default function App() {
                 <NewPatient
                   setPatientData={setPatientData}
                   selectedPatient={selectedPatient}
-                  setPatientDetailsPage={setPatientDetailsPage}
-                  patientDetailsPage={patientDetailsPage}
+                  // setPatientDetailsPage={setPatientDetailsPage}
+                  // patientDetailsPage={patientDetailsPage}
                 />
               }
             />
@@ -47,8 +47,8 @@ export default function App() {
               element={
                 <PatientsList
                   setSelectedPatient={setSelectedPatient}
-                  setPatientDetailsPage={setPatientDetailsPage}
-                  patientDetailsPage={patientDetailsPage}
+                  // setPatientDetailsPage={setPatientDetailsPage}
+                  // patientDetailsPage={patientDetailsPage}
                 />
               }
             />

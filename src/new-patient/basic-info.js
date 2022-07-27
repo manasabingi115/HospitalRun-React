@@ -6,6 +6,7 @@ import { FaStarOfLife } from "react-icons/fa";
 
 export default function BasicInfo({
   setInitialPatientData,
+  submitted,
   selectedPatient,
   patientDetailsPage
 }) {
@@ -28,8 +29,6 @@ export default function BasicInfo({
   function handleChange() {
     setChecked(!checked);
   }
-
-  // console.log(selectedPatient);
 
   return (
     <div className="NPDiv1 NPDiv">
@@ -70,8 +69,13 @@ export default function BasicInfo({
                 patientName: e.target.value
               }))
             }
-            required
+            // required
           />
+          {submitted && !patientData.patientName ? (
+            <p style={{ color: "red", marginTop: "-10x" }}>
+              please enter name.
+            </p>
+          ) : null}
         </div>
         <div className="NPRow3-child inputs">
           <p>Family Name</p>

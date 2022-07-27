@@ -8,8 +8,6 @@ export default function Patients() {
   // const dispatch = useDispatch();
   // const { data } = patientData;
 
-  // console.log(data);
-
   return (
     <div className="main-div">
       <h2>Patients</h2>
