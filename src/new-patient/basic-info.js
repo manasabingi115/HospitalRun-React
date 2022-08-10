@@ -69,13 +69,13 @@ export default function BasicInfo({
                 patientName: e.target.value
               }))
             }
-            // required
+            required
           />
-          {submitted && !patientData.patientName ? (
+          {/* {submitted && !patientData.patientName ? (
             <p style={{ color: "red", marginTop: "-10x" }}>
               please enter name.
             </p>
-          ) : null}
+          ) : null} */}
         </div>
         <div className="NPRow3-child inputs">
           <p>Family Name</p>

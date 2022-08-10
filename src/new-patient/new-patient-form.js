@@ -50,6 +50,7 @@ export default function NewPatient({
     setSubmitted(true);
     dispatch(setPatientData(initialPatientData));
     submitted && navigate("/patients/patients-list");
+    console.log("form submitted.");
   };
 
   return (
