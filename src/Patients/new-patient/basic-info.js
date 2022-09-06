@@ -6,7 +6,7 @@ import { FaStarOfLife } from "react-icons/fa";
 
 export default function BasicInfo({
   setInitialPatientData,
-  submitted,
+  // submitted,
   selectedPatient,
   patientDetailsPage
 }) {

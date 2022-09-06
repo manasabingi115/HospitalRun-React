@@ -19,6 +19,7 @@ export default function PatientsList({
 
   return (
     <div className="main-div">
+      <h2>Patient List</h2>
       <table>
         <thead>
           <tr>

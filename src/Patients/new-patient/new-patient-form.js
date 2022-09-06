@@ -38,7 +38,7 @@ export default function NewPatient({
     }
   });
 
-  const [submitted, setSubmitted] = React.useState(false);
+  // const [submitted, setSubmitted] = React.useState(false);
   // console.log(initialPatientData.PatientCode);
 
   const navigate = useNavigate();
@@ -47,9 +47,10 @@ export default function NewPatient({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    // setSubmitted(true);
     dispatch(setPatientData(initialPatientData));
-    submitted && navigate("/patients/patients-list");
+    // submitted &&
+    navigate("/patients/patients-list");
     console.log("form submitted.");
   };
 
@@ -60,7 +61,7 @@ export default function NewPatient({
         <BasicInfo
           setInitialPatientData={setInitialPatientData}
           selectedPatient={selectedPatient}
-          submitted={submitted}
+          // submitted={submitted}
           // patientDetailsPage={patientDetailsPage}
         />
         <ContactInfo

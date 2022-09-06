@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import patientReducer from "./patientReducer";
+import patientReducer from "./Reducers/patientReducer";
 
 const initialState = {};
 

@@ -3,17 +3,17 @@ import Header from "./header";
 import Menu from "./menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import Patients from "./patients";
-import NewPatient from "./new-patient/new-patient-form";
-import PatientDetails from "./patient-list-details/patient-details";
-import Scheduling from "./scheduling";
-import Medications from "./medications";
-import Labs from "./labs";
+import Patients from "./Patients/patients";
+import NewPatient from "./Patients/new-patient/new-patient-form";
+import PatientDetails from "./Patients/patient-list-details/patient-details";
+import Scheduling from "./Scheduling/scheduling";
+import Medications from "./Medications/medications";
+import Labs from "./Labs/labs";
 import React from "react";
-import Imagings from "./imagings";
-import Incidents from "./incidents";
+import Imagings from "./Imagings/imagings";
+import Incidents from "./Incidents/incidents";
 import { setPatientData } from "./actions";
-import PatientsList from "./patient-list-details/patients-list";
+import PatientsList from "./Patients/patient-list-details/patients-list";
 
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
