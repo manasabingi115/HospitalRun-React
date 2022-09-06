@@ -176,3 +176,13 @@ td {
 tr:hover {
   background-color: #d6eeee;
 }
+
+/* medications */
+
+.inputs-in-medications {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: gray;
+}
