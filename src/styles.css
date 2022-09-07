@@ -179,10 +179,27 @@ tr:hover {
 
 /* medications */
 
-.inputs-in-medications {
+.inputs-in-medications,
+.child-input-in-medications,
+.textarea-in-medications {
   width: 100%;
   padding: 5px;
   border: 1px solid lightgray;
   border-radius: 5px;
   color: gray;
+  margin: 8px 0px 20px 0px;
+}
+.child-div-in-medications {
+  flex: 1;
+}
+.parent-to-child-inputs-in-medications {
+  display: flex;
+}
+.textarea-in-medications {
+  resize: vertical;
+}
+.options-in-medication {
+  /* padding: 10px; */
+  color: red;
+  line-height: 10;
 }
