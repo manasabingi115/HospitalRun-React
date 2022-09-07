@@ -198,8 +198,17 @@ tr:hover {
 .textarea-in-medications {
   resize: vertical;
 }
-.options-in-medication {
-  /* padding: 10px; */
+/* .options-in-medication {
+  
   color: red;
   line-height: 10;
-}
+} */
+
+/* select {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ddd;
+  line-height: 30px;
+  position: relative;
+  margin-bottom: 40px;
+} */
