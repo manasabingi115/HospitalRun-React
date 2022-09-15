@@ -59,11 +59,11 @@ export default function Menu() {
             isActive ? (
               <div className="parent-child-tabs">
                 <NavLink to="/scheduling/new-appointment">
-                  <p id="patients-tab-child" className="child-tabs">
+                  <p id="schedule-tab-child" className="child-tabs">
                     New Appointment
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="schedule-tab-child" className="child-tabs">
                   Appointment Schedule
                 </p>
               </div>
@@ -85,12 +85,12 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/medications">
-                  <p id="patients-tab-child" className="child-tabs">
+                <NavLink to="/medications/request-medication">
+                  <p id="medication-tab-child" className="child-tabs">
                     Request Medication
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="medication-tab-child" className="child-tabs">
                   Medication Requests
                 </p>
               </div>
@@ -113,11 +113,11 @@ export default function Menu() {
             isActive ? (
               <div className="parent-child-tabs">
                 <NavLink to="/labs">
-                  <p id="patients-tab-child" className="child-tabs">
+                  <p id="lab-tab-child" className="child-tabs">
                     Request Lab
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="lab-tab-child" className="child-tabs">
                   Lab Requests
                 </p>
               </div>
@@ -140,11 +140,11 @@ export default function Menu() {
             isActive ? (
               <div className="parent-child-tabs">
                 <NavLink to="/imagings">
-                  <p id="patients-tab-child" className="child-tabs">
+                  <p id="imaging-tab-child" className="child-tabs">
                     New Imaging Request
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="imaging-tab-child" className="child-tabs">
                   Imaging Requests
                 </p>
               </div>
@@ -167,14 +167,14 @@ export default function Menu() {
             isActive ? (
               <div className="parent-child-tabs">
                 <NavLink to="/incidents">
-                  <p id="patients-tab-child" className="child-tabs">
+                  <p id="incident-tab-child" className="child-tabs">
                     Report Incident
                   </p>
                 </NavLink>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="incident-tab-child" className="child-tabs">
                   Reported Incidents
                 </p>
-                <p id="patients-tab-child" className="child-tabs">
+                <p id="incident-tab-child" className="child-tabs">
                   Visualize
                 </p>
               </div>

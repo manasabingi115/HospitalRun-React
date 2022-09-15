@@ -1,11 +1,15 @@
 import React from "react";
-import RequestMedication from "./request-medication";
+import { Link } from "react-router-dom";
 
 export default function Medications() {
   return (
     <div className="main-div">
       <h2>Medications</h2>
-      <RequestMedication />
+      <Link to="/medications/request-medication">
+        <button className="button is-primary is-outlined">
+          Request Medication
+        </button>
+      </Link>
     </div>
   );
 }

@@ -8,6 +8,8 @@ import NewPatient from "./Patients/new-patient/new-patient-form";
 import PatientDetails from "./Patients/patient-list-details/patient-details";
 import Scheduling from "./Scheduling/scheduling";
 import Medications from "./Medications/medications";
+import RequestMedication from "./Medications/request-medication";
+
 import Labs from "./Labs/labs";
 import React from "react";
 import Imagings from "./Imagings/imagings";
@@ -59,6 +61,11 @@ export default function App() {
             />
             <Route path="/scheduling" exact element={<Scheduling />} />
             <Route path="/medications" exact element={<Medications />} />
+            <Route
+              path="/medications/request-medication"
+              exact
+              element={<RequestMedication />}
+            />
             <Route path="/labs" exact element={<Labs />} />
             <Route path="/imagings" exact element={<Imagings />} />
             <Route path="/incidents" exact element={<Incidents />} />

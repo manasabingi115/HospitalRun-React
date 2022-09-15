@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function RequestMedication() {
   return (
@@ -64,6 +65,12 @@ export default function RequestMedication() {
         </div>
         <p>Notes</p>
         <textarea className="textarea-in-medications"></textarea>
+        <button type="submit" className="button is-black">
+          Request Medication
+        </button>
+        <Link to="/medications">
+          <button className="button is-danger">Cancel</button>
+        </Link>
       </form>
     </div>
   );
