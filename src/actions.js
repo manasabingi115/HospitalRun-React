@@ -4,3 +4,10 @@ export const setPatientData = (data, index) => {
     payload: data
   };
 };
+
+export const setReducerData = (data, index) => {
+  return {
+    type: "SET_MEDICATION_DATA",
+    payload: data
+  };
+};

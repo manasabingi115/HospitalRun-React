@@ -1,29 +1,89 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setReducerData } from "../actions";
+import { useNavigate } from "react-router-dom";
 
 export default function RequestMedication() {
+  const [initialMedicationsData, setInitialMedicationsData] = React.useState({
+    patient: "",
+    medication: "",
+    status: "",
+    intent: "",
+    priority: "",
+    qvalue: "",
+    qunit: "",
+    notes: ""
+  });
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setReducerData(initialMedicationsData));
+    navigate("/medications/request-medication");
+    console.log("form submitted.");
+    setInitialMedicationsData({ [event.target.name]: "" });
+  };
+
+  console.log(initialMedicationsData);
+
   return (
     <div className="main-div">
       <h2>Request Medication</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>Patient</p>
-        <input className="inputs-in-medications" placeholder="Patient"></input>
+        <input
+          className="inputs-in-medications"
+          placeholder="Patient"
+          name="patient"
+          value={initialMedicationsData.patient}
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              patient: e.target.value
+            }))
+          }
+        ></input>
 
         <p>Medication</p>
         <input
           className="inputs-in-medications"
           placeholder="Medication"
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              medication: e.target.value
+            }))
+          }
         ></input>
 
         <p>Status</p>
-        <select className="inputs-in-medications">
+        <select
+          className="inputs-in-medications"
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              status: e.target.value
+            }))
+          }
+        >
           <option className="options-in-medication">---Choose---</option>
           <option className="options-in-medication">Draft</option>
           <option className="options-in-medication">Active</option>
         </select>
 
         <p>Intent</p>
-        <select className="inputs-in-medications">
+        <select
+          className="inputs-in-medications"
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              intent: e.target.value
+            }))
+          }
+        >
           <option className="options-in-medication">Proposal</option>
           <option className="options-in-medication">Plan</option>
           <option className="options-in-medication" selected>
@@ -37,7 +97,15 @@ export default function RequestMedication() {
         </select>
 
         <p>Priority</p>
-        <select className="inputs-in-medications">
+        <select
+          className="inputs-in-medications"
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              priority: e.target.value
+            }))
+          }
+        >
           <option className="options-in-medication">---Choose---</option>
           <option className="options-in-medication">Routine</option>
           <option className="options-in-medication">Urgent</option>
@@ -53,6 +121,12 @@ export default function RequestMedication() {
             <input
               className="child-input-in-medications"
               placeholder="Quantity | Value"
+              onChange={(e) =>
+                setInitialMedicationsData((prevState) => ({
+                  ...prevState,
+                  qvalue: e.target.value
+                }))
+              }
             ></input>
           </div>
           <div className="child-div-in-medications">
@@ -60,17 +134,26 @@ export default function RequestMedication() {
             <input
               className="child-input-in-medications"
               placeholder="Quantity | Unit"
+              onChange={(e) =>
+                setInitialMedicationsData((prevState) => ({
+                  ...prevState,
+                  qunit: e.target.value
+                }))
+              }
             ></input>
           </div>
         </div>
         <p>Notes</p>
-        <textarea className="textarea-in-medications"></textarea>
-        <button type="submit" className="button is-black">
-          Request Medication
-        </button>
-        <Link to="/medications">
-          <button className="button is-danger">Cancel</button>
-        </Link>
+        <textarea
+          className="textarea-in-medications"
+          onChange={(e) =>
+            setInitialMedicationsData((prevState) => ({
+              ...prevState,
+              notes: e.target.value
+            }))
+          }
+        ></textarea>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
