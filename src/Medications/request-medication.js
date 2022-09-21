@@ -4,7 +4,7 @@ import { setReducerData } from "../actions";
 import { useNavigate } from "react-router-dom";
 
 export default function RequestMedication() {
-  const [initialMedicationsData, setInitialMedicationsData] = React.useState({
+  const initialMedicationsData = {
     patient: "",
     medication: "",
     status: "",
@@ -13,7 +13,10 @@ export default function RequestMedication() {
     qvalue: "",
     qunit: "",
     notes: ""
-  });
+  };
+  const [medicationsData, setMedicationsData] = React.useState(
+    initialMedicationsData
+  );
 
   const navigate = useNavigate();
 
@@ -24,10 +27,10 @@ export default function RequestMedication() {
     dispatch(setReducerData(initialMedicationsData));
     navigate("/medications/request-medication");
     console.log("form submitted.");
-    setInitialMedicationsData(initialMedicationsData);
+    setMedicationsData(initialMedicationsData);
   };
 
-  console.log(initialMedicationsData);
+  console.log(medicationsData);
 
   return (
     <div className="main-div">
@@ -38,9 +41,9 @@ export default function RequestMedication() {
           className="input is-primary inputs-in-medications"
           placeholder="Patient"
           name="patient"
-          value={initialMedicationsData.patient}
+          value={medicationsData.patient}
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               patient: e.target.value
             }))
@@ -52,7 +55,7 @@ export default function RequestMedication() {
           className="input is-primary inputs-in-medications"
           placeholder="Medication"
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               medication: e.target.value
             }))
@@ -62,9 +65,9 @@ export default function RequestMedication() {
         <label>Status</label>
         <select
           className="input is-primary inputs-in-medications"
-          value={initialMedicationsData.status}
+          value={medicationsData.status}
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               status: e.target.value
             }))
@@ -78,9 +81,9 @@ export default function RequestMedication() {
         <label>Intent</label>
         <select
           className="input is-primary inputs-in-medications"
-          value={initialMedicationsData.intent}
+          value={medicationsData.intent}
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               intent: e.target.value
             }))
@@ -99,9 +102,9 @@ export default function RequestMedication() {
         <label>Priority</label>
         <select
           className="input is-primary inputs-in-medications"
-          value={initialMedicationsData.priority}
+          value={medicationsData.priority}
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               priority: e.target.value
             }))
@@ -123,7 +126,7 @@ export default function RequestMedication() {
               className="input is-primary child-input-in-medications"
               placeholder="Quantity | Value"
               onChange={(e) =>
-                setInitialMedicationsData((prevState) => ({
+                setMedicationsData((prevState) => ({
                   ...prevState,
                   qvalue: e.target.value
                 }))
@@ -136,7 +139,7 @@ export default function RequestMedication() {
               className="input is-primary child-input-in-medications"
               placeholder="Quantity | Unit"
               onChange={(e) =>
-                setInitialMedicationsData((prevState) => ({
+                setMedicationsData((prevState) => ({
                   ...prevState,
                   qunit: e.target.value
                 }))
@@ -148,7 +151,7 @@ export default function RequestMedication() {
         <textarea
           className="input is-primary textarea-in-medications"
           onChange={(e) =>
-            setInitialMedicationsData((prevState) => ({
+            setMedicationsData((prevState) => ({
               ...prevState,
               notes: e.target.value
             }))
