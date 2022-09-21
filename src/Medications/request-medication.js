@@ -8,7 +8,7 @@ export default function RequestMedication() {
     patient: "",
     medication: "",
     status: "",
-    intent: "",
+    intent: "Order",
     priority: "",
     qvalue: "",
     qunit: "",
@@ -33,7 +33,7 @@ export default function RequestMedication() {
     <div className="main-div">
       <h2>Request Medication</h2>
       <form onSubmit={handleSubmit}>
-        <p>Patient</p>
+        <label>Patient</label>
         <input
           className="inputs-in-medications"
           placeholder="Patient"
@@ -47,7 +47,7 @@ export default function RequestMedication() {
           }
         ></input>
 
-        <p>Medication</p>
+        <label>Medication</label>
         <input
           className="inputs-in-medications"
           placeholder="Medication"
@@ -59,9 +59,10 @@ export default function RequestMedication() {
           }
         ></input>
 
-        <p>Status</p>
+        <label>Status</label>
         <select
           className="inputs-in-medications"
+          value={initialMedicationsData.status}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
               ...prevState,
@@ -74,9 +75,10 @@ export default function RequestMedication() {
           <option className="options-in-medication">Active</option>
         </select>
 
-        <p>Intent</p>
+        <label>Intent</label>
         <select
           className="inputs-in-medications"
+          value={initialMedicationsData.intent}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
               ...prevState,
@@ -86,9 +88,7 @@ export default function RequestMedication() {
         >
           <option className="options-in-medication">Proposal</option>
           <option className="options-in-medication">Plan</option>
-          <option className="options-in-medication" selected>
-            Order
-          </option>
+          <option className="options-in-medication">Order</option>
           <option className="options-in-medication">Original Order</option>
           <option className="options-in-medication">Reflex Order</option>
           <option className="options-in-medication">Filler Order</option>
@@ -96,9 +96,10 @@ export default function RequestMedication() {
           <option className="options-in-medication">Option</option>
         </select>
 
-        <p>Priority</p>
+        <label>Priority</label>
         <select
           className="inputs-in-medications"
+          value={initialMedicationsData.priority}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
               ...prevState,
@@ -117,7 +118,7 @@ export default function RequestMedication() {
             className="child-div-in-medications"
             style={{ paddingRight: "30px" }}
           >
-            <p>Quantity | Value</p>
+            <label>Quantity | Value</label>
             <input
               className="child-input-in-medications"
               placeholder="Quantity | Value"
@@ -130,7 +131,7 @@ export default function RequestMedication() {
             ></input>
           </div>
           <div className="child-div-in-medications">
-            <p>Quantity | Unit</p>
+            <label>Quantity | Unit</label>
             <input
               className="child-input-in-medications"
               placeholder="Quantity | Unit"
@@ -143,7 +144,7 @@ export default function RequestMedication() {
             ></input>
           </div>
         </div>
-        <p>Notes</p>
+        <label>Notes</label>
         <textarea
           className="textarea-in-medications"
           onChange={(e) =>

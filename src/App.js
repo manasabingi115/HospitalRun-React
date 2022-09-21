@@ -12,6 +12,7 @@ import PatientDetails from "./Patients/patient-list-details/patient-details";
 import PatientsList from "./Patients/patient-list-details/patients-list";
 
 import Scheduling from "./Scheduling/scheduling";
+import AppointmentSchedule from "./Scheduling/Appointment-schedule";
 
 import Medications from "./Medications/medications";
 import RequestMedication from "./Medications/request-medication";
@@ -76,6 +77,11 @@ export default function App() {
             />
 
             <Route path="/scheduling" exact element={<Scheduling />} />
+            <Route
+              path="/scheduling/appointment-schedule"
+              exact
+              element={<AppointmentSchedule />}
+            />
 
             <Route path="/medications" exact element={<Medications />} />
             <Route

@@ -58,14 +58,15 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/scheduling/new-appointment">
+                {/* <p id="schedule-tab-child" className="child-tabs">
+                  New Appointment
+                </p>
+                 */}
+                <NavLink to="/scheduling/appointment-schedule">
                   <p id="schedule-tab-child" className="child-tabs">
-                    New Appointment
+                    Appointment Schedule
                   </p>
                 </NavLink>
-                <p id="schedule-tab-child" className="child-tabs">
-                  Appointment Schedule
-                </p>
               </div>
             ) : null
           }
@@ -90,9 +91,12 @@ export default function Menu() {
                     Request Medication
                   </p>
                 </NavLink>
-                <p id="medication-tab-child" className="child-tabs">
-                  Medication Requests
-                </p>
+
+                <NavLink to="/medications/medication-requests">
+                  <p id="medication-tab-child" className="child-tabs">
+                    Medication Requests
+                  </p>
+                </NavLink>
               </div>
             ) : null
           }
@@ -112,14 +116,17 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/labs">
+                <NavLink to="/labs/request-lab">
                   <p id="lab-tab-child" className="child-tabs">
                     Request Lab
                   </p>
                 </NavLink>
-                <p id="lab-tab-child" className="child-tabs">
-                  Lab Requests
-                </p>
+
+                <NavLink to="/labs/lab-requests">
+                  <p id="lab-tab-child" className="child-tabs">
+                    Lab Requests
+                  </p>
+                </NavLink>
               </div>
             ) : null
           }
@@ -139,14 +146,17 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/imagings">
+                <NavLink to="/imagings/new-imaging-request">
                   <p id="imaging-tab-child" className="child-tabs">
                     New Imaging Request
                   </p>
                 </NavLink>
-                <p id="imaging-tab-child" className="child-tabs">
-                  Imaging Requests
-                </p>
+
+                <NavLink to="/imagings/imaging-requests">
+                  <p id="imaging-tab-child" className="child-tabs">
+                    Imaging Requests
+                  </p>
+                </NavLink>
               </div>
             ) : null
           }
@@ -166,17 +176,23 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/incidents">
+                <NavLink to="/incidents/report-incident">
                   <p id="incident-tab-child" className="child-tabs">
                     Report Incident
                   </p>
                 </NavLink>
-                <p id="incident-tab-child" className="child-tabs">
-                  Reported Incidents
-                </p>
-                <p id="incident-tab-child" className="child-tabs">
-                  Visualize
-                </p>
+
+                <NavLink to="/incidents/reported-incidents">
+                  <p id="incident-tab-child" className="child-tabs">
+                    Reported Incidents
+                  </p>
+                </NavLink>
+
+                {/* <NavLink to="/incidents">
+                  <p id="incident-tab-child" className="child-tabs">
+                    Visualize
+                  </p>
+                </NavLink> */}
               </div>
             ) : null
           }
