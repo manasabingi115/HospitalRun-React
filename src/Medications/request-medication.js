@@ -24,7 +24,7 @@ export default function RequestMedication() {
     dispatch(setReducerData(initialMedicationsData));
     navigate("/medications/request-medication");
     console.log("form submitted.");
-    setInitialMedicationsData({ [event.target.name]: "" });
+    setInitialMedicationsData(initialMedicationsData);
   };
 
   console.log(initialMedicationsData);
@@ -35,7 +35,7 @@ export default function RequestMedication() {
       <form onSubmit={handleSubmit}>
         <label>Patient</label>
         <input
-          className="inputs-in-medications"
+          className="input is-primary inputs-in-medications"
           placeholder="Patient"
           name="patient"
           value={initialMedicationsData.patient}
@@ -49,7 +49,7 @@ export default function RequestMedication() {
 
         <label>Medication</label>
         <input
-          className="inputs-in-medications"
+          className="input is-primary inputs-in-medications"
           placeholder="Medication"
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
@@ -61,7 +61,7 @@ export default function RequestMedication() {
 
         <label>Status</label>
         <select
-          className="inputs-in-medications"
+          className="input is-primary inputs-in-medications"
           value={initialMedicationsData.status}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
@@ -77,7 +77,7 @@ export default function RequestMedication() {
 
         <label>Intent</label>
         <select
-          className="inputs-in-medications"
+          className="input is-primary inputs-in-medications"
           value={initialMedicationsData.intent}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
@@ -98,7 +98,7 @@ export default function RequestMedication() {
 
         <label>Priority</label>
         <select
-          className="inputs-in-medications"
+          className="input is-primary inputs-in-medications"
           value={initialMedicationsData.priority}
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
@@ -120,7 +120,7 @@ export default function RequestMedication() {
           >
             <label>Quantity | Value</label>
             <input
-              className="child-input-in-medications"
+              className="input is-primary child-input-in-medications"
               placeholder="Quantity | Value"
               onChange={(e) =>
                 setInitialMedicationsData((prevState) => ({
@@ -133,7 +133,7 @@ export default function RequestMedication() {
           <div className="child-div-in-medications">
             <label>Quantity | Unit</label>
             <input
-              className="child-input-in-medications"
+              className="input is-primary child-input-in-medications"
               placeholder="Quantity | Unit"
               onChange={(e) =>
                 setInitialMedicationsData((prevState) => ({
@@ -146,7 +146,7 @@ export default function RequestMedication() {
         </div>
         <label>Notes</label>
         <textarea
-          className="textarea-in-medications"
+          className="input is-primary textarea-in-medications"
           onChange={(e) =>
             setInitialMedicationsData((prevState) => ({
               ...prevState,

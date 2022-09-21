@@ -177,7 +177,7 @@ tr:hover {
   background-color: #d6eeee;
 }
 
-/* medications, labs, imagings */
+/* medications, labs, imagings, incidents */
 
 .inputs-in-medications,
 .child-input-in-medications,
@@ -187,7 +187,8 @@ tr:hover {
 .child-input-in-labs,
 .child-input-in-imagings,
 .inputs-in-imagings,
-.textarea-in-imagings {
+.textarea-in-imagings,
+.textarea-in-incidents {
   width: 100%;
   padding: 5px;
   border: 1px solid lightgray;
@@ -195,24 +196,30 @@ tr:hover {
   color: gray;
   margin: 8px 0px 20px 0px;
 }
+
 .child-div-in-medications,
 .child-div-in-labs,
-.child-div-in-imagings {
+.child-div-in-imagings,
+.child-div-in-incidents {
   flex: 1;
 }
+
 .parent-to-child-inputs-in-medications,
 .parent-to-child-inputs-in-labs,
-.parent-to-child-inputs-in-imagings {
+.parent-to-child-inputs-in-imagings,
+.parent-to-child-inputs-in-incidents {
   display: flex;
 }
+
 .textarea-in-medications,
 .textarea-in-labs,
-.textarea-in-imagings {
+.textarea-in-imagings,
+.textarea-in-incidents {
   resize: vertical;
 }
 
 /* .options-in-medication {
-  
+
   color: red;
   line-height: 10;
 } */
