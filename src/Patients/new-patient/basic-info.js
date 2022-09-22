@@ -13,19 +13,19 @@ export default function BasicInfo({
 }) {
   const patientDataFromStore = useSelector((state) => state.patientData);
   const [checked, setChecked] = React.useState(false);
-  const {
-    patientName,
-    familyName,
-    prefix,
-    suffix,
-    sex,
-    patientType,
-    bloodType,
-    DOB,
-    approximateAge,
-    occupation,
-    preferredLang
-  } = patientDataFromStore;
+  // const {
+  //   patientName,
+  //   familyName,
+  //   prefix,
+  //   suffix,
+  //   sex,
+  //   patientType,
+  //   bloodType,
+  //   DOB,
+  //   approximateAge,
+  //   occupation,
+  //   preferredLang
+  // } = patientDataFromStore;
 
   function handleChange() {
     setChecked(!checked);
@@ -42,7 +42,7 @@ export default function BasicInfo({
             type="text"
             placeholder="Prefix"
             // defaultValue={selectedPatient ? selectedPatient.prefix : prefix}
-            defaultValue={patientData.prefix}
+            value={patientData.prefix}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -60,10 +60,10 @@ export default function BasicInfo({
             className="input is-primary"
             type="text"
             placeholder="Given Name"
+            value={patientData.patientName}
             // defaultValue={
             //   selectedPatient ? selectedPatient.patientName : patientName
             // }
-            defaultValue={patientName}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -84,10 +84,10 @@ export default function BasicInfo({
             className="input is-primary"
             type="text"
             placeholder="Family Name"
+            value={patientData.familyName}
             // defaultValue={
             //   selectedPatient ? selectedPatient.familyName : familyName
             // }
-            defaultValue={familyName}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -103,7 +103,7 @@ export default function BasicInfo({
             type="text"
             placeholder="Suffix"
             // defaultValue={selectedPatient ? selectedPatient.suffix : suffix}
-            defaultValue={suffix}
+            value={patientData.suffix}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -121,7 +121,7 @@ export default function BasicInfo({
             type="text"
             placeholder="Sex"
             // defaultValue={selectedPatient ? selectedPatient.sex : sex}
-            defaultValue={sex}
+            value={patientData.sex}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -139,7 +139,7 @@ export default function BasicInfo({
             // defaultValue={
             //   selectedPatient ? selectedPatient.patientType : patientType
             // }
-            defaultValue={patientType}
+            value={patientData.patientType}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -157,7 +157,7 @@ export default function BasicInfo({
             // defaultValue={
             //   selectedPatient ? selectedPatient.bloodType : bloodType
             // }
-            defaultValue={bloodType}
+            value={patientData.bloodType}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -181,7 +181,7 @@ export default function BasicInfo({
                 //     ? selectedPatient.approximateAge
                 //     : approximateAge
                 // }
-                defaultValue={approximateAge}
+                value={patientData.approximateAge}
                 onChange={(e) =>
                   setPatientData((prevState) => ({
                     ...prevState,
@@ -198,7 +198,7 @@ export default function BasicInfo({
                 className="input is-primary"
                 type="date"
                 // defaultValue={selectedPatient ? selectedPatient.DOB : DOB}
-                defaultValue={DOB}
+                value={patientData.DOB}
                 onChange={(e) =>
                   setPatientData((prevState) => ({
                     ...prevState,
@@ -214,7 +214,7 @@ export default function BasicInfo({
             <input
               type="checkbox"
               onClick={handleChange}
-              defaultChecked={checked}
+              value={patientData.checked}
             />
             <p>Unknown</p>
           </div>
@@ -228,7 +228,7 @@ export default function BasicInfo({
             // defaultValue={
             //   selectedPatient ? selectedPatient.occupation : occupation
             // }
-            defaultValue={occupation}
+            value={patientData.occupation}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,
@@ -246,7 +246,7 @@ export default function BasicInfo({
             // defaultValue={
             //   selectedPatient ? selectedPatient.preferredLang : preferredLang
             // }
-            defaultValue={preferredLang}
+            value={patientData.preferredLang}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,

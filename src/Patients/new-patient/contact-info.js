@@ -4,6 +4,10 @@ import EmailForm from "./email-form";
 import AddressForm from "./address-form";
 
 export default function ContactInfo({ setPatientData, patientData }) {
+  const handleButton = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="NPDiv2 NPDiv">
       <p className="NPDiv-p">Contact Information</p>
@@ -14,7 +18,10 @@ export default function ContactInfo({ setPatientData, patientData }) {
             setPatientData={setPatientData}
             patientData={patientData}
           />
-          <button className="add-button button is-primary is-inverted">
+          <button
+            className="add-button button is-primary is-inverted"
+            onClick={(e) => handleButton(e)}
+          >
             +Add
           </button>
         </div>
@@ -24,7 +31,10 @@ export default function ContactInfo({ setPatientData, patientData }) {
             setPatientData={setPatientData}
             patientData={patientData}
           />
-          <button className="add-button button is-primary is-inverted">
+          <button
+            className="add-button button is-primary is-inverted"
+            onClick={(e) => handleButton(e)}
+          >
             +Add
           </button>
         </div>
@@ -34,7 +44,10 @@ export default function ContactInfo({ setPatientData, patientData }) {
             setPatientData={setPatientData}
             patientData={patientData}
           />
-          <button className="add-button button is-primary is-inverted">
+          <button
+            className="add-button button is-primary is-inverted"
+            onClick={(e) => handleButton(e)}
+          >
             +Add
           </button>
         </div>

@@ -1,10 +1,16 @@
 import React from "react";
 
-export default function SelectOption({ setPatientData, propName }) {
+export default function SelectOption({
+  setPatientData,
+  patientData,
+  propName,
+  value
+}) {
   return (
     <div>
       <select
         className="input is-primary"
+        value={value}
         onChange={(e) =>
           setPatientData((prevState) => ({
             ...prevState,

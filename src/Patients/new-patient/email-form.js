@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
-export default function EmailForm({ setPatientData }) {
+export default function EmailForm({ setPatientData, patientData }) {
   const patientDataFromStore = useSelector((state) => state.patientData);
   const { emails } = patientDataFromStore;
   // console.log(patientDataFromStore);
@@ -12,7 +12,12 @@ export default function EmailForm({ setPatientData }) {
       <div className="inputs">
         <p>Type</p>
         <p>emailType()</p>
-        <SelectOption setPatientData={setPatientData} propName="emaildata" />
+        <SelectOption
+          setPatientData={setPatientData}
+          patientData={patientData}
+          propName="emaildata"
+          value={patientData.emaildata.type}
+        />
       </div>
       <div className="inputs">
         <p>Email</p>
@@ -20,7 +25,7 @@ export default function EmailForm({ setPatientData }) {
           className="input is-primary"
           type="email"
           placeholder="Email"
-          defaultValue={emails}
+          value={patientData.emaildata.email}
           onChange={(e) =>
             setPatientData((prevState) => ({
               ...prevState,

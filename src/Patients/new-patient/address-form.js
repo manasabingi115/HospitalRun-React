@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
-export default function AddressForm({ setPatientData }) {
+export default function AddressForm({ setPatientData, patientData }) {
   const patientDataFromStore = useSelector((state) => state.patientData);
   const { address } = patientDataFromStore;
 
@@ -11,7 +11,12 @@ export default function AddressForm({ setPatientData }) {
       <div className="inputs">
         <p>Type</p>
         <p>addressType()</p>
-        <SelectOption setPatientData={setPatientData} propName="addressdata" />
+        <SelectOption
+          setPatientData={setPatientData}
+          patientData={patientData}
+          propName="addressdata"
+          value={patientData.addressdata.type}
+        />
       </div>
       <div className="inputs">
         <p>Address</p>
@@ -21,7 +26,7 @@ export default function AddressForm({ setPatientData }) {
           type="text"
           placeholder="Address..."
           style={{ resize: "vertical" }}
-          defaultValue={address}
+          value={patientData.addressdata.address}
           onChange={(e) =>
             setPatientData((prevState) => ({
               ...prevState,
