@@ -4,9 +4,10 @@ import ContactInfo from "./contact-info";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PatientCode from "./patient-code";
+import { useSelector } from "react-redux";
 
 export default function NewPatient({
-  setPatientData,
+  setPatientDataToStore,
   selectedPatient
   // setPatientDetailsPage,
   // patientDetailsPage
@@ -44,16 +45,19 @@ export default function NewPatient({
   // console.log(patientData.PatientCode);
 
   const navigate = useNavigate();
-  // const patientDataFromStore = useSelector((state) => state.patientData);
+  const patientDataFromStore = useSelector((state) => state.patientData);
+  console.log(patientDataFromStore);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // setSubmitted(true);
-    dispatch(setPatientData(patientData));
+    dispatch(setPatientDataToStore(patientData));
     // submitted &&
     // navigate("/patients/patients-list");
     console.log("form submitted.");
+    setPatientData(initialPatientData);
   };
 
   return (
@@ -63,12 +67,14 @@ export default function NewPatient({
         <BasicInfo
           setPatientData={setPatientData}
           selectedPatient={selectedPatient}
+          patientData={patientData}
           // submitted={submitted}
           // patientDetailsPage={patientDetailsPage}
         />
         <ContactInfo
           setPatientData={setPatientData}
           selectedPatient={selectedPatient}
+          patientData={patientData}
         />
         <button type="submit" className="button is-black">
           Create Patient

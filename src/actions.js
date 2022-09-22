@@ -1,4 +1,4 @@
-export const setPatientData = (data, index) => {
+export const setPatientDataToStore = (data, index) => {
   return {
     type: "SET_PATIENT_DATA",
     payload: data

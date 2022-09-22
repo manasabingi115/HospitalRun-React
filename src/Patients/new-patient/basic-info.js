@@ -6,6 +6,7 @@ import { FaStarOfLife } from "react-icons/fa";
 
 export default function BasicInfo({
   setPatientData,
+  patientData,
   // submitted,
   selectedPatient,
   patientDetailsPage
@@ -41,7 +42,7 @@ export default function BasicInfo({
             type="text"
             placeholder="Prefix"
             // defaultValue={selectedPatient ? selectedPatient.prefix : prefix}
-            defaultValue={prefix}
+            defaultValue={patientData.prefix}
             onChange={(e) =>
               setPatientData((prevState) => ({
                 ...prevState,

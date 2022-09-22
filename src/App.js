@@ -30,7 +30,8 @@ import Incidents from "./Incidents/incidents";
 import ReportIncident from "./Incidents/Report-incidents";
 import ReportedIncidents from "./Incidents/Reported-incidents";
 
-import { setPatientData } from "./actions";
+// import { setPatientData } from "./actions";
+import { setPatientDataToStore } from "./actions";
 
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
@@ -52,7 +53,7 @@ export default function App() {
               exact
               element={
                 <NewPatient
-                  setPatientData={setPatientData}
+                  setPatientDataToStore={setPatientDataToStore}
                   selectedPatient={selectedPatient}
                   // setPatientDetailsPage={setPatientDetailsPage}
                   // patientDetailsPage={patientDetailsPage}
