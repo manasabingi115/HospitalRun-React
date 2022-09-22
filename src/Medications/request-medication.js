@@ -23,7 +23,7 @@ export default function RequestMedication() {
   const navigate = useNavigate();
 
   const medicationDataFromStore = useSelector((state) => state.medicationData);
-  // console.log(medicationDataFromStore);
+  console.log(medicationDataFromStore);
 
   const dispatch = useDispatch();
 

@@ -55,7 +55,7 @@ export default function NewPatient({
     // setSubmitted(true);
     dispatch(setPatientDataToStore(patientData));
     // submitted &&
-    // navigate("/patients/patients-list");
+    navigate("/patients/patients-list");
     console.log("form submitted.");
     setPatientData(initialPatientData);
   };
@@ -66,14 +66,12 @@ export default function NewPatient({
       <form onSubmit={handleSubmit}>
         <BasicInfo
           setPatientData={setPatientData}
-          selectedPatient={selectedPatient}
           patientData={patientData}
           // submitted={submitted}
           // patientDetailsPage={patientDetailsPage}
         />
         <ContactInfo
           setPatientData={setPatientData}
-          selectedPatient={selectedPatient}
           patientData={patientData}
         />
         <button type="submit" className="button is-black">
