@@ -6,10 +6,10 @@ export default function PatientsList({
   setSelectedPatient
   // setPatientDetailsPage
 }) {
-  const patientData = useSelector((state) => state.patientData);
+  const patientDataFromStore = useSelector((state) => state.patientData);
   // const [selectedPatient, setSelectedPatient] = React.useState();
 
-  const { data } = patientData;
+  const { data } = patientDataFromStore;
   // console.log(data);
 
   function FindIndex(obj, e) {

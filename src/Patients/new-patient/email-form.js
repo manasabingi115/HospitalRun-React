@@ -2,19 +2,17 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
-export default function EmailForm({ setInitialPatientData }) {
-  const patientData = useSelector((state) => state.patientData);
-  const { emails } = patientData;
+export default function EmailForm({ setPatientData }) {
+  const patientDataFromStore = useSelector((state) => state.patientData);
+  const { emails } = patientDataFromStore;
+  // console.log(patientDataFromStore);
 
   return (
     <div className="NPRow">
       <div className="inputs">
         <p>Type</p>
         <p>emailType()</p>
-        <SelectOption
-          setInitialPatientData={setInitialPatientData}
-          propName="emaildata"
-        />
+        <SelectOption setPatientData={setPatientData} propName="emaildata" />
       </div>
       <div className="inputs">
         <p>Email</p>
@@ -24,7 +22,7 @@ export default function EmailForm({ setInitialPatientData }) {
           placeholder="Email"
           defaultValue={emails}
           onChange={(e) =>
-            setInitialPatientData((prevState) => ({
+            setPatientData((prevState) => ({
               ...prevState,
               emaildata: {
                 ...prevState.emaildata,

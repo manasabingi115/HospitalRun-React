@@ -11,7 +11,7 @@ export default function NewPatient({
   // setPatientDetailsPage,
   // patientDetailsPage
 }) {
-  const [initialPatientData, setInitialPatientData] = React.useState({
+  const initialPatientData = {
     PatientCode: PatientCode(10),
     patientName: "",
     familyName: "",
@@ -36,21 +36,23 @@ export default function NewPatient({
       type: "",
       address: ""
     }
-  });
+  };
+
+  const [patientData, setPatientData] = React.useState(initialPatientData);
 
   // const [submitted, setSubmitted] = React.useState(false);
-  // console.log(initialPatientData.PatientCode);
+  // console.log(patientData.PatientCode);
 
   const navigate = useNavigate();
-  // const patientData = useSelector((state) => state.patientData);
+  // const patientDataFromStore = useSelector((state) => state.patientData);
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // setSubmitted(true);
-    dispatch(setPatientData(initialPatientData));
+    dispatch(setPatientData(patientData));
     // submitted &&
-    navigate("/patients/patients-list");
+    // navigate("/patients/patients-list");
     console.log("form submitted.");
   };
 
@@ -59,13 +61,13 @@ export default function NewPatient({
       <h2>New Patient</h2>
       <form onSubmit={handleSubmit}>
         <BasicInfo
-          setInitialPatientData={setInitialPatientData}
+          setPatientData={setPatientData}
           selectedPatient={selectedPatient}
           // submitted={submitted}
           // patientDetailsPage={patientDetailsPage}
         />
         <ContactInfo
-          setInitialPatientData={setInitialPatientData}
+          setPatientData={setPatientData}
           selectedPatient={selectedPatient}
         />
         <button type="submit" className="button is-black">

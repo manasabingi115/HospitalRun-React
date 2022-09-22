@@ -1,7 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setReducerData } from "../actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { FaStarOfLife } from "react-icons/fa";
 
 export default function RequestMedication() {
   const initialMedicationsData = {
@@ -20,23 +22,27 @@ export default function RequestMedication() {
 
   const navigate = useNavigate();
 
+  const medicationDataFromStore = useSelector((state) => state.medicationData);
+  // console.log(medicationDataFromStore);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setReducerData(initialMedicationsData));
+    dispatch(setReducerData(medicationsData));
     navigate("/medications/request-medication");
     console.log("form submitted.");
     setMedicationsData(initialMedicationsData);
   };
 
-  console.log(medicationsData);
-
   return (
     <div className="main-div">
       <h2>Request Medication</h2>
       <form onSubmit={handleSubmit}>
-        <label>Patient</label>
+        <label>
+          Patient
+          <FaStarOfLife className="red-star" />
+        </label>
         <input
           className="input is-primary inputs-in-medications"
           placeholder="Patient"
@@ -48,18 +54,24 @@ export default function RequestMedication() {
               patient: e.target.value
             }))
           }
+          required
         ></input>
 
-        <label>Medication</label>
+        <label>
+          Medication
+          <FaStarOfLife className="red-star" />
+        </label>
         <input
           className="input is-primary inputs-in-medications"
           placeholder="Medication"
+          value={medicationsData.medication}
           onChange={(e) =>
             setMedicationsData((prevState) => ({
               ...prevState,
               medication: e.target.value
             }))
           }
+          required
         ></input>
 
         <label>Status</label>
@@ -125,6 +137,7 @@ export default function RequestMedication() {
             <input
               className="input is-primary child-input-in-medications"
               placeholder="Quantity | Value"
+              value={medicationsData.qvalue}
               onChange={(e) =>
                 setMedicationsData((prevState) => ({
                   ...prevState,
@@ -138,6 +151,7 @@ export default function RequestMedication() {
             <input
               className="input is-primary child-input-in-medications"
               placeholder="Quantity | Unit"
+              value={medicationsData.qunit}
               onChange={(e) =>
                 setMedicationsData((prevState) => ({
                   ...prevState,
@@ -150,6 +164,7 @@ export default function RequestMedication() {
         <label>Notes</label>
         <textarea
           className="input is-primary textarea-in-medications"
+          value={medicationsData.notes}
           onChange={(e) =>
             setMedicationsData((prevState) => ({
               ...prevState,
@@ -157,7 +172,12 @@ export default function RequestMedication() {
             }))
           }
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit" className="button is-black">
+          Request Medication
+        </button>
+        <Link to="/medications">
+          <button className="button is-danger">Cancel</button>
+        </Link>
       </form>
     </div>
   );

@@ -5,12 +5,12 @@ import { FaStarOfLife } from "react-icons/fa";
 // import selectedPatient from "../patient-list-details/patients-list";
 
 export default function BasicInfo({
-  setInitialPatientData,
+  setPatientData,
   // submitted,
   selectedPatient,
   patientDetailsPage
 }) {
-  const patientData = useSelector((state) => state.patientData);
+  const patientDataFromStore = useSelector((state) => state.patientData);
   const [checked, setChecked] = React.useState(false);
   const {
     patientName,
@@ -24,7 +24,7 @@ export default function BasicInfo({
     approximateAge,
     occupation,
     preferredLang
-  } = patientData;
+  } = patientDataFromStore;
 
   function handleChange() {
     setChecked(!checked);
@@ -43,7 +43,7 @@ export default function BasicInfo({
             // defaultValue={selectedPatient ? selectedPatient.prefix : prefix}
             defaultValue={prefix}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 prefix: e.target.value
               }))
@@ -64,7 +64,7 @@ export default function BasicInfo({
             // }
             defaultValue={patientName}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 patientName: e.target.value
               }))
@@ -88,7 +88,7 @@ export default function BasicInfo({
             // }
             defaultValue={familyName}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 familyName: e.target.value
               }))
@@ -104,7 +104,7 @@ export default function BasicInfo({
             // defaultValue={selectedPatient ? selectedPatient.suffix : suffix}
             defaultValue={suffix}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 suffix: e.target.value
               }))
@@ -122,7 +122,7 @@ export default function BasicInfo({
             // defaultValue={selectedPatient ? selectedPatient.sex : sex}
             defaultValue={sex}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 sex: e.target.value
               }))
@@ -140,7 +140,7 @@ export default function BasicInfo({
             // }
             defaultValue={patientType}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 patientType: e.target.value
               }))
@@ -158,7 +158,7 @@ export default function BasicInfo({
             // }
             defaultValue={bloodType}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 bloodType: e.target.value
               }))
@@ -182,7 +182,7 @@ export default function BasicInfo({
                 // }
                 defaultValue={approximateAge}
                 onChange={(e) =>
-                  setInitialPatientData((prevState) => ({
+                  setPatientData((prevState) => ({
                     ...prevState,
                     DOB: "",
                     approximateAge: e.target.value
@@ -199,7 +199,7 @@ export default function BasicInfo({
                 // defaultValue={selectedPatient ? selectedPatient.DOB : DOB}
                 defaultValue={DOB}
                 onChange={(e) =>
-                  setInitialPatientData((prevState) => ({
+                  setPatientData((prevState) => ({
                     ...prevState,
                     approximateAge: "",
                     DOB: e.target.value
@@ -229,7 +229,7 @@ export default function BasicInfo({
             // }
             defaultValue={occupation}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 occupation: e.target.value
               }))
@@ -247,7 +247,7 @@ export default function BasicInfo({
             // }
             defaultValue={preferredLang}
             onChange={(e) =>
-              setInitialPatientData((prevState) => ({
+              setPatientData((prevState) => ({
                 ...prevState,
                 preferredLang: e.target.value
               }))

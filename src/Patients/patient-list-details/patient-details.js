@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
-import PatientCode from "../new-patient/patient-code";
 
 export default function PatientDetails({ selectedPatient }) {
-  const patientData = useSelector((state) => state.patientData);
+  const patientDataFromStore = useSelector((state) => state.patientData);
 
   function RegistrationDate() {
     var today = new Date();
