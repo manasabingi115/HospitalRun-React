@@ -30,7 +30,7 @@ export default function RequestMedication() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setReducerData(medicationsData));
-    navigate("/medications/request-medication");
+    navigate("/medications/medication-requests");
     console.log("form submitted.");
     setMedicationsData(initialMedicationsData);
   };

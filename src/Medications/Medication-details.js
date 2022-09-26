@@ -4,73 +4,78 @@ export default function MedicationDetails({ selectedMedication }) {
   console.log(selectedMedication);
   return (
     <div className="main-div">
-      <h2>Patient Details</h2>
-      <form className="patient-basic-info columns">
-        <div className="column">
-          <label htmlFor="patient-code">Patient Code: </label>
-          <input
-            className="patient-details-input"
-            id="patient-code"
-            name="patient-code"
-            // value={selectedMedication?.patient}
-            readOnly
-          ></input>
-          <br />
-          <label htmlFor="address">Address: </label>
-          <input
-            className="patient-details-input"
-            id="address"
-            name="address"
-            // value={address}
-            readOnly
-          ></input>
-          <br />
-          <label htmlFor="contact-num">Contact No: </label>
-          <input
-            className="patient-details-input"
-            id="contact-num"
-            name="contact-num"
-            // value={phoneNums}
-            readOnly
-          ></input>
-        </div>
+      <h2>Medication Details</h2>
+      <form className="patient-basic-info medication columns">
         <div className="column">
           <label htmlFor="patient-name">Patient Name: </label>
           <input
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            // defaultValue={selectedMedication?.patientName}
+            defaultValue={selectedMedication?.patient}
             readOnly
           ></input>
           <br />
-          <label htmlFor="reg-date">Registration Date: </label>
+
+          <label htmlFor="medication">Medication: </label>
           <input
             className="patient-details-input"
-            id="reg-date"
-            name="reg-date"
-            // value={RegistrationDate()}
+            id="medication"
+            name="medication"
+            defaultValue={selectedMedication?.medication}
+            readOnly
+          ></input>
+          <br />
+
+          <label htmlFor="status">Status: </label>
+          <input
+            className="patient-details-input"
+            id="status"
+            name="status"
+            value={selectedMedication?.status}
+            readOnly
+          ></input>
+          <br />
+        </div>
+
+        <div className="column">
+          <label htmlFor="intent">Intent: </label>
+          <input
+            className="patient-details-input"
+            id="intent"
+            name="intent"
+            value={selectedMedication?.intent}
+            readOnly
+          ></input>
+          <br />
+          <label htmlFor="priority">Priority: </label>
+          <input
+            className="patient-details-input"
+            id="priority"
+            name="priority"
+            value={selectedMedication?.priority}
             readOnly
           ></input>
           <br />
           <div className="patient-details-mini-block columns">
             <div className="column">
-              <label htmlFor="gender">Gender: </label>
+              <label htmlFor="qvalue">Quantity Value: </label>
               <input
                 className="patient-details-input"
-                id="gender"
-                name="gender"
-                // value={sex}
+                id="qvalue"
+                name="qvalue"
+                value={selectedMedication?.qvalue}
                 readOnly
               ></input>
             </div>
+
             <div className="column">
-              <label htmlFor="gender">DOB/Age: </label>
+              <label htmlFor="qunit">Quantity Unit: </label>
               <input
                 className="patient-details-input"
-                id="gender"
-                name="gender"
-                // value={DOB ? DOB : approximateAge ? approximateAge : null}
+                id="qunit"
+                name="qunit"
+                value={selectedMedication?.qunit}
                 readOnly
               ></input>
             </div>
