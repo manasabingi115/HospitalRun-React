@@ -1,20 +1,7 @@
-import { useSelector } from "react-redux";
+import React from "react";
 
-export default function PatientDetails({ selectedPatient }) {
-  // const patientDataFromStore = useSelector((state) => state.patientData);
-
-  function RegistrationDate() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0");
-    var yyyy = today.getFullYear();
-
-    today = mm + "/" + dd + "/" + yyyy;
-    return today;
-  }
-
-  console.log(selectedPatient);
-
+export default function MedicationDetails({ selectedMedication }) {
+  console.log(selectedMedication);
   return (
     <div className="main-div">
       <h2>Patient Details</h2>
@@ -25,7 +12,7 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="patient-code"
             name="patient-code"
-            value={selectedPatient?.PatientCode}
+            // value={selectedMedication?.patient}
             readOnly
           ></input>
           <br />
@@ -34,7 +21,7 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="address"
             name="address"
-            value={selectedPatient?.addressdata.address}
+            // value={address}
             readOnly
           ></input>
           <br />
@@ -43,7 +30,7 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="contact-num"
             name="contact-num"
-            value={selectedPatient?.phnNumdata.num}
+            // value={phoneNums}
             readOnly
           ></input>
         </div>
@@ -53,7 +40,7 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            defaultValue={selectedPatient?.patientName}
+            // defaultValue={selectedMedication?.patientName}
             readOnly
           ></input>
           <br />
@@ -62,7 +49,7 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="reg-date"
             name="reg-date"
-            value={RegistrationDate()}
+            // value={RegistrationDate()}
             readOnly
           ></input>
           <br />
@@ -73,7 +60,7 @@ export default function PatientDetails({ selectedPatient }) {
                 className="patient-details-input"
                 id="gender"
                 name="gender"
-                value={selectedPatient?.sex}
+                // value={sex}
                 readOnly
               ></input>
             </div>
@@ -83,13 +70,7 @@ export default function PatientDetails({ selectedPatient }) {
                 className="patient-details-input"
                 id="gender"
                 name="gender"
-                value={
-                  selectedPatient?.DOB
-                    ? selectedPatient.DOB
-                    : selectedPatient?.approximateAge
-                    ? selectedPatient.approximateAge
-                    : undefined
-                }
+                // value={DOB ? DOB : approximateAge ? approximateAge : null}
                 readOnly
               ></input>
             </div>

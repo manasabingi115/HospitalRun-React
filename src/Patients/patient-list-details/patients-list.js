@@ -12,7 +12,7 @@ export default function PatientsList({
   const { data } = patientDataFromStore;
   // console.log(data);
 
-  function FindIndex(obj, e) {
+  function FindSelectedData(obj, e) {
     // setPatientDetailsPage(true);
     setSelectedPatient(obj);
   }
@@ -43,7 +43,9 @@ export default function PatientsList({
 
               <td>
                 <Link to="/patients/patient-details">
-                  <button onClick={() => FindIndex(obj, index)}>View</button>
+                  <button onClick={() => FindSelectedData(obj, index)}>
+                    View
+                  </button>
                 </Link>
                 {/* <button onClick={() => FindIndex(obj, index)}>View</button> */}
               </td>

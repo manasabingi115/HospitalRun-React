@@ -17,6 +17,7 @@ import AppointmentSchedule from "./Scheduling/Appointment-schedule";
 import Medications from "./Medications/medications";
 import RequestMedication from "./Medications/request-medication";
 import MedicationRequests from "./Medications/Medication-requests";
+import MedicationDetails from "./Medications/Medication-details";
 
 import Labs from "./Labs/labs";
 import RequestLab from "./Labs/Request-lab";
@@ -35,6 +36,7 @@ import { setPatientDataToStore } from "./actions";
 
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
+  const [selectedMedication, setSelectedMedication] = React.useState();
   // const [patientDetailsPage, setPatientDetailsPage] = React.useState(false);
   // console.log(patientDetailsPage);
 
@@ -93,7 +95,18 @@ export default function App() {
             <Route
               path="/medications/medication-requests"
               exact
-              element={<MedicationRequests />}
+              element={
+                <MedicationRequests
+                  setSelectedMedication={setSelectedMedication}
+                />
+              }
+            />
+            <Route
+              path="/medications/medication-details"
+              exact
+              element={
+                <MedicationDetails selectedMedication={selectedMedication} />
+              }
             />
 
             <Route path="/labs" exact element={<Labs />} />

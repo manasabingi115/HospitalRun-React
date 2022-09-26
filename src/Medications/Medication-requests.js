@@ -2,13 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function MedicationRequests({ setSelectedPatient }) {
+export default function MedicationRequests({ setSelectedMedication }) {
   const medicationDataFromStore = useSelector((state) => state.medicationData);
 
   const { data } = medicationDataFromStore;
 
   function FindIndex(obj, e) {
-    // setSelectedPatient(obj);
+    setSelectedMedication(obj);
   }
 
   return (
@@ -32,7 +32,7 @@ export default function MedicationRequests({ setSelectedPatient }) {
               <td>{obj?.status}</td>
               <td>{obj?.priority}</td>
               <td>
-                <Link to="/patients/patient-details">
+                <Link to="/medications/medication-details">
                   <button onClick={() => FindIndex(obj, index)}>View</button>
                 </Link>
               </td>
