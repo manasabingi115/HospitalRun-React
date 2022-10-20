@@ -1,12 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
 export default function EmailForm({ setPatientData, patientData }) {
-  const patientDataFromStore = useSelector((state) => state.patientData);
-  const { emails } = patientDataFromStore;
-  // console.log(patientDataFromStore);
-
   return (
     <div className="NPRow">
       <div className="inputs">

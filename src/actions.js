@@ -8,7 +8,6 @@ export const setPatientDataToStore = (data, index) => {
 export const setRemoveItem = (index) => {
   return {
     type: "REMOVE_ITEM",
-    // index: index,
     payload: index
   };
 };

@@ -3,13 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-export default function PatientsList({
-  setSelectedPatient,
-  setRemoveItem
-  // setPatientDetailsPage
-}) {
+export default function PatientsList({ setSelectedPatient, setRemoveItem }) {
   const patientDataFromStore = useSelector((state) => state.patientData);
-  // const [selectedPatient, setSelectedPatient] = React.useState();
 
   const { data } = patientDataFromStore;
   console.log(data);
@@ -17,12 +12,10 @@ export default function PatientsList({
   const dispatch = useDispatch();
 
   function FindSelectedData(obj) {
-    // setPatientDetailsPage(true);
     setSelectedPatient(obj);
   }
 
   function removeSelectedItem(index) {
-    // console.log(index);
     dispatch(setRemoveItem(index));
   }
 
@@ -40,7 +33,6 @@ export default function PatientsList({
             <th>Actions</th>
           </tr>
         </thead>
-        {/* <tr> */}
         <tbody>
           {data?.map((obj, index) => (
             <tr key={index}>
@@ -59,7 +51,6 @@ export default function PatientsList({
                 <button onClick={() => removeSelectedItem(index)}>
                   Delete
                 </button>
-                {/* <button onClick={() => FindIndex(obj, index)}>View</button> */}
               </td>
             </tr>
           ))}

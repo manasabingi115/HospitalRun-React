@@ -1,8 +1,4 @@
-import { useSelector } from "react-redux";
-
 export default function PatientDetails({ selectedPatient }) {
-  // const patientDataFromStore = useSelector((state) => state.patientData);
-
   function RegistrationDate() {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");

@@ -31,7 +31,6 @@ import Incidents from "./Incidents/incidents";
 import ReportIncident from "./Incidents/Report-incidents";
 import ReportedIncidents from "./Incidents/Reported-incidents";
 
-// import { setPatientData } from "./actions";
 import { setPatientDataToStore, setRemoveItem } from "./actions";
 
 import PopUp from "./Pop-up";
@@ -42,8 +41,6 @@ export default function App() {
 
   const [popUp, setPopUp] = React.useState(false);
   const [popUpContent, setPopUpContent] = React.useState();
-  // const [patientDetailsPage, setPatientDetailsPage] = React.useState(false);
-  // console.log(patientDetailsPage);
 
   const handlePopUp = (element) => {
     setPopUpContent(element);
@@ -74,8 +71,6 @@ export default function App() {
                   setPatientDataToStore={setPatientDataToStore}
                   selectedPatient={selectedPatient}
                   handlePopUp={handlePopUp}
-                  // setPatientDetailsPage={setPatientDetailsPage}
-                  // patientDetailsPage={patientDetailsPage}
                 />
               }
             />
@@ -86,8 +81,6 @@ export default function App() {
                 <PatientsList
                   setSelectedPatient={setSelectedPatient}
                   setRemoveItem={setRemoveItem}
-                  // setPatientDetailsPage={setPatientDetailsPage}
-                  // patientDetailsPage={patientDetailsPage}
                 />
               }
             />

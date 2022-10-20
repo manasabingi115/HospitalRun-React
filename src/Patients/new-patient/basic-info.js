@@ -1,10 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-// import SelectOption from "./select-option";
 import { FaStarOfLife } from "react-icons/fa";
 
 export default function BasicInfo({ setPatientData, patientData }) {
-  const patientDataFromStore = useSelector((state) => state.patientData);
   const [checked, setChecked] = React.useState(false);
 
   function handleChange() {

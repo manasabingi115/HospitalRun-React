@@ -5,13 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PatientCode from "./patient-code";
 
-export default function NewPatient({
-  setPatientDataToStore,
-  selectedPatient,
-  handlePopUp
-  // setPatientDetailsPage,
-  // patientDetailsPage
-}) {
+export default function NewPatient({ setPatientDataToStore, handlePopUp }) {
   const initialPatientData = {
     PatientCode: PatientCode(10),
     patientName: "",
@@ -41,20 +35,13 @@ export default function NewPatient({
 
   const [patientData, setPatientData] = React.useState(initialPatientData);
 
-  // const [submitted, setSubmitted] = React.useState(false);
-  // console.log(patientData.PatientCode);
-
   const navigate = useNavigate();
-  // const patientDataFromStore = useSelector((state) => state.patientData);
-  // console.log(patientDataFromStore);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setSubmitted(true);
     dispatch(setPatientDataToStore(patientData));
-    // submitted &&
     navigate("/patients/patients-list");
     setPatientData(initialPatientData);
     handlePopUp("created new patient");
@@ -64,12 +51,7 @@ export default function NewPatient({
     <div className="main-div">
       <h2>New Patient</h2>
       <form onSubmit={handleSubmit}>
-        <BasicInfo
-          setPatientData={setPatientData}
-          patientData={patientData}
-          // submitted={submitted}
-          // patientDetailsPage={patientDetailsPage}
-        />
+        <BasicInfo setPatientData={setPatientData} patientData={patientData} />
         <ContactInfo
           setPatientData={setPatientData}
           patientData={patientData}

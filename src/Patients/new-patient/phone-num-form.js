@@ -1,11 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
 export default function PhoneNumForm({ setPatientData, patientData }) {
-  const patientDataFromStore = useSelector((state) => state.patientData);
-  const { phoneNums } = patientDataFromStore;
-
   return (
     <div className="NPRow">
       <div className="inputs">

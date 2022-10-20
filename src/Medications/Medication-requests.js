@@ -19,7 +19,6 @@ export default function MedicationRequests({
   }
 
   function removeSelectedItem(index) {
-    // console.log(index);
     dispatch(setRemoveItem(index));
   }
 

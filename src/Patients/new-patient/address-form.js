@@ -1,11 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import SelectOption from "./select-option";
 
 export default function AddressForm({ setPatientData, patientData }) {
-  const patientDataFromStore = useSelector((state) => state.patientData);
-  const { address } = patientDataFromStore;
-
   return (
     <div className="NPRow">
       <div className="inputs">

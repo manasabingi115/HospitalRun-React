@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setReducerData } from "../actions";
 import { Link, useNavigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
 import { FaStarOfLife } from "react-icons/fa";
 
 export default function RequestMedication({ handlePopUp }) {
@@ -21,9 +20,6 @@ export default function RequestMedication({ handlePopUp }) {
   );
 
   const navigate = useNavigate();
-
-  // const medicationDataFromStore = useSelector((state) => state.medicationData);
-  // console.log(medicationDataFromStore);
 
   const dispatch = useDispatch();
 
