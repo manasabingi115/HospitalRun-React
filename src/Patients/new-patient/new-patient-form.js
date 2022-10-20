@@ -4,7 +4,6 @@ import ContactInfo from "./contact-info";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PatientCode from "./patient-code";
-import { useSelector } from "react-redux";
 
 export default function NewPatient({
   setPatientDataToStore,
@@ -46,8 +45,8 @@ export default function NewPatient({
   // console.log(patientData.PatientCode);
 
   const navigate = useNavigate();
-  const patientDataFromStore = useSelector((state) => state.patientData);
-  console.log(patientDataFromStore);
+  // const patientDataFromStore = useSelector((state) => state.patientData);
+  // console.log(patientDataFromStore);
 
   const dispatch = useDispatch();
 
@@ -75,12 +74,7 @@ export default function NewPatient({
           setPatientData={setPatientData}
           patientData={patientData}
         />
-        <button
-          type="submit"
-          className="button is-black"
-          name="new patient"
-          // onClick={(e) => handleButton(e)}
-        >
+        <button type="submit" className="button is-black">
           Create Patient
         </button>
         <Link to="/patients">

@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setReducerData } from "../actions";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { FaStarOfLife } from "react-icons/fa";
 
-export default function RequestMedication() {
+export default function RequestMedication({ handlePopUp }) {
   const initialMedicationsData = {
     patient: "",
     medication: "",
@@ -22,8 +22,8 @@ export default function RequestMedication() {
 
   const navigate = useNavigate();
 
-  const medicationDataFromStore = useSelector((state) => state.medicationData);
-  console.log(medicationDataFromStore);
+  // const medicationDataFromStore = useSelector((state) => state.medicationData);
+  // console.log(medicationDataFromStore);
 
   const dispatch = useDispatch();
 
@@ -31,8 +31,8 @@ export default function RequestMedication() {
     event.preventDefault();
     dispatch(setReducerData(medicationsData));
     navigate("/medications/medication-requests");
-    console.log("form submitted.");
     setMedicationsData(initialMedicationsData);
+    handlePopUp("requested medication");
   };
 
   return (

@@ -1,14 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-export default function MedicationRequests({ setSelectedMedication }) {
+export default function MedicationRequests({
+  setSelectedMedication,
+  setRemoveItem
+}) {
   const medicationDataFromStore = useSelector((state) => state.medicationData);
 
   const { data } = medicationDataFromStore;
+  const dispatch = useDispatch();
+
+  console.log(data);
 
   function FindIndex(obj, e) {
     setSelectedMedication(obj);
+  }
+
+  function removeSelectedItem(index) {
+    // console.log(index);
+    dispatch(setRemoveItem(index));
   }
 
   return (
@@ -35,6 +47,9 @@ export default function MedicationRequests({ setSelectedMedication }) {
                 <Link to="/medications/medication-details">
                   <button onClick={() => FindIndex(obj, index)}>View</button>
                 </Link>
+                <button onClick={() => removeSelectedItem(index)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

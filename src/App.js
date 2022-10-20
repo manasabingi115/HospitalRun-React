@@ -32,7 +32,7 @@ import ReportIncident from "./Incidents/Report-incidents";
 import ReportedIncidents from "./Incidents/Reported-incidents";
 
 // import { setPatientData } from "./actions";
-import { setPatientDataToStore } from "./actions";
+import { setPatientDataToStore, setRemoveItem } from "./actions";
 
 import PopUp from "./Pop-up";
 
@@ -85,6 +85,7 @@ export default function App() {
               element={
                 <PatientsList
                   setSelectedPatient={setSelectedPatient}
+                  setRemoveItem={setRemoveItem}
                   // setPatientDetailsPage={setPatientDetailsPage}
                   // patientDetailsPage={patientDetailsPage}
                 />
@@ -107,7 +108,7 @@ export default function App() {
             <Route
               path="/medications/request-medication"
               exact
-              element={<RequestMedication />}
+              element={<RequestMedication handlePopUp={handlePopUp} />}
             />
             <Route
               path="/medications/medication-requests"
@@ -115,6 +116,7 @@ export default function App() {
               element={
                 <MedicationRequests
                   setSelectedMedication={setSelectedMedication}
+                  setRemoveItem={setRemoveItem}
                 />
               }
             />

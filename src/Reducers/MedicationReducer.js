@@ -9,6 +9,13 @@ const medicationReducer = (state = initialState, action) => {
         ...state,
         data: [action.payload, ...state.data]
       };
+    case "REMOVE_ITEM":
+      let newState = [...state.data];
+      newState.splice(action.payload, 1);
+      return {
+        ...state,
+        data: [...newState]
+      };
     default:
       return state;
   }

@@ -1,20 +1,29 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export default function PatientsList({
-  setSelectedPatient
+  setSelectedPatient,
+  setRemoveItem
   // setPatientDetailsPage
 }) {
   const patientDataFromStore = useSelector((state) => state.patientData);
   // const [selectedPatient, setSelectedPatient] = React.useState();
 
   const { data } = patientDataFromStore;
-  // console.log(data);
+  console.log(data);
 
-  function FindSelectedData(obj, e) {
+  const dispatch = useDispatch();
+
+  function FindSelectedData(obj) {
     // setPatientDetailsPage(true);
     setSelectedPatient(obj);
+  }
+
+  function removeSelectedItem(index) {
+    // console.log(index);
+    dispatch(setRemoveItem(index));
   }
 
   return (
@@ -33,7 +42,7 @@ export default function PatientsList({
         </thead>
         {/* <tr> */}
         <tbody>
-          {data.map((obj, index) => (
+          {data?.map((obj, index) => (
             <tr key={index}>
               <td>{obj?.PatientCode}</td>
               <td>{obj?.patientName}</td>
@@ -47,6 +56,9 @@ export default function PatientsList({
                     View
                   </button>
                 </Link>
+                <button onClick={() => removeSelectedItem(index)}>
+                  Delete
+                </button>
                 {/* <button onClick={() => FindIndex(obj, index)}>View</button> */}
               </td>
             </tr>

@@ -5,6 +5,14 @@ export const setPatientDataToStore = (data, index) => {
   };
 };
 
+export const setRemoveItem = (index) => {
+  return {
+    type: "REMOVE_ITEM",
+    // index: index,
+    payload: index
+  };
+};
+
 export const setReducerData = (data, index) => {
   return {
     type: "SET_MEDICATION_DATA",
