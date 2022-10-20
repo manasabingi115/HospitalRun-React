@@ -7,6 +7,38 @@
 #container {
   display: flex;
 }
+
+.pop-up-container {
+  position: fixed;
+  background: black;
+  color: white;
+  width: fit-content;
+  padding: 10px 15px 10px 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 6px;
+  transition: 1s;
+  right: -260px;
+}
+
+.success-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.pop-up-container > p,
+.success-div > p {
+  margin: 0px;
+}
+
+.pop-up-slide {
+  transition: 1s;
+  right: 0;
+}
+
 #side-bar {
   border-right: 1px solid lightgray;
   cursor: pointer;

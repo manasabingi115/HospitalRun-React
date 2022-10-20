@@ -34,15 +34,31 @@ import ReportedIncidents from "./Incidents/Reported-incidents";
 // import { setPatientData } from "./actions";
 import { setPatientDataToStore } from "./actions";
 
+import PopUp from "./Pop-up";
+
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
   const [selectedMedication, setSelectedMedication] = React.useState();
+
+  const [popUp, setPopUp] = React.useState(false);
+  const [popUpContent, setPopUpContent] = React.useState();
   // const [patientDetailsPage, setPatientDetailsPage] = React.useState(false);
   // console.log(patientDetailsPage);
+
+  const handlePopUp = (element) => {
+    setPopUpContent(element);
+    setPopUp(true);
+    setTimeout(() => setPopUp(false), 5000);
+    console.log("form submitted!");
+  };
 
   return (
     <div className="App">
       <Header />
+      <button name="test" onClick={() => handlePopUp("created test")}>
+        Test
+      </button>
+      <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
       <div id="container">
         <BrowserRouter>
           <Menu />
@@ -57,6 +73,7 @@ export default function App() {
                 <NewPatient
                   setPatientDataToStore={setPatientDataToStore}
                   selectedPatient={selectedPatient}
+                  handlePopUp={handlePopUp}
                   // setPatientDetailsPage={setPatientDetailsPage}
                   // patientDetailsPage={patientDetailsPage}
                 />

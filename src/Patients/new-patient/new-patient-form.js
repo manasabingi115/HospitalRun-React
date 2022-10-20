@@ -8,7 +8,8 @@ import { useSelector } from "react-redux";
 
 export default function NewPatient({
   setPatientDataToStore,
-  selectedPatient
+  selectedPatient,
+  handlePopUp
   // setPatientDetailsPage,
   // patientDetailsPage
 }) {
@@ -56,8 +57,8 @@ export default function NewPatient({
     dispatch(setPatientDataToStore(patientData));
     // submitted &&
     navigate("/patients/patients-list");
-    console.log("form submitted.");
     setPatientData(initialPatientData);
+    handlePopUp("created new patient");
   };
 
   return (
@@ -74,7 +75,12 @@ export default function NewPatient({
           setPatientData={setPatientData}
           patientData={patientData}
         />
-        <button type="submit" className="button is-black">
+        <button
+          type="submit"
+          className="button is-black"
+          name="new patient"
+          // onClick={(e) => handleButton(e)}
+        >
           Create Patient
         </button>
         <Link to="/patients">
