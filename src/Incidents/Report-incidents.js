@@ -1,11 +1,21 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function ReportIncident() {
+export default function ReportIncident({ handlePopUp }) {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // dispatch(setReducerData(medicationsData));
+    navigate("/incidents/reported-incidents");
+    // setMedicationsData(initialMedicationsData);
+    handlePopUp("reported new incident");
+  };
+
   return (
     <div className="main-div">
       <h2>Report Incident</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="parent-to-child-inputs-in-incidents">
           <div
             className="child-div-in-incidents"

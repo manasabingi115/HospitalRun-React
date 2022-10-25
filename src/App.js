@@ -41,6 +41,7 @@ import PopUp from "./Pop-up";
 export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
   const [selectedMedication, setSelectedMedication] = React.useState();
+  const [selectedLab, setSelectedLab] = React.useState();
 
   const [popUp, setPopUp] = React.useState(false);
   const [popUpContent, setPopUpContent] = React.useState();
@@ -130,8 +131,21 @@ export default function App() {
               exact
               element={<RequestLab handlePopUp={handlePopUp} />}
             />
-            <Route path="/labs/lab-requests" exact element={<LabRequests />} />
-            <Route path="/labs/lab-details" exact element={<LabDetails />} />
+            <Route
+              path="/labs/lab-requests"
+              exact
+              element={
+                <LabRequests
+                  setSelectedLab={setSelectedLab}
+                  setRemoveItem={setRemoveItem}
+                />
+              }
+            />
+            <Route
+              path="/labs/lab-details"
+              exact
+              element={<LabDetails selectedLab={selectedLab} />}
+            />
 
             <Route path="/imagings" exact element={<Imagings />} />
             <Route
@@ -154,7 +168,7 @@ export default function App() {
             <Route
               path="/incidents/report-incident"
               exact
-              element={<ReportIncident />}
+              element={<ReportIncident handlePopUp={handlePopUp} />}
             />
             <Route
               path="/incidents/reported-incidents"

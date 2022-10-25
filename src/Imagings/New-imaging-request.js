@@ -9,7 +9,7 @@ export default function NewImagingRequests({ handlePopUp }) {
     // dispatch(setReducerData(medicationsData));
     navigate("/imagings/imaging-requests");
     // setMedicationsData(initialMedicationsData);
-    handlePopUp("requested lab");
+    handlePopUp("requested new imaging");
   };
 
   return (
@@ -59,7 +59,7 @@ export default function NewImagingRequests({ handlePopUp }) {
         <button type="submit" className="button is-black">
           Request Medication
         </button>
-        <Link to="/labs">
+        <Link to="/imagings">
           <button className="button is-danger">Cancel</button>
         </Link>
       </form>

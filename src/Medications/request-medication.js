@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setReducerData } from "../actions";
+import { setMedicationDataToStore } from "../actions";
 import { Link, useNavigate } from "react-router-dom";
 import { FaStarOfLife } from "react-icons/fa";
 
@@ -25,7 +25,7 @@ export default function RequestMedication({ handlePopUp }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setReducerData(medicationsData));
+    dispatch(setMedicationDataToStore(medicationsData));
     navigate("/medications/medication-requests");
     setMedicationsData(initialMedicationsData);
     handlePopUp("requested medication");

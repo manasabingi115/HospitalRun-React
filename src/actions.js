@@ -1,4 +1,4 @@
-export const setPatientDataToStore = (data, index) => {
+export const setPatientDataToStore = (data) => {
   return {
     type: "SET_PATIENT_DATA",
     payload: data
@@ -12,9 +12,16 @@ export const setRemoveItem = (index) => {
   };
 };
 
-export const setReducerData = (data, index) => {
+export const setMedicationDataToStore = (data) => {
   return {
     type: "SET_MEDICATION_DATA",
+    payload: data
+  };
+};
+
+export const setLabDataToStore = (data) => {
+  return {
+    type: "SET_LAB_DATA",
     payload: data
   };
 };

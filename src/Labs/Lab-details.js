@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LabDetails() {
+export default function LabDetails({ selectedLab }) {
   return (
     <div className="main-div">
       <h2>Lab Details</h2>
@@ -11,9 +11,7 @@ export default function LabDetails() {
             className="patient-details-input"
             id="patient"
             name="patient"
-            // defaultValue={
-            //   selectedMedication ? selectedMedication.patient : "- - -"
-            // }
+            defaultValue={selectedLab ? selectedLab.patient : "- - -"}
             readOnly
           ></input>
           <br />
@@ -22,9 +20,7 @@ export default function LabDetails() {
             className="patient-details-input"
             id="type"
             name="type"
-            // defaultValue={
-            //   selectedMedication ? selectedMedication.medication : "- - -"
-            // }
+            defaultValue={selectedLab ? selectedLab.type : "- - -"}
             readOnly
           ></input>
           <br />
@@ -36,7 +32,7 @@ export default function LabDetails() {
             className="patient-details-input"
             id="visit"
             name="visit"
-            // value={selectedMedication ? selectedMedication.status : "- - -"}
+            value={selectedLab ? selectedLab.visit : "- - -"}
             readOnly
           ></input>
           <br />
@@ -45,7 +41,7 @@ export default function LabDetails() {
             className="patient-details-input"
             id="notes"
             name="notes"
-            // value={selectedMedication ? selectedMedication.intent : "- - -"}
+            value={selectedLab ? selectedLab.notes : "- - -"}
             readOnly
           ></input>
           <br />
