@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ReportIncident() {
   return (
@@ -60,6 +61,12 @@ export default function ReportIncident() {
             placeholder="Patient"
           ></input>
         </div>
+        <button type="submit" className="button is-black">
+          Request Medication
+        </button>
+        <Link to="/incidents">
+          <button className="button is-danger">Cancel</button>
+        </Link>
       </form>
     </div>
   );

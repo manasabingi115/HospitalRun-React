@@ -12,7 +12,9 @@ export default function MedicationDetails({ selectedMedication }) {
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            defaultValue={selectedMedication?.patient}
+            defaultValue={
+              selectedMedication ? selectedMedication.patient : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -22,7 +24,9 @@ export default function MedicationDetails({ selectedMedication }) {
             className="patient-details-input"
             id="medication"
             name="medication"
-            defaultValue={selectedMedication?.medication}
+            defaultValue={
+              selectedMedication ? selectedMedication.medication : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -32,7 +36,7 @@ export default function MedicationDetails({ selectedMedication }) {
             className="patient-details-input"
             id="status"
             name="status"
-            value={selectedMedication?.status}
+            value={selectedMedication ? selectedMedication.status : "- - -"}
             readOnly
           ></input>
           <br />
@@ -44,7 +48,7 @@ export default function MedicationDetails({ selectedMedication }) {
             className="patient-details-input"
             id="intent"
             name="intent"
-            value={selectedMedication?.intent}
+            value={selectedMedication ? selectedMedication.intent : "- - -"}
             readOnly
           ></input>
           <br />
@@ -53,7 +57,7 @@ export default function MedicationDetails({ selectedMedication }) {
             className="patient-details-input"
             id="priority"
             name="priority"
-            value={selectedMedication?.priority}
+            value={selectedMedication ? selectedMedication.priority : "- - -"}
             readOnly
           ></input>
           <br />
@@ -64,7 +68,7 @@ export default function MedicationDetails({ selectedMedication }) {
                 className="patient-details-input"
                 id="qvalue"
                 name="qvalue"
-                value={selectedMedication?.qvalue}
+                value={selectedMedication ? selectedMedication.qvalue : "- - -"}
                 readOnly
               ></input>
             </div>
@@ -75,7 +79,7 @@ export default function MedicationDetails({ selectedMedication }) {
                 className="patient-details-input"
                 id="qunit"
                 name="qunit"
-                value={selectedMedication?.qunit}
+                value={selectedMedication ? selectedMedication.qunit : "- - -"}
                 readOnly
               ></input>
             </div>

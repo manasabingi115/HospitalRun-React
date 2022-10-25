@@ -36,7 +36,7 @@ export default function MedicationRequests({
           </tr>
         </thead>
         <tbody>
-          {data.map((obj, index) => (
+          {data?.map((obj, index) => (
             <tr key={index}>
               <td>{obj?.patient}</td>
               <td>{obj?.medication}</td>

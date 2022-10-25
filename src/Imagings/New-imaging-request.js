@@ -1,10 +1,21 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function NewImagingRequests() {
+export default function NewImagingRequests({ handlePopUp }) {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // dispatch(setReducerData(medicationsData));
+    navigate("/imagings/imaging-requests");
+    // setMedicationsData(initialMedicationsData);
+    handlePopUp("requested lab");
+  };
+
   return (
     <div className="main-div">
       <h2>New Imaging Request</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="parent-to-child-inputs-in-imagings">
           <div
             className="child-div-in-imagings"
@@ -45,6 +56,12 @@ export default function NewImagingRequests() {
           <label>Notes</label>
           <textarea className="input is-primary textarea-in-imagings"></textarea>
         </div>
+        <button type="submit" className="button is-black">
+          Request Medication
+        </button>
+        <Link to="/labs">
+          <button className="button is-danger">Cancel</button>
+        </Link>
       </form>
     </div>
   );

@@ -22,14 +22,17 @@ import MedicationDetails from "./Medications/Medication-details";
 import Labs from "./Labs/labs";
 import RequestLab from "./Labs/Request-lab";
 import LabRequests from "./Labs/Lab-requests";
+import LabDetails from "./Labs/Lab-details";
 
 import Imagings from "./Imagings/imagings";
 import NewImagingRequests from "./Imagings/New-imaging-request";
 import ImagingRequests from "./Imagings/Imaging-requests";
+import ImagingDetails from "./Imagings/Imaging-details";
 
 import Incidents from "./Incidents/incidents";
 import ReportIncident from "./Incidents/Report-incidents";
 import ReportedIncidents from "./Incidents/Reported-incidents";
+import IncidentDetails from "./Incidents/Incident-details";
 
 import { setPatientDataToStore, setRemoveItem } from "./actions";
 
@@ -122,19 +125,29 @@ export default function App() {
             />
 
             <Route path="/labs" exact element={<Labs />} />
-            <Route path="/labs/request-lab" exact element={<RequestLab />} />
+            <Route
+              path="/labs/request-lab"
+              exact
+              element={<RequestLab handlePopUp={handlePopUp} />}
+            />
             <Route path="/labs/lab-requests" exact element={<LabRequests />} />
+            <Route path="/labs/lab-details" exact element={<LabDetails />} />
 
             <Route path="/imagings" exact element={<Imagings />} />
             <Route
               path="/imagings/new-imaging-request"
               exact
-              element={<NewImagingRequests />}
+              element={<NewImagingRequests handlePopUp={handlePopUp} />}
             />
             <Route
               path="/imagings/imaging-requests"
               exact
               element={<ImagingRequests />}
+            />
+            <Route
+              path="/imagings/imaging-details"
+              exact
+              element={<ImagingDetails />}
             />
 
             <Route path="/incidents" exact element={<Incidents />} />
@@ -147,6 +160,11 @@ export default function App() {
               path="/incidents/reported-incidents"
               exact
               element={<ReportedIncidents />}
+            />
+            <Route
+              path="/incidents/incident-details"
+              exact
+              element={<IncidentDetails />}
             />
           </Routes>
         </BrowserRouter>
