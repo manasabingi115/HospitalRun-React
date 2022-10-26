@@ -1,6 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-export default function ImagingRequests() {
+export default function ImagingRequests({ setSelectedImaging, setRemoveItem }) {
+  const imagingDataFromStore = useSelector((state) => state.imagingData);
+
+  const { data } = imagingDataFromStore;
+  const dispatch = useDispatch();
+
+  console.log(data);
+
+  function FindIndex(obj) {
+    setSelectedImaging(obj);
+  }
+
+  function removeSelectedItem(index) {
+    dispatch(setRemoveItem(index));
+  }
+
   return (
     <div className="main-div">
       <h2>Imaging Requests</h2>
@@ -15,14 +33,14 @@ export default function ImagingRequests() {
           </tr>
         </thead>
         <tbody>
-          {/* {data?.map((obj, index) => (
+          {data?.map((obj, index) => (
             <tr key={index}>
               <td>{obj?.patient}</td>
               <td>{obj?.medication}</td>
               <td>{obj?.status}</td>
               <td>{obj?.priority}</td>
               <td>
-                <Link to="/medications/medication-details">
+                <Link to="/imagings/imaging-details">
                   <button onClick={() => FindIndex(obj, index)}>View</button>
                 </Link>
                 <button onClick={() => removeSelectedItem(index)}>
@@ -30,7 +48,7 @@ export default function ImagingRequests() {
                 </button>
               </td>
             </tr>
-          ))} */}
+          ))}
         </tbody>
       </table>
     </div>

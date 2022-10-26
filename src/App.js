@@ -42,6 +42,8 @@ export default function App() {
   const [selectedPatient, setSelectedPatient] = React.useState();
   const [selectedMedication, setSelectedMedication] = React.useState();
   const [selectedLab, setSelectedLab] = React.useState();
+  const [selectedImaging, setSelectedImaging] = React.useState();
+  const [selectedIncident, setSelectedIncident] = React.useState();
 
   const [popUp, setPopUp] = React.useState(false);
   const [popUpContent, setPopUpContent] = React.useState();
@@ -156,12 +158,17 @@ export default function App() {
             <Route
               path="/imagings/imaging-requests"
               exact
-              element={<ImagingRequests />}
+              element={
+                <ImagingRequests
+                  setSelectedImaging={setSelectedImaging}
+                  setRemoveItem={setRemoveItem}
+                />
+              }
             />
             <Route
               path="/imagings/imaging-details"
               exact
-              element={<ImagingDetails />}
+              element={<ImagingDetails selectedImaging={selectedImaging} />}
             />
 
             <Route path="/incidents" exact element={<Incidents />} />
@@ -173,12 +180,17 @@ export default function App() {
             <Route
               path="/incidents/reported-incidents"
               exact
-              element={<ReportedIncidents />}
+              element={
+                <ReportedIncidents
+                  setSelectedIncident={setSelectedIncident}
+                  setRemoveItem={setRemoveItem}
+                />
+              }
             />
             <Route
               path="/incidents/incident-details"
               exact
-              element={<IncidentDetails />}
+              element={<IncidentDetails selectedIncident={selectedIncident} />}
             />
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ImagingDetails() {
+export default function ImagingDetails({ selectedImaging }) {
   return (
     <div className="main-div">
       <h2>Imaging Details</h2>
@@ -11,9 +11,9 @@ export default function ImagingDetails() {
             className="patient-details-input"
             id="patient"
             name="patient"
-            // defaultValue={
-            //   selectedMedication ? selectedMedication.patient : "- - -"
-            // }
+            defaultValue={
+              selectedImaging.patient ? selectedImaging.patient : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -22,9 +22,7 @@ export default function ImagingDetails() {
             className="patient-details-input"
             id="type"
             name="type"
-            // defaultValue={
-            //   selectedMedication ? selectedMedication.medication : "- - -"
-            // }
+            defaultValue={selectedImaging.type ? selectedImaging.type : "- - -"}
             readOnly
           ></input>
           <br />
@@ -33,7 +31,7 @@ export default function ImagingDetails() {
             className="patient-details-input"
             id="visit"
             name="visit"
-            // value={selectedMedication ? selectedMedication.status : "- - -"}
+            value={selectedImaging.visit ? selectedImaging.visit : "- - -"}
             readOnly
           ></input>
           <br />
@@ -45,7 +43,7 @@ export default function ImagingDetails() {
             className="patient-details-input"
             id="status"
             name="status"
-            // value={selectedMedication ? selectedMedication.status : "- - -"}
+            value={selectedImaging.status ? selectedImaging.status : "- - -"}
             readOnly
           ></input>
           <br />
@@ -54,7 +52,7 @@ export default function ImagingDetails() {
             className="patient-details-input"
             id="notes"
             name="notes"
-            // value={selectedMedication ? selectedMedication.intent : "- - -"}
+            value={selectedImaging.notes ? selectedImaging.notes : "- - -"}
             readOnly
           ></input>
           <br />

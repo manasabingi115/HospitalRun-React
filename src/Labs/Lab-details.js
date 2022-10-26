@@ -11,7 +11,7 @@ export default function LabDetails({ selectedLab }) {
             className="patient-details-input"
             id="patient"
             name="patient"
-            defaultValue={selectedLab ? selectedLab.patient : "- - -"}
+            defaultValue={selectedLab.patient ? selectedLab.patient : "- - -"}
             readOnly
           ></input>
           <br />
@@ -20,7 +20,7 @@ export default function LabDetails({ selectedLab }) {
             className="patient-details-input"
             id="type"
             name="type"
-            defaultValue={selectedLab ? selectedLab.type : "- - -"}
+            defaultValue={selectedLab.type ? selectedLab.type : "- - -"}
             readOnly
           ></input>
           <br />
@@ -32,7 +32,7 @@ export default function LabDetails({ selectedLab }) {
             className="patient-details-input"
             id="visit"
             name="visit"
-            value={selectedLab ? selectedLab.visit : "- - -"}
+            value={selectedLab.visit ? selectedLab.visit : "- - -"}
             readOnly
           ></input>
           <br />
@@ -41,7 +41,7 @@ export default function LabDetails({ selectedLab }) {
             className="patient-details-input"
             id="notes"
             name="notes"
-            value={selectedLab ? selectedLab.notes : "- - -"}
+            value={selectedLab.notes ? selectedLab.notes : "- - -"}
             readOnly
           ></input>
           <br />

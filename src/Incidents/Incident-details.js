@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function IncidentDetails() {
+export default function IncidentDetails({ selectedIncident }) {
   return (
     <div className="main-div">
       <h2>Incident Details</h2>
@@ -12,7 +12,7 @@ export default function IncidentDetails() {
             id="patient"
             name="patient"
             // defaultValue={
-            //   selectedMedication ? selectedMedication.patient : "- - -"
+            //   selectedIncident.patient ? selectedIncident.patient : "- - -"
             // }
             readOnly
           ></input>
@@ -23,7 +23,7 @@ export default function IncidentDetails() {
             id="department"
             name="department"
             // defaultValue={
-            //   selectedMedication ? selectedMedication.medication : "- - -"
+            //   selectedIncident.department ? selectedIncident.department : "- - -"
             // }
             readOnly
           ></input>
@@ -33,7 +33,7 @@ export default function IncidentDetails() {
             className="patient-details-input"
             id="category"
             name="category"
-            // value={selectedMedication ? selectedMedication.status : "- - -"}
+            // value={selectedIncident.category ? selectedIncident.category : "- - -"}
             readOnly
           ></input>
           <br />
@@ -45,7 +45,7 @@ export default function IncidentDetails() {
             className="patient-details-input"
             id="catItem"
             name="catItem"
-            // value={selectedMedication ? selectedMedication.status : "- - -"}
+            // value={selectedIncident.catItem ? selectedIncident.catItem : "- - -"}
             readOnly
           ></input>
           <br />
@@ -54,7 +54,7 @@ export default function IncidentDetails() {
             className="patient-details-input"
             id="description"
             name="description"
-            // value={selectedMedication ? selectedMedication.intent : "- - -"}
+            // value={selectedIncident.description ? selectedIncident.description : "- - -"}
             readOnly
           ></input>
           <br />
@@ -63,7 +63,7 @@ export default function IncidentDetails() {
             className="patient-details-input"
             id="date"
             name="date"
-            // value={selectedMedication ? selectedMedication.intent : "- - -"}
+            // value={selectedIncident.date ? selectedIncident.date : "- - -"}
             readOnly
           ></input>
           <br />

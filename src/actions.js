@@ -25,3 +25,10 @@ export const setLabDataToStore = (data) => {
     payload: data
   };
 };
+
+export const setImagingDataToStore = (data) => {
+  return {
+    type: "SET_IMAGING_DATA",
+    payload: data
+  };
+};

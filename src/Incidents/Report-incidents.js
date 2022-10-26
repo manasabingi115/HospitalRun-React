@@ -1,14 +1,27 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setIncidentDataToStore } from "../actions";
 
 export default function ReportIncident({ handlePopUp }) {
+  const initialIncidentData = {
+    patient: "",
+    department: "",
+    category: "",
+    catIem: "",
+    description: "",
+    date: ""
+  };
+  const [IncidentData, setIncidentData] = React.useState(initialIncidentData);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(setReducerData(medicationsData));
+    dispatch(setIncidentDataToStore(IncidentData));
     navigate("/incidents/reported-incidents");
-    // setMedicationsData(initialMedicationsData);
+    setIncidentData(initialIncidentData);
     handlePopUp("reported new incident");
   };
 
@@ -25,6 +38,13 @@ export default function ReportIncident({ handlePopUp }) {
             <input
               className="input is-primary child-input-in-incidents"
               type="date"
+              value={IncidentData.date}
+              onChange={(e) =>
+                setIncidentData((prevState) => ({
+                  ...prevState,
+                  date: e.target.value
+                }))
+              }
             ></input>
           </div>
           <div className="child-div-in-incidents">
@@ -33,6 +53,13 @@ export default function ReportIncident({ handlePopUp }) {
               className="input is-primary child-input-in-incidents"
               type="text"
               placeholder="Department"
+              value={IncidentData.department}
+              onChange={(e) =>
+                setIncidentData((prevState) => ({
+                  ...prevState,
+                  department: e.target.value
+                }))
+              }
             ></input>
           </div>
         </div>
@@ -47,6 +74,13 @@ export default function ReportIncident({ handlePopUp }) {
               className="input is-primary child-input-in-incidents"
               type="text"
               placeholder="Category"
+              value={IncidentData.category}
+              onChange={(e) =>
+                setIncidentData((prevState) => ({
+                  ...prevState,
+                  category: e.target.value
+                }))
+              }
             ></input>
           </div>
           <div className="child-div-in-incidents">
@@ -55,13 +89,29 @@ export default function ReportIncident({ handlePopUp }) {
               className="input is-primary child-input-in-incidents"
               type="text"
               placeholder="Category Item"
+              value={IncidentData.catIem}
+              onChange={(e) =>
+                setIncidentData((prevState) => ({
+                  ...prevState,
+                  catIem: e.target.value
+                }))
+              }
             ></input>
           </div>
         </div>
 
         <div>
           <label>Description of Incident</label>
-          <textarea className="input is-primary textarea-in-incidents"></textarea>
+          <textarea
+            className="input is-primary textarea-in-incidents"
+            value={IncidentData.description}
+            onChange={(e) =>
+              setIncidentData((prevState) => ({
+                ...prevState,
+                description: e.target.value
+              }))
+            }
+          ></textarea>
         </div>
 
         <div>
@@ -69,6 +119,13 @@ export default function ReportIncident({ handlePopUp }) {
           <input
             className="input is-primary inputs-in-incidents"
             placeholder="Patient"
+            value={IncidentData.patient}
+            onChange={(e) =>
+              setIncidentData((prevState) => ({
+                ...prevState,
+                patient: e.target.value
+              }))
+            }
           ></input>
         </div>
         <button type="submit" className="button is-black">

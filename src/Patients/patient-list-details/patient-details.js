@@ -21,7 +21,11 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="patient-code"
             name="patient-code"
-            value={selectedPatient?.PatientCode}
+            value={
+              selectedPatient.PatientCode
+                ? selectedPatient.PatientCode
+                : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -30,7 +34,11 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="address"
             name="address"
-            value={selectedPatient?.addressdata.address}
+            value={
+              selectedPatient.addressdata.address
+                ? selectedPatient.addressdata.address
+                : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -39,7 +47,11 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="contact-num"
             name="contact-num"
-            value={selectedPatient?.phnNumdata.num}
+            value={
+              selectedPatient.phnNumdata.num
+                ? selectedPatient.phnNumdata.num
+                : "- - -"
+            }
             readOnly
           ></input>
         </div>
@@ -49,7 +61,11 @@ export default function PatientDetails({ selectedPatient }) {
             className="patient-details-input"
             id="patient-name"
             name="patient-name"
-            defaultValue={selectedPatient?.patientName}
+            defaultValue={
+              selectedPatient.patientName
+                ? selectedPatient.patientName
+                : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -69,7 +85,7 @@ export default function PatientDetails({ selectedPatient }) {
                 className="patient-details-input"
                 id="gender"
                 name="gender"
-                value={selectedPatient?.sex}
+                value={selectedPatient.sex ? selectedPatient.sex : "- - -"}
                 readOnly
               ></input>
             </div>
@@ -84,7 +100,7 @@ export default function PatientDetails({ selectedPatient }) {
                     ? selectedPatient.DOB
                     : selectedPatient?.approximateAge
                     ? selectedPatient.approximateAge
-                    : undefined
+                    : "- - -"
                 }
                 readOnly
               ></input>
