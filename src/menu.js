@@ -29,16 +29,22 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/patients/new-patient">
-                  <p id="patients-tab-child" className="child-tabs">
-                    New Patient
-                  </p>
+                <NavLink
+                  to="/patients/new-patient"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">New Patient</p>
                 </NavLink>
 
-                <NavLink to="/patients/patients-list">
-                  <p id="patients-tab-child" className="child-tabs">
-                    Patients List
-                  </p>
+                <NavLink
+                  to="/patients/patients-list"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Patients List</p>
                 </NavLink>
               </div>
             ) : null
@@ -62,10 +68,13 @@ export default function Menu() {
                   New Appointment
                 </p>
                  */}
-                <NavLink to="/scheduling/appointment-schedule">
-                  <p id="schedule-tab-child" className="child-tabs">
-                    Appointment Schedule
-                  </p>
+                <NavLink
+                  to="/scheduling/appointment-schedule"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Appointment Schedule</p>
                 </NavLink>
               </div>
             ) : null
@@ -86,16 +95,22 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/medications/request-medication">
-                  <p id="medication-tab-child" className="child-tabs">
-                    Request Medication
-                  </p>
+                <NavLink
+                  to="/medications/request-medication"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Request Medication</p>
                 </NavLink>
 
-                <NavLink to="/medications/medication-requests">
-                  <p id="medication-tab-child" className="child-tabs">
-                    Medication Requests
-                  </p>
+                <NavLink
+                  to="/medications/medication-requests"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Medication Requests</p>
                 </NavLink>
               </div>
             ) : null
@@ -116,16 +131,22 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/labs/request-lab">
-                  <p id="lab-tab-child" className="child-tabs">
-                    Request Lab
-                  </p>
+                <NavLink
+                  to="/labs/request-lab"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Request Lab</p>
                 </NavLink>
 
-                <NavLink to="/labs/lab-requests">
-                  <p id="lab-tab-child" className="child-tabs">
-                    Lab Requests
-                  </p>
+                <NavLink
+                  to="/labs/lab-requests"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Lab Requests</p>
                 </NavLink>
               </div>
             ) : null
@@ -146,16 +167,22 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/imagings/new-imaging-request">
-                  <p id="imaging-tab-child" className="child-tabs">
-                    New Imaging Request
-                  </p>
+                <NavLink
+                  to="/imagings/new-imaging-request"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">New Imaging Request</p>
                 </NavLink>
 
-                <NavLink to="/imagings/imaging-requests">
-                  <p id="imaging-tab-child" className="child-tabs">
-                    Imaging Requests
-                  </p>
+                <NavLink
+                  to="/imagings/imaging-requests"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Imaging Requests</p>
                 </NavLink>
               </div>
             ) : null
@@ -176,23 +203,23 @@ export default function Menu() {
           {({ isActive }) =>
             isActive ? (
               <div className="parent-child-tabs">
-                <NavLink to="/incidents/report-incident">
-                  <p id="incident-tab-child" className="child-tabs">
-                    Report Incident
-                  </p>
+                <NavLink
+                  to="/incidents/report-incident"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Report Incident</p>
                 </NavLink>
 
-                <NavLink to="/incidents/reported-incidents">
-                  <p id="incident-tab-child" className="child-tabs">
-                    Reported Incidents
-                  </p>
+                <NavLink
+                  to="/incidents/reported-incidents"
+                  className={({ isActive }) =>
+                    isActive ? "child-tab-active" : "child-tabs"
+                  }
+                >
+                  <p id="all-tab-child">Reported Incidents</p>
                 </NavLink>
-
-                {/* <NavLink to="/incidents">
-                  <p id="incident-tab-child" className="child-tabs">
-                    Visualize
-                  </p>
-                </NavLink> */}
               </div>
             ) : null
           }

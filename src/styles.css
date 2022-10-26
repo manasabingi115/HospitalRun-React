@@ -163,10 +163,19 @@ input:checked + .slider:before {
   margin-top: 5px;
   margin-bottom: 15px;
 }
-.child-tabs {
+.child-tabs > #all-tab-child {
   font-size: smaller;
   padding: 8px 15px;
   background-color: rgb(247, 242, 242);
+}
+.child-tab-active > #all-tab-child {
+  padding: 8px 15px;
+  background: darkseagreen;
+  color: black;
+  font-size: smaller;
+}
+.parent-child-tabs {
+  border-bottom: 1.5px solid green;
 }
 .parent-tab {
   padding: 10px 25px;
