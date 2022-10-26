@@ -32,3 +32,10 @@ export const setImagingDataToStore = (data) => {
     payload: data
   };
 };
+
+export const setIncidentDataToStore = (data) => {
+  return {
+    type: "SET_INCIDENT_DATA",
+    payload: data
+  };
+};

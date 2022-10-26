@@ -11,9 +11,9 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="patient"
             name="patient"
-            // defaultValue={
-            //   selectedIncident.patient ? selectedIncident.patient : "- - -"
-            // }
+            defaultValue={
+              selectedIncident.patient ? selectedIncident.patient : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -22,9 +22,11 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="department"
             name="department"
-            // defaultValue={
-            //   selectedIncident.department ? selectedIncident.department : "- - -"
-            // }
+            defaultValue={
+              selectedIncident.department
+                ? selectedIncident.department
+                : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -33,7 +35,9 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="category"
             name="category"
-            // value={selectedIncident.category ? selectedIncident.category : "- - -"}
+            value={
+              selectedIncident.category ? selectedIncident.category : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -45,7 +49,9 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="catItem"
             name="catItem"
-            // value={selectedIncident.catItem ? selectedIncident.catItem : "- - -"}
+            value={
+              selectedIncident.catItem ? selectedIncident.catItem : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -54,7 +60,11 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="description"
             name="description"
-            // value={selectedIncident.description ? selectedIncident.description : "- - -"}
+            value={
+              selectedIncident.description
+                ? selectedIncident.description
+                : "- - -"
+            }
             readOnly
           ></input>
           <br />
@@ -63,7 +73,7 @@ export default function IncidentDetails({ selectedIncident }) {
             className="patient-details-input"
             id="date"
             name="date"
-            // value={selectedIncident.date ? selectedIncident.date : "- - -"}
+            value={selectedIncident.date ? selectedIncident.date : "- - -"}
             readOnly
           ></input>
           <br />

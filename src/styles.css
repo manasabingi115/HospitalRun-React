@@ -8,6 +8,8 @@
   display: flex;
 }
 
+/* status pop-up START */
+
 .pop-up-container {
   position: fixed;
   background: black;
@@ -38,6 +40,8 @@
   transition: 1s;
   right: 0;
 }
+
+/* status pop-up END */
 
 #side-bar {
   border-right: 1px solid lightgray;

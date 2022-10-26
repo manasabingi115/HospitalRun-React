@@ -8,7 +8,7 @@ export default function PopUp({ popUp, setPopUp, popUpContent }) {
     >
       <div className="success-div">
         <p>
-          <strong>Success!</strong>
+          <strong style={{ color: "white" }}>Success!</strong>
         </p>
         <MdCancel onClick={() => setPopUp(false)} />
       </div>

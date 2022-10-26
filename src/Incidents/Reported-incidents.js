@@ -1,6 +1,27 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-export default function ReportedIncidents() {
+export default function ReportedIncidents({
+  setSelectedIncident,
+  setRemoveItem
+}) {
+  const incidentDataFromStore = useSelector((state) => state.incidentData);
+
+  const { data } = incidentDataFromStore;
+  const dispatch = useDispatch();
+
+  console.log(data);
+
+  function FindIndex(obj) {
+    setSelectedIncident(obj);
+  }
+
+  function removeSelectedItem(index) {
+    dispatch(setRemoveItem(index));
+  }
+
   return (
     <div className="main-div">
       <h2>Reported Incidents</h2>
@@ -15,22 +36,22 @@ export default function ReportedIncidents() {
           </tr>
         </thead>
         <tbody>
-          {/* {data?.map((obj, index) => (
+          {data?.map((obj, index) => (
             <tr key={index}>
               <td>{obj?.patient}</td>
-              <td>{obj?.medication}</td>
-              <td>{obj?.status}</td>
-              <td>{obj?.priority}</td>
+              <td>{obj?.department}</td>
+              <td>{obj?.Category}</td>
+              <td>{obj?.date}</td>
               <td>
-                <Link to="/medications/medication-details">
-                  <button onClick={() => FindIndex(obj, index)}>View</button>
+                <Link to="/incidents/incident-details">
+                  <button onClick={() => FindIndex(obj)}>View</button>
                 </Link>
                 <button onClick={() => removeSelectedItem(index)}>
                   Delete
                 </button>
               </td>
             </tr>
-          ))} */}
+          ))}
         </tbody>
       </table>
     </div>
