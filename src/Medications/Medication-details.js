@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { BsArrowLeft } from "react-icons/bs";
+import { BiLeftArrow } from "react-icons/bi";
+import { GoArrowLeft } from "react-icons/go";
 
 export default function MedicationDetails({ selectedMedication }) {
+  let navigate = useNavigate();
+
   console.log(selectedMedication);
   return (
     <div className="main-div">
@@ -102,6 +108,12 @@ export default function MedicationDetails({ selectedMedication }) {
           </div>
         </div>
       </form>
+      <div>
+        <button onClick={() => navigate(-1)} className="back-button">
+          <GoArrowLeft />
+          Back
+        </button>
+      </div>
     </div>
   );
 }
