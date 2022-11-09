@@ -1,6 +1,10 @@
 import React from "react";
+import { GoArrowLeft } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 export default function ImagingDetails({ selectedImaging }) {
+  let navigate = useNavigate();
+
   return (
     <div className="main-div">
       <h2>Imaging Details</h2>
@@ -58,6 +62,12 @@ export default function ImagingDetails({ selectedImaging }) {
           <br />
         </div>
       </form>
+      <div>
+        <button onClick={() => navigate(-1)} className="back-button">
+          <GoArrowLeft />
+          Back
+        </button>
+      </div>
     </div>
   );
 }

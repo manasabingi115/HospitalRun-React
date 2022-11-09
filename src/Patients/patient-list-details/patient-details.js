@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { GoArrowLeft } from "react-icons/go";
 
 export default function PatientDetails({ selectedPatient }) {
   const navigate = useNavigate();
@@ -112,7 +113,12 @@ export default function PatientDetails({ selectedPatient }) {
           </div>
         </div>
       </form>
-      <button onClick={() => navigate(-1)}>Back</button>
+      <div>
+        <button onClick={() => navigate(-1)} className="back-button">
+          <GoArrowLeft />
+          Back
+        </button>
+      </div>
       {/* <button onClick={() => navigate(1)}>go forward</button> */}
     </div>
   );

@@ -1,6 +1,10 @@
 import React from "react";
+import { GoArrowLeft } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 export default function LabDetails({ selectedLab }) {
+  let navigate = useNavigate();
+
   return (
     <div className="main-div">
       <h2>Lab Details</h2>
@@ -47,6 +51,12 @@ export default function LabDetails({ selectedLab }) {
           <br />
         </div>
       </form>
+      <div>
+        <button onClick={() => navigate(-1)} className="back-button">
+          <GoArrowLeft />
+          Back
+        </button>
+      </div>
     </div>
   );
 }
