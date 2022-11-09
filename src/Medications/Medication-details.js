@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { BsArrowLeft } from "react-icons/bs";
-import { BiLeftArrow } from "react-icons/bi";
 import { GoArrowLeft } from "react-icons/go";
 
 export default function MedicationDetails({ selectedMedication }) {

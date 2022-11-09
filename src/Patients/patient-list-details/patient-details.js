@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function PatientDetails({ selectedPatient }) {
+  const navigate = useNavigate();
+
   function RegistrationDate() {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
@@ -108,6 +112,8 @@ export default function PatientDetails({ selectedPatient }) {
           </div>
         </div>
       </form>
+      <button onClick={() => navigate(-1)}>Back</button>
+      {/* <button onClick={() => navigate(1)}>go forward</button> */}
     </div>
   );
 }
