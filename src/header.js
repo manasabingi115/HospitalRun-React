@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -15,6 +16,10 @@ export default function Header() {
         <input type="checkbox" />
         <span className="slider round"></span>
       </label>
+
+      {/* <NavLink to="/login">
+        <button>Login</button>
+      </NavLink> */}
     </div>
   );
 }

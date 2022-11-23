@@ -1,6 +1,9 @@
 import "./styles.css";
 import React from "react";
 
+import LoginPage from "./login-register/login";
+import RegisterPage from "./login-register/register";
+
 import Header from "./header";
 import Menu from "./menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -58,6 +61,12 @@ export default function App() {
   return (
     <div className="App">
       <Header />
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/login" exact element={<LoginPage />} />
+          <Route path="/register" exact element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter> */}
       <button name="test" onClick={() => handlePopUp("created test")}>
         Test
       </button>
