@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ setCurrentPage }) {
   return (
     <div className="header">
       <div className="hosp-icon-with-name">
@@ -12,14 +12,9 @@ export default function Header() {
         />
         <h1>HospitalRun</h1>
       </div>
-      <label className="switch">
-        <input type="checkbox" />
-        <span className="slider round"></span>
-      </label>
-
-      {/* <NavLink to="/login">
-        <button>Login</button>
-      </NavLink> */}
+      <Link to="/login">
+        <button onClick={() => setCurrentPage("Login")}>Login</button>
+      </Link>
     </div>
   );
 }

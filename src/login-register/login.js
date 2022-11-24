@@ -1,13 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./login-register.css";
 
-export default function LoginPage() {
+export default function LoginPage({ setCurrentPage }) {
   const initialState = {
     email: "",
     password: ""
   };
   const [credentials, setCredentials] = React.useState(initialState);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({
@@ -16,11 +20,14 @@ export default function LoginPage() {
     }));
   };
 
-  const handleForm = () => {
+  const handleForm = (e) => {
+    e.preventDefault();
+    setCurrentPage("User");
+    navigate("/dashboard");
     setCredentials(initialState);
   };
 
-  console.log(credentials);
+  // console.log(credentials);
 
   return (
     <div className="login-container">
@@ -40,7 +47,9 @@ export default function LoginPage() {
           value={credentials.password}
           onChange={(e) => handleChange(e)}
         ></input>
+        {/* <Link to="/"> */}
         <button type="submit">Log In</button>
+        {/* </Link> */}
       </form>
       <p>
         Don't have an account?

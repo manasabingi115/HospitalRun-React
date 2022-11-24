@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
   const initialState = {
@@ -10,6 +11,7 @@ export default function RegisterPage() {
     cfmPassword: ""
   };
   const [credentials, setCredentials] = React.useState(initialState);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({
@@ -20,9 +22,10 @@ export default function RegisterPage() {
 
   const handleForm = () => {
     setCredentials(initialState);
+    navigate("/login");
   };
 
-  console.log(credentials);
+  // console.log(credentials);
 
   return (
     <div className="login-container">
@@ -63,11 +66,11 @@ export default function RegisterPage() {
           value={credentials.cfmPassword}
           onChange={(e) => handleChange(e)}
         ></input>
-        <Link to="/login">
-          <button type="submit" style={{ width: "100%" }}>
-            Register
-          </button>
-        </Link>
+        {/* <Link to="/login"> */}
+        <button type="submit" style={{ width: "100%" }}>
+          Register
+        </button>
+        {/* </Link> */}
       </form>
       <p>
         Already have an account?

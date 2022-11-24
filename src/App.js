@@ -42,6 +42,9 @@ import { setPatientDataToStore, setRemoveItem } from "./actions";
 import PopUp from "./Pop-up";
 
 export default function App() {
+  const [currentPage, setCurrentPage] = React.useState("Login");
+  console.log(currentPage, "page");
+
   const [selectedPatient, setSelectedPatient] = React.useState();
   const [selectedMedication, setSelectedMedication] = React.useState();
   const [selectedLab, setSelectedLab] = React.useState();
@@ -60,150 +63,155 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header />
-      {/* <BrowserRouter>
+      <BrowserRouter>
+        <Header setCurrentPage={setCurrentPage} />
+        <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
+        <button name="test" onClick={() => handlePopUp("created test")}>
+          Test
+        </button>
+
+        {currentPage === "User" && <Menu />}
+
         <Routes>
-          <Route path="/login" exact element={<LoginPage />} />
-          <Route path="/register" exact element={<RegisterPage />} />
+          <Route
+            path="/login"
+            exact
+            element={<LoginPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/register"
+            exact
+            element={<RegisterPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route path="/dashboard" exact element={<Dashboard />} />
+
+          <Route path="/patients" exact element={<Patients />} />
+          <Route
+            path="/patients/new-patient"
+            exact
+            element={
+              <NewPatient
+                setPatientDataToStore={setPatientDataToStore}
+                selectedPatient={selectedPatient}
+                handlePopUp={handlePopUp}
+              />
+            }
+          />
+          <Route
+            path="/patients/patients-list"
+            exact
+            element={
+              <PatientsList
+                setSelectedPatient={setSelectedPatient}
+                setRemoveItem={setRemoveItem}
+              />
+            }
+          />
+          <Route
+            path="/patients/patient-details"
+            exact
+            element={<PatientDetails selectedPatient={selectedPatient} />}
+          />
+
+          <Route path="/scheduling" exact element={<Scheduling />} />
+          <Route
+            path="/scheduling/appointment-schedule"
+            exact
+            element={<AppointmentSchedule />}
+          />
+
+          <Route path="/medications" exact element={<Medications />} />
+          <Route
+            path="/medications/request-medication"
+            exact
+            element={<RequestMedication handlePopUp={handlePopUp} />}
+          />
+          <Route
+            path="/medications/medication-requests"
+            exact
+            element={
+              <MedicationRequests
+                setSelectedMedication={setSelectedMedication}
+                setRemoveItem={setRemoveItem}
+              />
+            }
+          />
+          <Route
+            path="/medications/medication-details"
+            exact
+            element={
+              <MedicationDetails selectedMedication={selectedMedication} />
+            }
+          />
+
+          <Route path="/labs" exact element={<Labs />} />
+          <Route
+            path="/labs/request-lab"
+            exact
+            element={<RequestLab handlePopUp={handlePopUp} />}
+          />
+          <Route
+            path="/labs/lab-requests"
+            exact
+            element={
+              <LabRequests
+                setSelectedLab={setSelectedLab}
+                setRemoveItem={setRemoveItem}
+              />
+            }
+          />
+          <Route
+            path="/labs/lab-details"
+            exact
+            element={<LabDetails selectedLab={selectedLab} />}
+          />
+
+          <Route path="/imagings" exact element={<Imagings />} />
+          <Route
+            path="/imagings/new-imaging-request"
+            exact
+            element={<NewImagingRequests handlePopUp={handlePopUp} />}
+          />
+          <Route
+            path="/imagings/imaging-requests"
+            exact
+            element={
+              <ImagingRequests
+                setSelectedImaging={setSelectedImaging}
+                setRemoveItem={setRemoveItem}
+              />
+            }
+          />
+          <Route
+            path="/imagings/imaging-details"
+            exact
+            element={<ImagingDetails selectedImaging={selectedImaging} />}
+          />
+
+          <Route path="/incidents" exact element={<Incidents />} />
+          <Route
+            path="/incidents/report-incident"
+            exact
+            element={<ReportIncident handlePopUp={handlePopUp} />}
+          />
+          <Route
+            path="/incidents/reported-incidents"
+            exact
+            element={
+              <ReportedIncidents
+                setSelectedIncident={setSelectedIncident}
+                setRemoveItem={setRemoveItem}
+              />
+            }
+          />
+          <Route
+            path="/incidents/incident-details"
+            exact
+            element={<IncidentDetails selectedIncident={selectedIncident} />}
+          />
         </Routes>
-      </BrowserRouter> */}
-      <button name="test" onClick={() => handlePopUp("created test")}>
-        Test
-      </button>
-      <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
-      <div id="container">
-        <BrowserRouter>
-          <Menu />
-          <Routes>
-            <Route path="/" exact element={<Dashboard />} />
-
-            <Route path="/patients" exact element={<Patients />} />
-            <Route
-              path="/patients/new-patient"
-              exact
-              element={
-                <NewPatient
-                  setPatientDataToStore={setPatientDataToStore}
-                  selectedPatient={selectedPatient}
-                  handlePopUp={handlePopUp}
-                />
-              }
-            />
-            <Route
-              path="/patients/patients-list"
-              exact
-              element={
-                <PatientsList
-                  setSelectedPatient={setSelectedPatient}
-                  setRemoveItem={setRemoveItem}
-                />
-              }
-            />
-            <Route
-              path="/patients/patient-details"
-              exact
-              element={<PatientDetails selectedPatient={selectedPatient} />}
-            />
-
-            <Route path="/scheduling" exact element={<Scheduling />} />
-            <Route
-              path="/scheduling/appointment-schedule"
-              exact
-              element={<AppointmentSchedule />}
-            />
-
-            <Route path="/medications" exact element={<Medications />} />
-            <Route
-              path="/medications/request-medication"
-              exact
-              element={<RequestMedication handlePopUp={handlePopUp} />}
-            />
-            <Route
-              path="/medications/medication-requests"
-              exact
-              element={
-                <MedicationRequests
-                  setSelectedMedication={setSelectedMedication}
-                  setRemoveItem={setRemoveItem}
-                />
-              }
-            />
-            <Route
-              path="/medications/medication-details"
-              exact
-              element={
-                <MedicationDetails selectedMedication={selectedMedication} />
-              }
-            />
-
-            <Route path="/labs" exact element={<Labs />} />
-            <Route
-              path="/labs/request-lab"
-              exact
-              element={<RequestLab handlePopUp={handlePopUp} />}
-            />
-            <Route
-              path="/labs/lab-requests"
-              exact
-              element={
-                <LabRequests
-                  setSelectedLab={setSelectedLab}
-                  setRemoveItem={setRemoveItem}
-                />
-              }
-            />
-            <Route
-              path="/labs/lab-details"
-              exact
-              element={<LabDetails selectedLab={selectedLab} />}
-            />
-
-            <Route path="/imagings" exact element={<Imagings />} />
-            <Route
-              path="/imagings/new-imaging-request"
-              exact
-              element={<NewImagingRequests handlePopUp={handlePopUp} />}
-            />
-            <Route
-              path="/imagings/imaging-requests"
-              exact
-              element={
-                <ImagingRequests
-                  setSelectedImaging={setSelectedImaging}
-                  setRemoveItem={setRemoveItem}
-                />
-              }
-            />
-            <Route
-              path="/imagings/imaging-details"
-              exact
-              element={<ImagingDetails selectedImaging={selectedImaging} />}
-            />
-
-            <Route path="/incidents" exact element={<Incidents />} />
-            <Route
-              path="/incidents/report-incident"
-              exact
-              element={<ReportIncident handlePopUp={handlePopUp} />}
-            />
-            <Route
-              path="/incidents/reported-incidents"
-              exact
-              element={
-                <ReportedIncidents
-                  setSelectedIncident={setSelectedIncident}
-                  setRemoveItem={setRemoveItem}
-                />
-              }
-            />
-            <Route
-              path="/incidents/incident-details"
-              exact
-              element={<IncidentDetails selectedIncident={selectedIncident} />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      </BrowserRouter>
     </div>
+    // </div>
   );
 }

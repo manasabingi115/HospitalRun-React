@@ -6,7 +6,7 @@ export default function Menu() {
     <div id="side-bar">
       <div className="tab">
         <NavLink
-          to="/"
+          to="/dashboard"
           id="dashboard-tab"
           className={({ isActive }) =>
             isActive ? "selected-button parent-tab" : "parent-tab"
