@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Header({ setCurrentPage }) {
+export default function Header({
+  currentPage,
+  setCurrentPage,
+  loginLogout,
+  setLoginLogout
+}) {
+  console.log(currentPage);
+
+  const HandleLoginLogout = () => {
+    setCurrentPage("Login");
+    setLoginLogout("Log In");
+  };
+
   return (
     <div className="header">
       <div className="hosp-icon-with-name">
@@ -13,7 +25,7 @@ export default function Header({ setCurrentPage }) {
         <h1>HospitalRun</h1>
       </div>
       <Link to="/login">
-        <button onClick={() => setCurrentPage("Login")}>Login</button>
+        <button onClick={HandleLoginLogout}>{loginLogout}</button>
       </Link>
     </div>
   );

@@ -4,6 +4,7 @@ import medicationReducer from "./Reducers/MedicationReducer";
 import labReducer from "./Reducers/LabReducer";
 import ImagingReducer from "./Reducers/ImagingReducer";
 import IncidentReducer from "./Reducers/IncidentReducer";
+import loginData from "./Reducers/LoginReducer";
 
 const initialState = {};
 
@@ -13,7 +14,8 @@ const store = createStore(
     medicationData: medicationReducer,
     labData: labReducer,
     imagingData: ImagingReducer,
-    incidentData: IncidentReducer
+    incidentData: IncidentReducer,
+    RegisteredData: loginData
   }),
   initialState
 );

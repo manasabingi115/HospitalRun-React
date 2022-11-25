@@ -1,15 +1,18 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
+// import { setRegisteredData } from "../actions";
+// import { useDispatch } from "react-redux";
 
 import "./login-register.css";
 
-export default function LoginPage({ setCurrentPage }) {
+export default function LoginPage({ setLoginLogout, setCurrentPage }) {
   const initialState = {
     email: "",
     password: ""
   };
   const [credentials, setCredentials] = React.useState(initialState);
+
+  // const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -22,9 +25,11 @@ export default function LoginPage({ setCurrentPage }) {
 
   const handleForm = (e) => {
     e.preventDefault();
+    // dispatch(setRegisteredData(credentials));
     setCurrentPage("User");
     navigate("/dashboard");
     setCredentials(initialState);
+    setLoginLogout("Log Out");
   };
 
   // console.log(credentials);

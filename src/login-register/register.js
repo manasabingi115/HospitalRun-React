@@ -1,6 +1,8 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
+import { setRegisteredData } from "../actions";
+import { useDispatch } from "react-redux";
 
 export default function RegisterPage() {
   const initialState = {
@@ -12,6 +14,7 @@ export default function RegisterPage() {
   };
   const [credentials, setCredentials] = React.useState(initialState);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({
@@ -23,6 +26,7 @@ export default function RegisterPage() {
   const handleForm = () => {
     setCredentials(initialState);
     navigate("/login");
+    dispatch(setRegisteredData(credentials));
   };
 
   // console.log(credentials);

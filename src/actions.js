@@ -39,3 +39,17 @@ export const setIncidentDataToStore = (data) => {
     payload: data
   };
 };
+
+// export const setLoginData = (data) => {
+//   return {
+//     type: "SET_REGISTERED_DATA",
+//     payload: data
+//   };
+// };
+
+export const setRegisteredData = (data) => {
+  return {
+    type: "SET_REGISTERED_DATA",
+    payload: data
+  };
+};

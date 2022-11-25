@@ -44,6 +44,7 @@ import PopUp from "./Pop-up";
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState("Login");
   console.log(currentPage, "page");
+  const [loginLogout, setLoginLogout] = React.useState("Log In");
 
   const [selectedPatient, setSelectedPatient] = React.useState();
   const [selectedMedication, setSelectedMedication] = React.useState();
@@ -64,7 +65,12 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header setCurrentPage={setCurrentPage} />
+        <Header
+          loginLogout={loginLogout}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          setLoginLogout={setLoginLogout}
+        />
         <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
         <button name="test" onClick={() => handlePopUp("created test")}>
           Test
@@ -76,7 +82,12 @@ export default function App() {
           <Route
             path="/login"
             exact
-            element={<LoginPage setCurrentPage={setCurrentPage} />}
+            element={
+              <LoginPage
+                setCurrentPage={setCurrentPage}
+                setLoginLogout={setLoginLogout}
+              />
+            }
           />
           <Route
             path="/register"
