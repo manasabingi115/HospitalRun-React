@@ -27,7 +27,11 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
   const handleForm = (e) => {
     e.preventDefault();
     if (
-      registeredData.data.some((data) => data.password === credentials.password)
+      registeredData.data.some(
+        (data) =>
+          data.password === credentials.password &&
+          data.email === credentials.email
+      )
     ) {
       setCurrentPage("User");
       navigate("/dashboard");
