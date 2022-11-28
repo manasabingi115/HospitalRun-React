@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { setRegisteredData } from "../actions";
 import { useDispatch } from "react-redux";
@@ -23,13 +22,17 @@ export default function RegisterPage() {
     }));
   };
 
-  const handleForm = () => {
-    setCredentials(initialState);
-    navigate("/login");
-    dispatch(setRegisteredData(credentials));
+  const handleForm = (e) => {
+    e.preventDefault();
+    if (credentials.password === credentials.cfmPassword) {
+      setCredentials(initialState);
+      navigate("/login");
+      dispatch(setRegisteredData(credentials));
+    } else {
+      alert("incorrect password");
+      setCredentials(initialState);
+    }
   };
-
-  // console.log(credentials);
 
   return (
     <div className="login-container">
@@ -70,11 +73,9 @@ export default function RegisterPage() {
           value={credentials.cfmPassword}
           onChange={(e) => handleChange(e)}
         ></input>
-        {/* <Link to="/login"> */}
         <button type="submit" style={{ width: "100%" }}>
           Register
         </button>
-        {/* </Link> */}
       </form>
       <p>
         Already have an account?

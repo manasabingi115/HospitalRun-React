@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { setRegisteredData } from "../actions";
-// import { useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
 
 import "./login-register.css";
 
@@ -11,8 +11,9 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
     password: ""
   };
   const [credentials, setCredentials] = React.useState(initialState);
-
-  // const dispatch = useDispatch();
+  const registeredData = useSelector((state) => state.RegisteredData);
+  console.log(credentials);
+  console.log(registeredData.data, "data");
 
   const navigate = useNavigate();
 
@@ -25,14 +26,17 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
 
   const handleForm = (e) => {
     e.preventDefault();
-    // dispatch(setRegisteredData(credentials));
-    setCurrentPage("User");
-    navigate("/dashboard");
-    setCredentials(initialState);
-    setLoginLogout("Log Out");
+    if (
+      registeredData.data.some((data) => data.password === credentials.password)
+    ) {
+      setCurrentPage("User");
+      navigate("/dashboard");
+      setCredentials(initialState);
+      setLoginLogout("Log Out");
+    } else {
+      alert("incorrect username or password");
+    }
   };
-
-  // console.log(credentials);
 
   return (
     <div className="login-container">
@@ -52,9 +56,7 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
           value={credentials.password}
           onChange={(e) => handleChange(e)}
         ></input>
-        {/* <Link to="/"> */}
         <button type="submit">Log In</button>
-        {/* </Link> */}
       </form>
       <p>
         Don't have an account?

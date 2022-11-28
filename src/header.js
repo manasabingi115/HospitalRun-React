@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Header({
-  currentPage,
+  // currentPage,
   setCurrentPage,
   loginLogout,
   setLoginLogout
 }) {
-  console.log(currentPage);
+  // console.log(currentPage);
 
   const HandleLoginLogout = () => {
     setCurrentPage("Login");

@@ -43,7 +43,7 @@ import PopUp from "./Pop-up";
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState("Login");
-  console.log(currentPage, "page");
+  // console.log(currentPage, "page");
   const [loginLogout, setLoginLogout] = React.useState("Log In");
 
   const [selectedPatient, setSelectedPatient] = React.useState();
