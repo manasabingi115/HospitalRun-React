@@ -59,10 +59,11 @@
   z-index: 2;
 }
 .main-div {
-  width: 85%;
+  width: 80%;
   padding: 10px 50px 50px 50px;
   position: absolute;
-  top: 100px;
+  /* top: 100px; */
+  /* margin-left: 50px; */
   background: yellow;
   right: 0px;
   z-index: 1;
@@ -292,7 +293,13 @@ tr:hover {
   font-size: large;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 900px) {
+  .main-div {
+    width: 80%;
+  }
+} */
+
+@media screen and (max-width: 650px) {
   .side-menu-hide {
     display: none;
   }
@@ -304,6 +311,19 @@ tr:hover {
     width: 100%;
     padding: 10px 35px 50px 35px;
   }
+  .menu-icon {
+    position: absolute;
+    top: -75px;
+    color: white;
+    font-size: xx-large;
+    padding: 15px;
+  }
+  .hosp-icon-with-name {
+    margin-left: 55px;
+  }
+  /* .header {
+    justify-content: end;
+  } */
   /* body {
     background-color: olive;
   } */

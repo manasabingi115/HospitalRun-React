@@ -5,7 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PatientCode from "./patient-code";
 
-export default function NewPatient({ setPatientDataToStore, handlePopUp }) {
+export default function NewPatient({
+  setPatientDataToStore,
+  handlePopUp,
+  Menu
+}) {
   const initialPatientData = {
     PatientCode: PatientCode(10),
     patientName: "",
@@ -48,21 +52,29 @@ export default function NewPatient({ setPatientDataToStore, handlePopUp }) {
   };
 
   return (
-    <div className="main-div">
-      <h2>New Patient</h2>
-      <form onSubmit={handleSubmit}>
-        <BasicInfo setPatientData={setPatientData} patientData={patientData} />
-        <ContactInfo
-          setPatientData={setPatientData}
-          patientData={patientData}
-        />
-        <button type="submit" className="button is-black">
-          Create Patient
-        </button>
-        <Link to="/patients">
-          <button className="button is-danger">Cancel</button>
-        </Link>
-      </form>
+    <div className="main-div-container">
+      <div className="side-menu">
+        <Menu />
+      </div>
+      <div className="main-div">
+        <h2>New Patient</h2>
+        <form onSubmit={handleSubmit}>
+          <BasicInfo
+            setPatientData={setPatientData}
+            patientData={patientData}
+          />
+          <ContactInfo
+            setPatientData={setPatientData}
+            patientData={patientData}
+          />
+          <button type="submit" className="button is-black">
+            Create Patient
+          </button>
+          <Link to="/patients">
+            <button className="button is-danger">Cancel</button>
+          </Link>
+        </form>
+      </div>
     </div>
   );
 }

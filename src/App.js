@@ -65,12 +65,12 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Header
+        <Header
           loginLogout={loginLogout}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
           setLoginLogout={setLoginLogout}
-        /> */}
+        />
         <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
         {/* <button name="test" onClick={() => handlePopUp("created test")}>
           Test
@@ -105,6 +105,7 @@ export default function App() {
                 setPatientDataToStore={setPatientDataToStore}
                 selectedPatient={selectedPatient}
                 handlePopUp={handlePopUp}
+                Menu={Menu}
               />
             }
           />
@@ -115,13 +116,16 @@ export default function App() {
               <PatientsList
                 setSelectedPatient={setSelectedPatient}
                 setRemoveItem={setRemoveItem}
+                Menu={Menu}
               />
             }
           />
           <Route
             path="/patients/patient-details"
             exact
-            element={<PatientDetails selectedPatient={selectedPatient} />}
+            element={
+              <PatientDetails selectedPatient={selectedPatient} Menu={Menu} />
+            }
           />
 
           <Route path="/scheduling" exact element={<Scheduling />} />

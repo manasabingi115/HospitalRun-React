@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Menu from "../menu";
 
 export default function ReportedIncidents({
   setSelectedIncident,
@@ -23,37 +24,42 @@ export default function ReportedIncidents({
   }
 
   return (
-    <div className="main-div">
-      <h2>Reported Incidents</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Patient</th>
-            <th>Department</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((obj, index) => (
-            <tr key={index}>
-              <td>{obj?.patient}</td>
-              <td>{obj?.department}</td>
-              <td>{obj?.Category}</td>
-              <td>{obj?.date}</td>
-              <td>
-                <Link to="/incidents/incident-details">
-                  <button onClick={() => FindIndex(obj)}>View</button>
-                </Link>
-                <button onClick={() => removeSelectedItem(index)}>
-                  Delete
-                </button>
-              </td>
+    <div className="main-div-container">
+      <div className="side-menu">
+        <Menu />
+      </div>
+      <div className="main-div">
+        <h2>Reported Incidents</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Department</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data?.map((obj, index) => (
+              <tr key={index}>
+                <td>{obj?.patient}</td>
+                <td>{obj?.department}</td>
+                <td>{obj?.Category}</td>
+                <td>{obj?.date}</td>
+                <td>
+                  <Link to="/incidents/incident-details">
+                    <button onClick={() => FindIndex(obj)}>View</button>
+                  </Link>
+                  <button onClick={() => removeSelectedItem(index)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
