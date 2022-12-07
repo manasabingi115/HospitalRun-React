@@ -61,22 +61,22 @@ export default function App() {
     setTimeout(() => setPopUp(false), 5000);
     console.log("form submitted!");
   };
-
+  // browserslist.clearCaches();
   return (
     <div className="App">
       <BrowserRouter>
-        <Header
+        {/* <Header
           loginLogout={loginLogout}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
           setLoginLogout={setLoginLogout}
-        />
+        /> */}
         <PopUp popUp={popUp} setPopUp={setPopUp} popUpContent={popUpContent} />
-        <button name="test" onClick={() => handlePopUp("created test")}>
+        {/* <button name="test" onClick={() => handlePopUp("created test")}>
           Test
-        </button>
+        </button> */}
 
-        {currentPage === "User" && <Menu />}
+        {/* {currentPage === "User" && <Menu />} */}
 
         <Routes>
           <Route
