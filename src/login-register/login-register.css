@@ -18,7 +18,6 @@ body,
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
-  /* justify-content: center; */
 }
 
 .login-container > h2 {
@@ -72,12 +71,4 @@ button {
 
 .login-container > p > a:hover {
   color: rgb(2, 72, 2);
-}
-
-/* media queries */
-
-@media screen and (max-width: 600px) {
-  /* body {
-    background-color: olive;
-  } */
 }

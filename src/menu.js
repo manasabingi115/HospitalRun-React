@@ -10,11 +10,7 @@ export default function Menu() {
     <div className="side-bar-container">
       <div className="menu-icon">
         {!showMenu && <FiMenu onClick={() => setShowMenu(true)} />}
-        {showMenu && (
-          // <div className="menu-close-icon">
-          <IoMdClose onClick={() => setShowMenu(false)} />
-          // </div>
-        )}
+        {showMenu && <IoMdClose onClick={() => setShowMenu(false)} />}
       </div>
 
       <div

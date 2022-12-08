@@ -43,7 +43,6 @@ import PopUp from "./Pop-up";
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState("Login");
-  // console.log(currentPage, "page");
   const [loginLogout, setLoginLogout] = React.useState("Log In");
 
   const [selectedPatient, setSelectedPatient] = React.useState();
@@ -61,7 +60,6 @@ export default function App() {
     setTimeout(() => setPopUp(false), 5000);
     console.log("form submitted!");
   };
-  // browserslist.clearCaches();
   return (
     <div className="App">
       <BrowserRouter>
@@ -75,8 +73,6 @@ export default function App() {
         {/* <button name="test" onClick={() => handlePopUp("created test")}>
           Test
         </button> */}
-
-        {/* {currentPage === "User" && <Menu />} */}
 
         <Routes>
           <Route
