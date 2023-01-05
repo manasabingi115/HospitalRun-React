@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 export default function PatientsList({
   setSelectedPatient,
@@ -28,27 +29,27 @@ export default function PatientsList({
       <div className="side-menu">
         <Menu />
       </div>
-      <div className="main-div">
+      <div className="main-div list">
         <h2>Patient List</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Patient Code</th>
-              <th>Patient Name</th>
-              <th>Family Name</th>
-              <th>Sex</th>
-              <th>DOB</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>Patient Code</Th>
+              <Th>Patient Name</Th>
+              <Th>Family Name</Th>
+              <Th>Sex</Th>
+              <Th>DOB</Th>
+              <Th>Actions</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
             {data?.map((obj, index) => (
-              <tr key={index}>
-                <td>{obj?.PatientCode}</td>
-                <td>{obj?.patientName}</td>
-                <td>{obj?.familyName}</td>
-                <td>{obj?.sex}</td>
-                <td>{obj?.DOB}</td>
+              <Tr key={index}>
+                <Td>{obj?.PatientCode}</Td>
+                <Td>{obj?.patientName}</Td>
+                <Td>{obj?.familyName}</Td>
+                <Td>{obj?.sex}</Td>
+                <Td>{obj?.DOB}</Td>
 
                 <td>
                   <Link to="/patients/patient-details">
@@ -60,10 +61,10 @@ export default function PatientsList({
                     Delete
                   </button>
                 </td>
-              </tr>
+              </Tr>
             ))}
-          </tbody>
-        </table>
+          </Tbody>
+        </Table>
       </div>
     </div>
   );

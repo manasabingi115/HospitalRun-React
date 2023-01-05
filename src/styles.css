@@ -1,5 +1,5 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-
+@import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 .App {
   font-family: sans-serif;
   font-size: small;
@@ -252,6 +252,9 @@ tr:hover {
     width: 100%;
     padding: 10px 35px 50px 35px;
   }
+  .main-div.list {
+    padding: 10px 50px 10px 10px;
+  }
   .menu-icon {
     position: absolute;
     top: -75px;
@@ -261,5 +264,8 @@ tr:hover {
   }
   .hosp-icon-with-name {
     margin-left: 55px;
+  }
+  .NPRow {
+    flex-direction: column;
   }
 }
