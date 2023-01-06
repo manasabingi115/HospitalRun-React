@@ -58,6 +58,7 @@ export default function RegisterPage() {
           name="email"
           value={credentials.email}
           onChange={(e) => handleChange(e)}
+          required
         ></input>
         <input
           type="password"
@@ -65,6 +66,7 @@ export default function RegisterPage() {
           name="password"
           value={credentials.password}
           onChange={(e) => handleChange(e)}
+          required
         ></input>
         <input
           type="password"
@@ -72,8 +74,13 @@ export default function RegisterPage() {
           name="cfmPassword"
           value={credentials.cfmPassword}
           onChange={(e) => handleChange(e)}
+          required
         ></input>
-        <button type="submit" style={{ width: "100%" }}>
+        <button
+          className="login-register-button"
+          type="submit"
+          style={{ width: "100%" }}
+        >
           Register
         </button>
       </form>

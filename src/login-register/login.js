@@ -52,6 +52,7 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
           name="email"
           value={credentials.email}
           onChange={(e) => handleChange(e)}
+          required
         ></input>
         <input
           type="password"
@@ -59,8 +60,11 @@ export default function LoginPage({ setLoginLogout, setCurrentPage }) {
           name="password"
           value={credentials.password}
           onChange={(e) => handleChange(e)}
+          required
         ></input>
-        <button type="submit">Log In</button>
+        <button type="submit" className="login-register-button">
+          Log In
+        </button>
       </form>
       <p>
         Don't have an account?

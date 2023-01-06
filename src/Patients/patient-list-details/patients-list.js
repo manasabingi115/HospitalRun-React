@@ -31,7 +31,7 @@ export default function PatientsList({
       </div>
       <div className="main-div list">
         <h2>Patient List</h2>
-        <Table>
+        <Table className="table-list">
           <Thead>
             <Tr>
               <Th>Patient Code</Th>
@@ -51,16 +51,22 @@ export default function PatientsList({
                 <Td>{obj?.sex}</Td>
                 <Td>{obj?.DOB}</Td>
 
-                <td>
+                <Td>
                   <Link to="/patients/patient-details">
-                    <button onClick={() => FindSelectedData(obj, index)}>
+                    <button
+                      className="view-button button is-success is-outlined"
+                      onClick={() => FindSelectedData(obj, index)}
+                    >
                       View
                     </button>
                   </Link>
-                  <button onClick={() => removeSelectedItem(index)}>
+                  <button
+                    className="button is-danger is-outlined"
+                    onClick={() => removeSelectedItem(index)}
+                  >
                     Delete
                   </button>
-                </td>
+                </Td>
               </Tr>
             ))}
           </Tbody>

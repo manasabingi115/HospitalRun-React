@@ -49,9 +49,17 @@ export default function ReportedIncidents({
                 <td>{obj?.date}</td>
                 <td>
                   <Link to="/incidents/incident-details">
-                    <button onClick={() => FindIndex(obj)}>View</button>
+                    <button
+                      className="view-button button is-success is-outlined"
+                      onClick={() => FindIndex(obj)}
+                    >
+                      View
+                    </button>
                   </Link>
-                  <button onClick={() => removeSelectedItem(index)}>
+                  <button
+                    className="button is-danger is-outlined"
+                    onClick={() => removeSelectedItem(index)}
+                  >
                     Delete
                   </button>
                 </td>

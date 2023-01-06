@@ -46,9 +46,17 @@ export default function ImagingRequests({ setSelectedImaging, setRemoveItem }) {
                 <td>{obj?.priority}</td>
                 <td>
                   <Link to="/imagings/imaging-details">
-                    <button onClick={() => FindIndex(obj, index)}>View</button>
+                    <button
+                      onClick={() => FindIndex(obj, index)}
+                      className="view-button button is-success is-outlined"
+                    >
+                      View
+                    </button>
                   </Link>
-                  <button onClick={() => removeSelectedItem(index)}>
+                  <button
+                    onClick={() => removeSelectedItem(index)}
+                    className="button is-danger is-outlined"
+                  >
                     Delete
                   </button>
                 </td>

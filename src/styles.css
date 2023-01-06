@@ -1,5 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 @import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+
 .App {
   font-family: sans-serif;
   font-size: small;
@@ -182,11 +183,10 @@ th,
 td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-tr:hover {
-  background-color: #d6eeee;
+tr {
+  border-bottom: 1px solid #ddd;
 }
 
 /* medications, labs, imagings, incidents */
@@ -240,6 +240,11 @@ tr:hover {
   font-size: large;
 }
 
+.view-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 @media screen and (max-width: 650px) {
   .side-menu-hide {
     display: none;
@@ -251,9 +256,6 @@ tr:hover {
   .main-div {
     width: 100%;
     padding: 10px 35px 50px 35px;
-  }
-  .main-div.list {
-    padding: 10px 50px 10px 10px;
   }
   .menu-icon {
     position: absolute;

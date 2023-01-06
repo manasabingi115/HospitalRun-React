@@ -49,9 +49,17 @@ export default function MedicationRequests({
                 <td>{obj?.priority}</td>
                 <td>
                   <Link to="/medications/medication-details">
-                    <button onClick={() => FindIndex(obj, index)}>View</button>
+                    <button
+                      className="view-button button is-success is-outlined"
+                      onClick={() => FindIndex(obj, index)}
+                    >
+                      View
+                    </button>
                   </Link>
-                  <button onClick={() => removeSelectedItem(index)}>
+                  <button
+                    className="button is-danger is-outlined"
+                    onClick={() => removeSelectedItem(index)}
+                  >
                     Delete
                   </button>
                 </td>
