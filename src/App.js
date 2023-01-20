@@ -76,7 +76,7 @@ export default function App() {
 
         <Routes>
           <Route
-            path="/login"
+            path="/"
             exact
             element={
               <LoginPage
@@ -223,6 +223,5 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    // </div>
   );
 }

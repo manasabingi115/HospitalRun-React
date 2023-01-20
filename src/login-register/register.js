@@ -26,7 +26,7 @@ export default function RegisterPage() {
     e.preventDefault();
     if (credentials.password === credentials.cfmPassword) {
       setCredentials(initialState);
-      navigate("/login");
+      navigate("/");
       dispatch(setRegisteredData(credentials));
     } else {
       alert("incorrect password");
@@ -86,7 +86,7 @@ export default function RegisterPage() {
       </form>
       <p>
         Already have an account?
-        <Link to="/login">
+        <Link to="/">
           <span> Log In</span>
         </Link>
       </p>

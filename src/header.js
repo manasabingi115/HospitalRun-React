@@ -21,7 +21,7 @@ export default function Header({
         />
         <h1>HospitalRun</h1>
       </div>
-      <Link to="/login">
+      <Link to="/">
         <button onClick={HandleLoginLogout}>{loginLogout}</button>
       </Link>
     </div>
