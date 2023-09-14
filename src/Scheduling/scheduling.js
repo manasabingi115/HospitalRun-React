@@ -12,7 +12,7 @@ export default function Scheduling() {
         <h2>Schedule</h2>
         <Link to="/scheduling/appointment-schedule">
           <button className="button is-primary is-outlined">
-            Request New Imaging
+            Request New Schedule
           </button>
         </Link>
       </div>
